@@ -7,7 +7,6 @@ use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
 use Nette\Security\AuthenticationException;
 use Nette\Utils\ArrayHash;
-use App\Model\UserModel;
 
 /**
  * Class SignPresenter
