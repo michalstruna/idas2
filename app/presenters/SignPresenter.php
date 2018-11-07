@@ -16,16 +16,6 @@ use App\Model\UserModel;
 final class SignPresenter extends Presenter {
 
     /**
-     * @var UserModel
-     */
-    private $userModel;
-
-    public function __construct() {
-        parent::__construct();
-        $this->userModel = new UserModel();
-    }
-
-    /**
      * Create sign in form.
      * @return Form Sign in form
      */
