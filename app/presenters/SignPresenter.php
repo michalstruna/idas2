@@ -37,7 +37,7 @@ final class SignPresenter extends Presenter {
      * @param ArrayHash $values
      * @throws Nette\Application\AbortException
      */
-    public function onSignInFormSuccess(Form $form, ArrayHash $values) {
+    public function onSignInFormSuccess(Form $form, ArrayHash $values): void {
         try {
             $this->getUser()->login($values->email, $values->password); // TODO: Authenticate user.
             $this->redirect('Homepage:');
