@@ -7,12 +7,23 @@ use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
 use Nette\Security\AuthenticationException;
 use Nette\Utils\ArrayHash;
+use App\Model\UserModel;
 
 /**
  * Class SignPresenter
  * @package App\Presenters
  */
 final class SignPresenter extends Presenter {
+
+    /**
+     * @var UserModel
+     */
+    private $userModel;
+
+    public function __construct() {
+        parent::__construct();
+        $this->userModel = new UserModel();
+    }
 
     /**
      * Create sign in form.

@@ -13,7 +13,4 @@ session:
 
 services:
 	router: App\RouterFactory::createRouter
-
-security:
-    users:
-        admin: secret
+	authenticator: App\Model\UserModel
