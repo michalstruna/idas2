@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="38ADD393-7ABF-9C92-5B29-9E9AFFA45389" name="sem_rozvrh">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="38ADD393-7ABF-9C92-5B29-9E9AFFA45389" name="sem rozvrh">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-19 21:46:54 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
@@ -31,6 +31,7 @@
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 09:49:12 UTC</createdTime>
 <comment>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</comment>
+<commentInRDBMS>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</commentInRDBMS>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
@@ -52,7 +53,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id1" id="D435A220-6324-E42F-442F-1A8FCD2B9F37">
+<Attribute name="mistnost id" id="D435A220-6324-E42F-442F-1A8FCD2B9F37">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 10:59:11 UTC</createdTime>
 <generatorID>EB54AC2D-F6E4-2527-5944-5F3550E07B3A</generatorID>
@@ -66,7 +67,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id2" id="B2730DDC-ED30-94B4-956E-9E49A098FBDC">
+<Attribute name="zpusob vyuky predmetu id" id="B2730DDC-ED30-94B4-956E-9E49A098FBDC">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 12:36:59 UTC</createdTime>
 <generatorID>A6674A96-E201-76D8-3F28-FC2F29FC1105</generatorID>
@@ -80,7 +81,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id3" id="9B6E4844-D064-640E-1471-F81C4F17A107">
+<Attribute name="uci id" id="9B6E4844-D064-640E-1471-F81C4F17A107">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 12:45:31 UTC</createdTime>
 <generatorID>D087E3EF-7BF7-EF48-FBC3-B2F7A8C0E3EA</generatorID>
@@ -96,12 +97,13 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="D6A52468-A5A4-D2C3-9695-39E3E0E4FB08" name="sem_rozvrh PK">
+<identifier id="D6A52468-A5A4-D2C3-9695-39E3E0E4FB08" name="sem_rozvrh_PK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 09:50:49 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

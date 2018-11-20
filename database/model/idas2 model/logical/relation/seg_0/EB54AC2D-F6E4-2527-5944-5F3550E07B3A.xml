@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rozvrh_mistnost" directorySegmentName="seg_0" id="EB54AC2D-F6E4-2527-5944-5F3550E07B3A">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="sem rozvrh sem mistnost FK" directorySegmentName="seg_0" id="EB54AC2D-F6E4-2527-5944-5F3550E07B3A">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 10:59:11 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>

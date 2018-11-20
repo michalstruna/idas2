@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="98CA5B36-9F93-0D76-EC14-0353EF614EDC" name="sem_uzivatel">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>55037C08-B38C-7A2C-DDD4-84F440E78761</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="D0A806B5-9334-459F-44DB-B6CE75DFEE78">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>DD588472-832C-D77C-D255-36631ADB9F41</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="47B6D562-505A-5F22-A71D-489724EFED38">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>FA68DE63-E630-F229-1FD6-6FA2C61B5C8E</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 CHAR</dataTypeSize>
+<ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="74D89C40-A67E-8495-EFC4-DBEF373153E4">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>A8321011-E1BF-A3FB-AA2F-703722E9D213</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="admin" id="34ED7030-5041-F796-52AB-A81EFE0F9619">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>0FCFAA9D-FE57-7B2D-8A93-A862D7C425C3</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ucitel_id" id="3F5E07FF-6773-1295-1957-6F2E387E8D86">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>165B66BD-63C1-215C-AFE8-6B99CFBC14F0</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DFEC271B-DE05-EC9F-5F57-C09DD211505E" referredColumn="F197E92A-5578-831A-84E9-03587D4B8F15"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4877F85A-2EE9-B79C-EB08-71DB9DFEDEB3" name="sem_uzivatel_PK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>98675B50-75BC-DCB1-E127-9DADA8D07E75</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D0A806B5-9334-459F-44DB-B6CE75DFEE78"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D6B87FF9-BFC0-BBF1-50ED-4A5E949191DD" name="sem_uzivatel_sem_ucitel_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>19085CC1-8268-4626-B60D-949178852CDF</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3F5E07FF-6773-1295-1957-6F2E387E8D86"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

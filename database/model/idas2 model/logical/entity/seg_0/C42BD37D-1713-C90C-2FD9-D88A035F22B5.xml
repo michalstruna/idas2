@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C42BD37D-1713-C90C-2FD9-D88A035F22B5" name="sem_obrazek">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C42BD37D-1713-C90C-2FD9-D88A035F22B5" name="sem obrazek">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 09:41:59 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
@@ -79,12 +79,13 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="47D0FEBE-569C-FF10-9E38-D8B34AE3D9A5" name="sem_obrazky PK">
+<identifier id="47D0FEBE-569C-FF10-9E38-D8B34AE3D9A5" name="sem_obrazek_PK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 09:45:11 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

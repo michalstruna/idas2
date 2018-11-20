@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4C2BB90E-1B11-A8E1-67D4-A08B00C29004" name="sem_katedra">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4C2BB90E-1B11-A8E1-67D4-A08B00C29004" name="sem katedra">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-19 21:25:43 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
@@ -53,7 +53,7 @@
 <dataTypeSize>255 CHAR</dataTypeSize>
 <ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id1" id="A39D11AD-9BDC-722E-742F-61C7177D1CC2">
+<Attribute name="fakulta id" id="A39D11AD-9BDC-722E-742F-61C7177D1CC2">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 10:26:03 UTC</createdTime>
 <generatorID>F6E2C70E-9F1C-BEE9-2FE0-4B18CC993714</generatorID>
@@ -69,12 +69,13 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="E1420BD2-ADE8-5906-B38E-3EE112D0E7E1" name="sem_katedry PK">
+<identifier id="E1420BD2-ADE8-5906-B38E-3EE112D0E7E1" name="sem_katedra_PK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-19 21:26:33 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

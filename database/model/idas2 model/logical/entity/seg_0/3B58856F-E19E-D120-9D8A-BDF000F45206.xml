@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3B58856F-E19E-D120-9D8A-BDF000F45206" name="sem_predmet">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3B58856F-E19E-D120-9D8A-BDF000F45206" name="sem predmet">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-19 21:31:04 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
@@ -53,7 +53,7 @@
 <dataTypeSize>255 CHAR</dataTypeSize>
 <ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id1" id="B25B72B9-6308-48BB-F3ED-24DF310566D0">
+<Attribute name="forma vyuky id" id="B25B72B9-6308-48BB-F3ED-24DF310566D0">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 10:38:04 UTC</createdTime>
 <generatorID>5FD587ED-0FD3-A834-5196-AFF5255CFABB</generatorID>
@@ -67,7 +67,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id2" id="72E8D2FB-7C93-5F6D-E982-241BC6485FCE">
+<Attribute name="zpusob zakonceni id" id="72E8D2FB-7C93-5F6D-E982-241BC6485FCE">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 10:38:17 UTC</createdTime>
 <generatorID>91EC612D-C1F9-44CE-4E51-7AEB27FA3B62</generatorID>
@@ -83,12 +83,13 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="68C3CFAD-CA5E-AB6E-56EE-96EA61B8F0F8" name="sem_predmet PK">
+<identifier id="68C3CFAD-CA5E-AB6E-56EE-96EA61B8F0F8" name="sem_predmet_PK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-19 21:31:49 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

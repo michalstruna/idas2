@@ -1,0 +1,186 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3B5B4EA1-2404-9AF3-8585-4635A7A9BB4E" name="sem_ucitel">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>03F268DC-B34B-1CFE-7845-D53F687084F2</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="F197E92A-5578-831A-84E9-03587D4B8F15">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>4D8E403D-BE3C-71B5-AFE7-0DD9F9890328</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="jmeno" id="8B82F2EA-3D6A-8C33-989D-E92529B0E436">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<comment>Jmeno ucitele</comment>
+<generatorID>CAF55B0C-9514-EB2B-D8F3-FBB8D6AC9CD2</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80 CHAR</dataTypeSize>
+<ownDataTypeParameters>80 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prijmeni" id="6DB0CCF2-306B-9394-C3F5-487A508E33B4">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<comment>Prijmeni ucitele</comment>
+<generatorID>A9C7A6C6-5DBD-E8EF-3ADD-D9FD9D18B01B</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80 CHAR</dataTypeSize>
+<ownDataTypeParameters>80 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="titul_pred" id="EE761F28-12CE-E629-D24C-F819ACD9ACA3">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<comment>titul pred jmenem</comment>
+<generatorID>1C5DD961-F886-A8CF-BEED-2A6110D36C0C</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="titul_za" id="8CFB58C7-693D-EB30-F422-4FA3F7342807">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<comment>titul za jmenem</comment>
+<generatorID>C865D672-EBB3-A04F-BD5B-1F56091F48EF</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefon" id="983FC6FE-5A66-67A5-2B4A-59A6DD1BAB8B">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<comment>cislo na telefon v pracovne</comment>
+<generatorID>A4951B26-1330-01D6-4140-E4E3F411C4B1</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>13 CHAR</dataTypeSize>
+<ownDataTypeParameters>13 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mobil" id="C20E2527-1026-1344-2E9D-3F31A4FE30E7">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<comment>cislo na mobilni telefon</comment>
+<generatorID>35986493-B08C-3429-2A2A-BD38AE342A89</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>13 CHAR</dataTypeSize>
+<ownDataTypeParameters>13 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kontaktni_email" id="902620DB-B64F-9D3C-5454-C346BB5C30F3">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<comment>kontaktni email ucitele - muze byt jiny nez prihlasovaci</comment>
+<generatorID>E7FA112E-C272-950D-9206-FCE3A6BC8EB0</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 CHAR</dataTypeSize>
+<ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="katedra_id" id="6CE7232E-8CDD-98BE-632D-4524CD5A0D8C">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>BC52A71E-8E66-2D07-DC0E-5F3E4198D86F</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9D6C4BA5-01B1-D326-C9DB-46E0B2472D04" referredColumn="2BB9CB4E-ADA2-D2DF-9A06-96E6D0DB6D68"/>
+</associations>
+</Column>
+<Column name="obrazek_id" id="71C42021-F6B2-F9FB-0D96-DDEBEB16C712">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>05A71286-2971-0DEA-DD51-0CA211B77BDA</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BE741CB0-B5C5-6F8A-6B15-526FD64034C3" referredColumn="96603696-21B6-F208-4FBE-E8F2E36847AA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5EC22D4D-A664-6BBB-62EB-D65C279227CC" name="sem_ucitel_PK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>EDEF7BEA-0F94-00DE-DC92-A404685B18BB</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F197E92A-5578-831A-84E9-03587D4B8F15"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4884D1B1-33EE-955D-952C-7891AB23C687" name="sem_ucitel_sem_katedra_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>E2A29C7D-DAC1-23A8-E774-A951C8E8B5CA</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6CE7232E-8CDD-98BE-632D-4524CD5A0D8C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4C531F25-0D59-D45C-D187-C38148602F33" name="sem_ucitel_sem_obrazek_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>23CDFDAD-4016-A4DD-CB8F-E48EA4217195</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71C42021-F6B2-F9FB-0D96-DDEBEB16C712"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

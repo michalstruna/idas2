@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E44042ED-3854-65B0-2BDA-2DB8FE767E8D" name="sem_uci">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>EA237475-0383-0F4C-2AA8-DF4E1D29B24E</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="57FDC33E-C17B-AAB4-82F4-DEDC7A242FED">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>A4DC20EA-5426-18A9-DA24-891B613F95D7</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ucitel_id" id="8A983395-5AAA-DF9A-96B2-5AABF5CEC0EB">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>685EA9C0-25FB-50CB-841C-01C9914AA464</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EAF275ED-147C-CF57-21D5-7AE87C03AE46" referredColumn="F197E92A-5578-831A-84E9-03587D4B8F15"/>
+</associations>
+</Column>
+<Column name="role_id" id="4F54D30A-9E66-230F-5A43-274ED5EB4678">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>9682D5B8-75B3-1167-3AAE-543D5590DD7D</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D4A92D35-5345-BD2F-C6C1-CBFE06CD5B3B" referredColumn="EE9ED1A1-AE22-6483-E9CB-32BE260EACE1"/>
+</associations>
+</Column>
+<Column name="predm_obor_id" id="27172724-F8C9-5DBA-D624-FBB96DC0A640">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>4DBE658E-4ECD-CACB-F4FB-57639ABDC657</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="55C82774-2324-C8B1-309E-ACC585ED2984" referredColumn="43E6957F-F1F9-8846-FD79-6DB0E2CA0707"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5AE5580D-D3B0-970D-60FC-140807107737" name="sem_uci_PK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>6819A6F9-9C98-FBFF-9350-B491D9F8CF94</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57FDC33E-C17B-AAB4-82F4-DEDC7A242FED"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ABC63367-093F-29DA-7D79-9F1E56FB4241" name="sem_uci_sem_predm_obor_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>FE6B0205-D620-469F-830A-A3D7E1605B11</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="27172724-F8C9-5DBA-D624-FBB96DC0A640"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3D28E1DD-0A39-2B9C-0BCB-426656A69DB4" name="sem_uci_sem_role_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>A9485984-D999-4C53-DD1B-8D0A8F676D04</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F54D30A-9E66-230F-5A43-274ED5EB4678"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ED6C171D-CB79-1B3E-19F8-378177973E1F" name="sem_uci_sem_ucitel_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>8BC2D53D-01F9-CBF0-CF21-AEC2AB1ACDAB</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8A983395-5AAA-DF9A-96B2-5AABF5CEC0EB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
