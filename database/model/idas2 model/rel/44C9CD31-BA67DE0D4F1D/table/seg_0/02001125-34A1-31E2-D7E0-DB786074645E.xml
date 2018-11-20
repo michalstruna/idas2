@@ -4,6 +4,7 @@
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>250DC84C-6709-0A96-6C63-71839FD98CEC</generatorID>
 <ownerDesignName>idas2 model</ownerDesignName>
+<useDDLTransformationScript>true</useDDLTransformationScript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -85,7 +86,7 @@
 <colUsage columnID="A69F11C2-4262-5C85-7EB9-9FAFDF0D8C29"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="64FF471F-8147-0D7B-C870-686B1A77623D" name="sem_zpus_predm_sem_zpus_vyuky_FK">
+<ind_PK_UK id="64FF471F-8147-0D7B-C870-686B1A77623D" name="sem_zpus_predm_vyuky_FK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>EDBF57B2-CE24-ECC2-4500-6ABDDFFB0175</generatorID>
@@ -96,7 +97,7 @@
 <colUsage columnID="2379886B-A933-99C6-1D37-2EFD66AF1E47"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="6573897A-F340-3916-CEAF-423DB46DD300" name="sem_zpus_predm_sem_predm_obor_FK">
+<ind_PK_UK id="6573897A-F340-3916-CEAF-423DB46DD300" name="sem_zpus_predm_predm_obor_FK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>18EBAB98-60BD-FDB3-2194-046101BA4CDA</generatorID>

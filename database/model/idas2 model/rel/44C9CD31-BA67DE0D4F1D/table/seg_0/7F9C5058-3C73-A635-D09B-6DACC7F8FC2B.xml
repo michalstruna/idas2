@@ -4,6 +4,7 @@
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>62186B95-E4DE-937D-9250-A192700773BC</generatorID>
 <ownerDesignName>idas2 model</ownerDesignName>
+<useDDLTransformationScript>true</useDDLTransformationScript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -102,7 +103,7 @@
 <colUsage columnID="43E6957F-F1F9-8846-FD79-6DB0E2CA0707"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="202A0AAD-56A4-4D6B-E0FC-36CBFBB2653E" name="sem_predm_obor_sem_kategorie_FK">
+<ind_PK_UK id="202A0AAD-56A4-4D6B-E0FC-36CBFBB2653E" name="sem_predm_obor_kategorie_FK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>8C3AAAF7-9F93-7B22-DDC8-CE513A8E1093</generatorID>
