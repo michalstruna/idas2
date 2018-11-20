@@ -4,7 +4,6 @@ namespace App\Presenters;
 
 use Nette;
 use Nette\Application\UI\Form;
-use Nette\Application\UI\Presenter;
 use Nette\Security\AuthenticationException;
 use Nette\Utils\ArrayHash;
 
@@ -12,7 +11,7 @@ use Nette\Utils\ArrayHash;
  * Class SignPresenter
  * @package App\Presenters
  */
-final class SignPresenter extends Presenter {
+final class SignPresenter extends BasePresenter {
 
     /**
      * Create sign in form.

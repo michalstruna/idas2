@@ -1,0 +1,7 @@
+{block menu}
+
+    <nav n:inner-foreach="$menuItems as $item => $link">
+        <a n:href="{$link}">{$item}</a>
+    </nav>
+
+{/block}
