@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="38ADD393-7ABF-9C92-5B29-9E9AFFA45389" name="sem_rozvrh">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="55037C08-B38C-7A2C-DDD4-84F440E78761" name="sem_uzivatel">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-19 21:46:54 UTC</createdTime>
+<createdTime>2018-11-20 12:49:13 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id" id="12B7C2B3-19C8-4291-4999-45BE3572AE80">
+<Attribute name="id" id="DD588472-832C-D77C-D255-36631ADB9F41">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 09:49:05 UTC</createdTime>
+<createdTime>2018-11-20 12:51:10 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
@@ -27,68 +27,55 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="den" id="9313AB42-6F09-44B2-55DE-79EE75A0EEF6">
+<Attribute name="email" id="FA68DE63-E630-F229-1FD6-6FA2C61B5C8E">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 09:49:12 UTC</createdTime>
-<comment>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</comment>
+<createdTime>2018-11-20 12:58:34 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 CHAR</dataTypeSize>
+<ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="zacatek" id="3434F15D-18DD-65E7-6191-DE6C51EEFA8E">
+<Attribute name="password" id="A8321011-E1BF-A3FB-AA2F-703722E9D213">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 09:50:01 UTC</createdTime>
+<createdTime>2018-11-20 12:58:55 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id1" id="D435A220-6324-E42F-442F-1A8FCD2B9F37">
+<Attribute name="admin" id="0FCFAA9D-FE57-7B2D-8A93-A862D7C425C3">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 10:59:11 UTC</createdTime>
-<generatorID>EB54AC2D-F6E4-2527-5944-5F3550E07B3A</generatorID>
+<createdTime>2018-11-20 13:00:43 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
-<referedAttribute>3F14F8B0-08E6-2551-E8B9-AD0EFFD02951</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id2" id="B2730DDC-ED30-94B4-956E-9E49A098FBDC">
+<Attribute name="id1" id="165B66BD-63C1-215C-AFE8-6B99CFBC14F0">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 12:36:59 UTC</createdTime>
-<generatorID>A6674A96-E201-76D8-3F28-FC2F29FC1105</generatorID>
+<createdTime>2018-11-20 13:01:51 UTC</createdTime>
+<generatorID>19085CC1-8268-4626-B60D-949178852CDF</generatorID>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
-<referedAttribute>646C1910-87C1-8E20-1932-CB5C808C032B</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="id3" id="9B6E4844-D064-640E-1471-F81C4F17A107">
-<createdBy>tomas</createdBy>
-<createdTime>2018-11-20 12:45:31 UTC</createdTime>
-<generatorID>D087E3EF-7BF7-EF48-FBC3-B2F7A8C0E3EA</generatorID>
-<ownerDesignName>idas2 model</ownerDesignName>
-<engineerTo>
-<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
-</engineerTo>
-<referedAttribute>A4DC20EA-5426-18A9-DA24-891B613F95D7</referedAttribute>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>4D8E403D-BE3C-71B5-AFE7-0DD9F9890328</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -96,16 +83,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="D6A52468-A5A4-D2C3-9695-39E3E0E4FB08" name="sem_rozvrh PK">
+<identifier id="98675B50-75BC-DCB1-E127-9DADA8D07E75" name="sem_admin PK">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 09:50:49 UTC</createdTime>
+<createdTime>2018-11-20 12:51:39 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>12B7C2B3-19C8-4291-4999-45BE3572AE80</attributeRef>
+<attributeRef>DD588472-832C-D77C-D255-36631ADB9F41</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

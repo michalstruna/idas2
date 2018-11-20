@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="uci_role" directorySegmentName="seg_0" id="A9485984-D999-4C53-DD1B-8D0A8F676D04">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 12:16:29 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<sourcePk>CA085C81-3A74-D3E7-8053-D8670AA845D0</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>id_role</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A927E428-B21B-B380-17CD-0821E5A40B86</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>EA237475-0383-0F4C-2AA8-DF4E1D29B24E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

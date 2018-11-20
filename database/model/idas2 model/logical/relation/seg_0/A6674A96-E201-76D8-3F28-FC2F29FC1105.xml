@@ -1,20 +1,20 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="uci_role" directorySegmentName="seg_0" id="6C8DDEB2-F34A-D98C-5A0A-1F56666F3FD6">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="zpus_rozvrh" directorySegmentName="seg_0" id="A6674A96-E201-76D8-3F28-FC2F29FC1105">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 10:30:02 UTC</createdTime>
+<createdTime>2018-11-20 12:36:59 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
-<sourcePk>CA085C81-3A74-D3E7-8053-D8670AA845D0</sourcePk>
+<sourcePk>BBFDA6A5-372F-B0D5-77E9-A2CF9A13EAF6</sourcePk>
 <identifying>false</identifying>
-<nameOnTarget>id_role</nameOnTarget>
+<nameOnTarget>id_zpusob_predmetu</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
-<sourceEntity>A927E428-B21B-B380-17CD-0821E5A40B86</sourceEntity>
+<sourceEntity>250DC84C-6709-0A96-6C63-71839FD98CEC</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
-<targetEntity>EA237475-0383-0F4C-2AA8-DF4E1D29B24E</targetEntity>
+<targetEntity>38ADD393-7ABF-9C92-5B29-9E9AFFA45389</targetEntity>
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>
 </Relation>

@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C42BD37D-1713-C90C-2FD9-D88A035F22B5" name="sem_obrazky">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C42BD37D-1713-C90C-2FD9-D88A035F22B5" name="sem_obrazek">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 09:41:59 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>

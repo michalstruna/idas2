@@ -115,10 +115,10 @@
 <dataTypeSize>13 CHAR</dataTypeSize>
 <ownDataTypeParameters>13 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="email" id="E7FA112E-C272-950D-9206-FCE3A6BC8EB0">
+<Attribute name="kontaktni_email" id="E7FA112E-C272-950D-9206-FCE3A6BC8EB0">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-19 21:04:31 UTC</createdTime>
-<comment>prihlasovaci email ucitele - pokud neni nastaveny nelze se prihlasit</comment>
+<comment>kontaktni email ucitele - muze byt jiny nez prihlasovaci</comment>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
@@ -129,21 +129,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>255 CHAR</dataTypeSize>
 <ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="heslo" id="C09EC109-4A9E-B43A-7F3B-8819F1296ABB">
-<createdBy>tomas</createdBy>
-<createdTime>2018-11-19 21:05:43 UTC</createdTime>
-<comment>prihlasovaci heslo - pokud neni nastavene, nelze se prihlasit</comment>
-<ownerDesignName>idas2 model</ownerDesignName>
-<engineerTo>
-<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>60 CHAR</dataTypeSize>
-<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="id1" id="BC52A71E-8E66-2D07-DC0E-5F3E4198D86F">
 <createdBy>tomas</createdBy>
