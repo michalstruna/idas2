@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="sem rozvrh sem zpus predm FK" directorySegmentName="seg_0" id="A6674A96-E201-76D8-3F28-FC2F29FC1105">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 12:36:59 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<sourcePk>BBFDA6A5-372F-B0D5-77E9-A2CF9A13EAF6</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>id_zpusob_predmetu</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>250DC84C-6709-0A96-6C63-71839FD98CEC</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>38ADD393-7ABF-9C92-5B29-9E9AFFA45389</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

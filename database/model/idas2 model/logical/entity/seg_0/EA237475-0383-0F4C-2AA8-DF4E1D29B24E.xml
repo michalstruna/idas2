@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="EA237475-0383-0F4C-2AA8-DF4E1D29B24E" name="sem uci">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-19 21:28:45 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="A4DC20EA-5426-18A9-DA24-891B613F95D7">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 12:15:52 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ucitel id" id="685EA9C0-25FB-50CB-841C-01C9914AA464">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 12:16:06 UTC</createdTime>
+<generatorID>8BC2D53D-01F9-CBF0-CF21-AEC2AB1ACDAB</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<referedAttribute>4D8E403D-BE3C-71B5-AFE7-0DD9F9890328</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="role id" id="9682D5B8-75B3-1167-3AAE-543D5590DD7D">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 12:16:29 UTC</createdTime>
+<generatorID>A9485984-D999-4C53-DD1B-8D0A8F676D04</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<referedAttribute>316EEB7B-E8E0-F5A7-ADFF-0A951E5B21A9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="predm obor id" id="4DBE658E-4ECD-CACB-F4FB-57639ABDC657">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 12:17:03 UTC</createdTime>
+<generatorID>FE6B0205-D620-469F-830A-A3D7E1605B11</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<referedAttribute>53C8D0D1-A008-3F81-6E7C-20ABD1865978</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6819A6F9-9C98-FBFF-9350-B491D9F8CF94" name="sem_uci_PK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 12:15:05 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A4DC20EA-5426-18A9-DA24-891B613F95D7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

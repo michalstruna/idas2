@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="790965FB-F451-2D18-603C-88AB6E8CF02D" name="sem_rozvrh">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>38ADD393-7ABF-9C92-5B29-9E9AFFA45389</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="81AEA725-AB84-F282-A1CF-F04C5656C615">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>12B7C2B3-19C8-4291-4999-45BE3572AE80</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="den" id="936E11E8-E527-1F22-3E25-923B4D92F8D1">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<comment>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</comment>
+<commentInRDBMS>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</commentInRDBMS>
+<generatorID>9313AB42-6F09-44B2-55DE-79EE75A0EEF6</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zacatek" id="9C2924E1-36F9-C048-090F-BCC13CF8B981">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>3434F15D-18DD-65E7-6191-DE6C51EEFA8E</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mistnost_id" id="9EDF3729-BFE9-C94F-159F-AF7FC56E2FBC">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>D435A220-6324-E42F-442F-1A8FCD2B9F37</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="99E20BD9-7BBC-CBD8-592C-9ED0CBA634B0" referredColumn="4FAD672F-4AE1-03BC-5C48-075FFFF3FA15"/>
+</associations>
+</Column>
+<Column name="zpusob_zakonceni_predmetu_id" id="B2098E21-1843-6496-CC6D-9293C6CBE4D1">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>B2730DDC-ED30-94B4-956E-9E49A098FBDC</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="02D2DCEF-72B0-0902-9493-F0B2975B48F4" referredColumn="A69F11C2-4262-5C85-7EB9-9FAFDF0D8C29"/>
+</associations>
+</Column>
+<Column name="uci_id" id="77216CE4-70B6-8712-2247-BE100528690C">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>9B6E4844-D064-640E-1471-F81C4F17A107</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="88DCA745-F329-3278-B600-C412DBE8B086" referredColumn="57FDC33E-C17B-AAB4-82F4-DEDC7A242FED"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E4141E53-646C-9BFD-6461-324FBF14B7E4" name="sem_rozvrh_PK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>D6A52468-A5A4-D2C3-9695-39E3E0E4FB08</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="81AEA725-AB84-F282-A1CF-F04C5656C615"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9DCEC033-72C8-0C71-FBA1-088AA2E30C6C" name="sem_rozvrh_sem_mistnost_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>EB54AC2D-F6E4-2527-5944-5F3550E07B3A</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9EDF3729-BFE9-C94F-159F-AF7FC56E2FBC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="656ACD79-86A9-3F31-7D78-DD2E0F31E253" name="sem_rozvrh_sem_uci_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>D087E3EF-7BF7-EF48-FBC3-B2F7A8C0E3EA</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="77216CE4-70B6-8712-2247-BE100528690C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5867AC4B-CA33-E697-577F-54262185CCEC" name="sem_rozvrh_sem_zpus_predm_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>A6674A96-E201-76D8-3F28-FC2F29FC1105</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B2098E21-1843-6496-CC6D-9293C6CBE4D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
