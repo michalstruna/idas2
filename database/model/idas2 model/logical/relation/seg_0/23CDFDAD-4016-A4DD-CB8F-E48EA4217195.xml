@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ucitel_obrazky" directorySegmentName="seg_0" id="23CDFDAD-4016-A4DD-CB8F-E48EA4217195">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:27:35 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<sourcePk>47D0FEBE-569C-FF10-9E38-D8B34AE3D9A5</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>id_obrazku</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>C42BD37D-1713-C90C-2FD9-D88A035F22B5</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>03F268DC-B34B-1CFE-7845-D53F687084F2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

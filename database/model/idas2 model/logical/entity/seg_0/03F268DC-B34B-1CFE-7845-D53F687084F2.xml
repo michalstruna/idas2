@@ -145,6 +145,35 @@
 <dataTypeSize>60 CHAR</dataTypeSize>
 <ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="id1" id="BC52A71E-8E66-2D07-DC0E-5F3E4198D86F">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 09:51:51 UTC</createdTime>
+<generatorID>E2A29C7D-DAC1-23A8-E774-A951C8E8B5CA</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<referedAttribute>650CD7C4-607A-6D35-E7AA-21696B057798</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id2" id="05A71286-2971-0DEA-DD51-0CA211B77BDA">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:27:35 UTC</createdTime>
+<generatorID>23CDFDAD-4016-A4DD-CB8F-E48EA4217195</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>13A69EBF-A6EF-A90F-9918-0330FC5EBBC6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="EDEF7BEA-0F94-00DE-DC92-A404685B18BB" name="sem_ucitel PK">

@@ -53,6 +53,20 @@
 <dataTypeSize>255 CHAR</dataTypeSize>
 <ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="id1" id="A39D11AD-9BDC-722E-742F-61C7177D1CC2">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:26:03 UTC</createdTime>
+<generatorID>F6E2C70E-9F1C-BEE9-2FE0-4B18CC993714</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<referedAttribute>A20C48AD-A87E-F7DB-6A9E-E9388A12C7B6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="E1420BD2-ADE8-5906-B38E-3EE112D0E7E1" name="sem_katedry PK">

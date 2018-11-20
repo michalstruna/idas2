@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="pred_zpus_zpusob" directorySegmentName="seg_0" id="EDBF57B2-CE24-ECC2-4500-6ABDDFFB0175">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:34:11 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<sourcePk>A74754A2-B5EA-5D1B-32B2-91FB532F9AAA</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>id_zpusob_vyuky</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>1D5507BE-5FC0-2C16-6C9A-1D0D2E634063</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>250DC84C-6709-0A96-6C63-71839FD98CEC</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

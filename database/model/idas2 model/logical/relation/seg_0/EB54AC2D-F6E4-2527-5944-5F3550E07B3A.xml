@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rozvrh_mistnost" directorySegmentName="seg_0" id="EB54AC2D-F6E4-2527-5944-5F3550E07B3A">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:59:11 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<sourcePk>41E849CA-DA2C-E7FC-1AA9-C764FBD89FC7</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>id_mistnosti</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>124D4CC0-4BE1-0A56-9001-2444D780E806</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>38ADD393-7ABF-9C92-5B29-9E9AFFA45389</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

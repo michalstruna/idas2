@@ -64,6 +64,20 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="id1" id="D435A220-6324-E42F-442F-1A8FCD2B9F37">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:59:11 UTC</createdTime>
+<generatorID>EB54AC2D-F6E4-2527-5944-5F3550E07B3A</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<referedAttribute>3F14F8B0-08E6-2551-E8B9-AD0EFFD02951</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="D6A52468-A5A4-D2C3-9695-39E3E0E4FB08" name="sem_rozvrh PK">

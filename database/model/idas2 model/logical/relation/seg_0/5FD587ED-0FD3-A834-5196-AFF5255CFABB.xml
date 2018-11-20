@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="predm_forma_vyuky" directorySegmentName="seg_0" id="5FD587ED-0FD3-A834-5196-AFF5255CFABB">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:38:04 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<sourcePk>11677326-F4AC-17FF-8BA3-CFA4E710BB06</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>id_formy_vyuky</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>60FCB49C-33AC-3995-F5FD-8F5C87C911AE</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3B58856F-E19E-D120-9D8A-BDF000F45206</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

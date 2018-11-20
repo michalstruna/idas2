@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="uci_ucitel" directorySegmentName="seg_0" id="4E062D6E-A0C1-B0A4-697B-2E6978A2390E">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:29:40 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<sourcePk>EDEF7BEA-0F94-00DE-DC92-A404685B18BB</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>id_ucitele</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>03F268DC-B34B-1CFE-7845-D53F687084F2</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>EA237475-0383-0F4C-2AA8-DF4E1D29B24E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

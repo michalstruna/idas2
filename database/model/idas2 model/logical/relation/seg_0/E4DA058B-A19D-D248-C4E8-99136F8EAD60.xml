@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="predmet_obor" directorySegmentName="seg_0" id="E4DA058B-A19D-D248-C4E8-99136F8EAD60">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:39:06 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<sourcePk>68C3CFAD-CA5E-AB6E-56EE-96EA61B8F0F8</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>id_predmetu</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>3B58856F-E19E-D120-9D8A-BDF000F45206</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>62186B95-E4DE-937D-9250-A192700773BC</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
