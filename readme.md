@@ -1,57 +1,29 @@
-Nette Web Project
+IDAS2
 =================
 
-This is a simple, skeleton application using the [Nette](https://nette.org). This is meant to
-be used as a starting point for your new projects.
-
-[Nette](https://nette.org) is a popular tool for PHP web development.
-It is designed to be the most usable and friendliest as possible. It focuses
-on security and performance and is definitely one of the safest PHP frameworks.
-
-If you like Nette, **[please make a donation now](https://nette.org/donate)**. Thank you!
-
-
-Requirements
+Požadavky
 ------------
 
-PHP 5.6 or higher.
 
-
-Installation
-------------
-
-The best way to install Web Project is using Composer. If you don't have Composer yet,
-download it following [the instructions](https://doc.nette.org/composer). Then use command:
-
-	composer create-project nette/web-project path/to/install
-	cd path/to/install
-
-
-Make directories `temp/` and `log/` writable.
-
-
-Web Server Setup
-----------------
-
-The simplest way to get started is to start the built-in PHP server in the root directory of your project:
-
-	php -S localhost:8000 -t www
-
-Then visit `http://localhost:8000` in your browser to see the welcome page.
-
-For Apache or Nginx, setup a virtual host to point to the `www/` directory of the project and you
-should be ready to go.
-
-**It is CRITICAL that whole `app/`, `log/` and `temp/` directories are not accessible directly
-via a web browser. See [security warning](https://nette.org/security-warning).**
-
-Notice: Composer PHP version
-----------------------------
-This project forces `PHP 5.6` as your PHP version for Composer packages. If you have newer version on production you should change it in `composer.json`.
-```json
-"config": {
-	"platform": {
-		"php": "7.0"
-	}
-}
-```
+- ✓ 10 tabulek
+    - ...
+- ✓ 2 číselníky
+    - Role
+    - Způsob výuky
+- ✓ 3 sekvence
+    - ID autoincrement (sekvence.NEXTVAL v insert na místo ID)
+- 3 pohledy (logicky využité, různého typu)
+- 2 funkce různého typu
+    - Obsazenost mítnosti (při editaci místnosti, m při vytváření předmětu)
+    - V jednu dobu nemůže mít učitel dva předměty
+- 3 procedury
+    - Vymazat vyučování učitele
+    - 
+- 2 triggery
+    - Když se zmenší místnost, zmenšit cvičení (?)
+    - Když se smaže učitel, smazat fotku a učení a uživatele.
+    - Změna fotky učitele smaže předešlou fotku.
+- ✓ Binární obsah (speciální tabulka, info jako typ, soubor, ...)
+- 2 formuláře (ošetření polí)
+    - U rozvrhu
+    - Registrace a úprava uživatelů (fotky)
