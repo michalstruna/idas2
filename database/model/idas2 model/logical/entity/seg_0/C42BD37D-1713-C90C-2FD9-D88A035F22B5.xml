@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="38ADD393-7ABF-9C92-5B29-9E9AFFA45389" name="sem_rozvrh">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C42BD37D-1713-C90C-2FD9-D88A035F22B5" name="sem_obrazky">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-19 21:46:54 UTC</createdTime>
+<createdTime>2018-11-20 09:41:59 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id" id="12B7C2B3-19C8-4291-4999-45BE3572AE80">
+<Attribute name="id" id="13A69EBF-A6EF-A90F-9918-0330FC5EBBC6">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 09:49:05 UTC</createdTime>
+<createdTime>2018-11-20 09:43:11 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
@@ -27,55 +27,68 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="den" id="9313AB42-6F09-44B2-55DE-79EE75A0EEF6">
+<Attribute name="obrazek" id="4921D733-5705-959E-DF65-DDFF665F3AF3">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 09:49:12 UTC</createdTime>
-<comment>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</comment>
+<createdTime>2018-11-20 09:45:13 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT010</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="zacatek" id="3434F15D-18DD-65E7-6191-DE6C51EEFA8E">
+<Attribute name="pripona" id="017D65C3-F26D-F591-D6D9-0E77F55967FA">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 09:50:01 UTC</createdTime>
+<createdTime>2018-11-20 09:45:50 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vytvoreno" id="AF866BE4-BF1A-0FF2-1E91-D21E92CC1278">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 09:46:22 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="delka" id="50A83795-AD21-A8B8-59EE-E2B9EA3D1B7D">
+<Attribute name="upraveno" id="455B6520-5B9C-9A98-1397-A10CB0E1C70A">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 09:50:17 UTC</createdTime>
+<createdTime>2018-11-20 09:46:42 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="D6A52468-A5A4-D2C3-9695-39E3E0E4FB08" name="sem_rozvrh PK">
+<identifier id="47D0FEBE-569C-FF10-9E38-D8B34AE3D9A5" name="sem_obrazky PK">
 <createdBy>tomas</createdBy>
-<createdTime>2018-11-20 09:50:49 UTC</createdTime>
+<createdTime>2018-11-20 09:45:11 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>12B7C2B3-19C8-4291-4999-45BE3572AE80</attributeRef>
+<attributeRef>13A69EBF-A6EF-A90F-9918-0330FC5EBBC6</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
