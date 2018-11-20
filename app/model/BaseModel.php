@@ -8,6 +8,14 @@
 
 namespace App\Model;
 
+use Nette\Database\Connection;
+
 class BaseModel implements IBaseModel {
+
+    protected $database;
+
+    public function __construct(Connection $database) {
+        $this->database = $database;
+    }
 
 }

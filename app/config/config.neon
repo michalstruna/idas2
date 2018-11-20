@@ -14,3 +14,8 @@ session:
 services:
 	router: App\RouterFactory::createRouter
 	authenticator: App\Model\UserModel
+
+database:
+    dsn: 'oci:(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=fei-sql1.upceucebny.cz)(PORT=1521))(CONNECT_DATA=(SID=orcl)))'
+    user: C##
+    password:
