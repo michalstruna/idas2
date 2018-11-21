@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="sem katedra sem fakulta FK" directorySegmentName="seg_0" id="F6E2C70E-9F1C-BEE9-2FE0-4B18CC993714">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:26:03 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<sourcePk>30ACC331-2823-ECAA-F86A-F6417ED5460B</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>id_fakulty</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>75D31BBC-ADD8-AFB8-74A0-7CBC75891C88</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>4C2BB90E-1B11-A8E1-67D4-A08B00C29004</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

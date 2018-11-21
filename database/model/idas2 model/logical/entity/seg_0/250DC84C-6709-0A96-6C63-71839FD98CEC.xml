@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="250DC84C-6709-0A96-6C63-71839FD98CEC" name="sem zpus predm">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-19 21:40:51 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="646C1910-87C1-8E20-1932-CB5C808C032B">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:33:40 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pocet hodin" id="F81266C9-8DB2-9827-BF51-C281887F7035">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-19 21:44:43 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kapacita" id="DA9CAF3D-359C-1F47-6DBA-FF5CAD9D7D46">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-19 21:44:55 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="zpusob vyuky id" id="2536C957-7561-63F5-60A6-C3C11C00C859">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:34:11 UTC</createdTime>
+<generatorID>EDBF57B2-CE24-ECC2-4500-6ABDDFFB0175</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<referedAttribute>5E160A73-0491-2A69-A37B-F9FDC947693C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="predm obor id" id="01DC93AF-4AD9-56ED-7977-88CD6FF63626">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:35:36 UTC</createdTime>
+<generatorID>18EBAB98-60BD-FDB3-2194-046101BA4CDA</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<referedAttribute>53C8D0D1-A008-3F81-6E7C-20ABD1865978</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BBFDA6A5-372F-B0D5-77E9-A2CF9A13EAF6" name="sem_zpus_predm_PK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 10:33:48 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>646C1910-87C1-8E20-1932-CB5C808C032B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

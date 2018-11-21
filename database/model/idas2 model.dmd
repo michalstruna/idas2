@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="idas2 model" id="767DFBBD-EB8E-0E89-C723-95301569E0FD" version="3.5">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-19 20:16:06 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>767DFBBD-EB8E-0E89-C723-95301569E0FD</designId>
+</OSDM_Design>

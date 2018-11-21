@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="02001125-34A1-31E2-D7E0-DB786074645E" name="sem_zpus_predm">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>250DC84C-6709-0A96-6C63-71839FD98CEC</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDDLTransformationScript>true</useDDLTransformationScript>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="A69F11C2-4262-5C85-7EB9-9FAFDF0D8C29">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>646C1910-87C1-8E20-1932-CB5C808C032B</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pocet_hodin" id="91703685-07F4-CE76-F46B-2326BAFE94B0">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>F81266C9-8DB2-9827-BF51-C281887F7035</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kapacita" id="BEAC17D4-10A9-1AB3-2E04-70BA64FC7219">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>DA9CAF3D-359C-1F47-6DBA-FF5CAD9D7D46</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zpusob_vyuky_id" id="2379886B-A933-99C6-1D37-2EFD66AF1E47">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>2536C957-7561-63F5-60A6-C3C11C00C859</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="795AB784-1770-285D-5B27-9124E4B9780A" referredColumn="AE4A395B-9A7B-D0E5-A64F-1E59CF43D0A9"/>
+</associations>
+</Column>
+<Column name="predm_obor_id" id="F9C356D6-7F51-FF6C-E468-89B3D939CA96">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>01DC93AF-4AD9-56ED-7977-88CD6FF63626</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DC3FD833-D5D6-CC6D-2758-1D662F217C1A" referredColumn="43E6957F-F1F9-8846-FD79-6DB0E2CA0707"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="08A9BC08-E872-A29C-5C0A-0CA699D6F24E" name="sem_zpus_predm_PK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>BBFDA6A5-372F-B0D5-77E9-A2CF9A13EAF6</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A69F11C2-4262-5C85-7EB9-9FAFDF0D8C29"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="64FF471F-8147-0D7B-C870-686B1A77623D" name="sem_zpus_predm_vyuky_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>EDBF57B2-CE24-ECC2-4500-6ABDDFFB0175</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2379886B-A933-99C6-1D37-2EFD66AF1E47"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6573897A-F340-3916-CEAF-423DB46DD300" name="sem_zpus_predm_predm_obor_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>18EBAB98-60BD-FDB3-2194-046101BA4CDA</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F9C356D6-7F51-FF6C-E468-89B3D939CA96"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

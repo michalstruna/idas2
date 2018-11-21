@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="02D2DCEF-72B0-0902-9493-F0B2975B48F4" containerWithKeyObject="790965FB-F451-2D18-603C-88AB6E8CF02D" localFKIndex="5867AC4B-CA33-E697-577F-54262185CCEC" name="sem_rozvrh_sem_zpus_predm_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-20 13:06:38 UTC</createdTime>
+<generatorID>A6674A96-E201-76D8-3F28-FC2F29FC1105</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<referredTableLongName>sem_zpus_predm</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>02001125-34A1-31E2-D7E0-DB786074645E</referredTableID>
+<keyObject>08A9BC08-E872-A29C-5C0A-0CA699D6F24E</keyObject>
+<referredKeyID>08A9BC08-E872-A29C-5C0A-0CA699D6F24E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
