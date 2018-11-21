@@ -40,7 +40,7 @@
 <dataTypeSize>255 CHAR</dataTypeSize>
 <ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="password" id="A8321011-E1BF-A3FB-AA2F-703722E9D213">
+<Attribute name="heslo" id="A8321011-E1BF-A3FB-AA2F-703722E9D213">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 12:58:55 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
