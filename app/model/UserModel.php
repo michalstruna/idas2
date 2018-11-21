@@ -12,16 +12,19 @@ use Nette\Security\IAuthenticator;
 use Nette\Security\IIdentity;
 use Nette\Security\Identity;
 use Nette\Security\AuthenticationException;
+use Nette\Security\Passwords;
 
 final class UserModel extends BaseModel implements IAuthenticator, IUserModel {
 
     public function authenticate(array $credentials): IIdentity {
-        // TODO: Get user from DB.
-        if ($credentials[0] === 'admin@admin.cz' && $credentials[1] === 'secret') {
-            // $user = $this->database->fetch('SELECT * FROM users WHERE email = ?', $credentials[0]);
-            return new Identity('10de7e0a-5e2e-4282-bd3a-39b9be9c50b6');
-        }
+        $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE email = ?', $credentials[0]);
 
+        // TODO: Change to heslo.
+        // Can we force lowercase names??? Posible in PDO - not sure if nette supports it.
+        if ($user != null && Passwords::verify($credentials[1], $user['PASSWORD'])) {
+            return new Identity($user['ID']);
+        }
+        
         throw new AuthenticationException('Invalid email or password.', self::IDENTITY_NOT_FOUND);
     }
 
