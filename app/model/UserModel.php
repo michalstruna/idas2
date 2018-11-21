@@ -20,12 +20,11 @@ final class UserModel extends BaseModel implements IAuthenticator, IUserModel {
         $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE email = ?', $credentials[0]);
 
         // TODO: Change to heslo.
-        // Can we force lowercase names??? Posible in PDO - not sure if nette supports it.
-        if ($user != null && Passwords::verify($credentials[1], $user['password'])) {
+        if ($user != null && Passwords::verify($credentials[1], $user['heslo'])) {
             return new Identity($user['id']);
         }
 
-        throw new AuthenticationException('Invalid email or password.', self::IDENTITY_NOT_FOUND);
+        throw new AuthenticationException('Neplatné jméno nebo heslo.', self::IDENTITY_NOT_FOUND);
     }
 
 }
