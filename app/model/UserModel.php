@@ -19,7 +19,6 @@ final class UserModel extends BaseModel implements IAuthenticator, IUserModel {
     public function authenticate(array $credentials): IIdentity {
         $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE email = ?', $credentials[0]);
 
-        // TODO: Change to heslo.
         if ($user != null && Passwords::verify($credentials[1], $user['heslo'])) {
             return new Identity($user['id']);
         }
