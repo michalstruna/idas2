@@ -8,6 +8,15 @@
 
 namespace App\Model;
 
+use Nette\Database\Connection;
+
 class BaseModel implements IBaseModel {
+
+    protected $database;
+
+    public function __construct(Connection $database) {
+        $database->getPdo()->setAttribute(\PDO::ATTR_CASE, \PDO::CASE_LOWER);
+        $this->database = $database;
+    }
 
 }

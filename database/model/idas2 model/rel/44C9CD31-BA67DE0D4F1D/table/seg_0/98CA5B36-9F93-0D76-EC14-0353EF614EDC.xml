@@ -31,7 +31,7 @@
 <ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="password" id="74D89C40-A67E-8495-EFC4-DBEF373153E4">
+<Column name="heslo" id="74D89C40-A67E-8495-EFC4-DBEF373153E4">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>A8321011-E1BF-A3FB-AA2F-703722E9D213</generatorID>

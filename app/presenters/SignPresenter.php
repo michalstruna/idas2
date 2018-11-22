@@ -41,7 +41,7 @@ final class SignPresenter extends BasePresenter {
      */
     public function onSignInFormSuccess(Form $form, ArrayHash $values): void {
         try {
-            $this->getUser()->login($values->email, $values->password); // TODO: Authenticate user.
+            $this->getUser()->login($values->email, $values->password);
             $this->redirect('Homepage:');
 
         } catch (AuthenticationException $exception) {
