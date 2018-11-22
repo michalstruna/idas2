@@ -5,7 +5,7 @@ namespace App\Presenters;
 use Nette;
 
 
-final class Error4xxPresenter extends Nette\Application\UI\Presenter {
+final class Error4xxPresenter extends BasePresenter {
 	public function startup() {
 		parent::startup();
 		if (!$this->getRequest()->isMethod(Nette\Application\Request::FORWARD)) {

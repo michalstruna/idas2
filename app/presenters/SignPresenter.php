@@ -4,7 +4,6 @@ namespace App\Presenters;
 
 use Nette;
 use Nette\Application\UI\Form;
-use Nette\Application\UI\Presenter;
 use Nette\Security\AuthenticationException;
 use Nette\Utils\ArrayHash;
 
@@ -12,7 +11,7 @@ use Nette\Utils\ArrayHash;
  * Class SignPresenter
  * @package App\Presenters
  */
-final class SignPresenter extends Presenter {
+final class SignPresenter extends BasePresenter {
 
     /**
      * Create sign in form.
@@ -20,11 +19,14 @@ final class SignPresenter extends Presenter {
      */
     protected function createComponentSignInForm(): Form {
         $form = new Form;
-        $form->addText('email', 'Email: ')
-            ->setRequired('Prosím vyplňte své uživatelské jméno.');
+        $form->addEmail('email')
+            ->setRequired('Prosím vyplňte své uživatelské jméno.')
+            ->setHtmlAttribute('autocomplete', 'off')
+            ->setHtmlAttribute('placeholder', 'Email');
 
-        $form->addPassword('password', 'Heslo:')
-            ->setRequired('Prosím vyplňte své heslo.');
+        $form->addPassword('password')
+            ->setRequired('Prosím vyplňte své heslo.')
+            ->setHtmlAttribute('placeholder', 'Heslo');
 
         $form->addSubmit('send', 'Přihlásit');
 
