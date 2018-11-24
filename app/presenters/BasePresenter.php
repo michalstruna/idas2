@@ -9,6 +9,7 @@
 namespace App\Presenters;
 
 use Nette\Application\UI\Presenter;
+use App\Control\TableControl;
 
 abstract class BasePresenter extends Presenter {
 
@@ -22,7 +23,8 @@ abstract class BasePresenter extends Presenter {
             'Předměty' => 'Subject:',
             'Obory' => 'StudyField:',
             'Plány' => 'StudyPlan:',
-            'Rozvrhy' => 'Schedule:'
+            'Rozvrhy' => 'Schedule:',
+            'Fakulty' => 'Faculty:'
         ];
 
         if ($this->user->isLoggedIn()) {
@@ -30,6 +32,11 @@ abstract class BasePresenter extends Presenter {
         } else {
             $this->template->menuItems['Přihlášení'] = 'Sign:in';
         }
+    }
+
+    protected function createComponentTable() {
+        $control = new TableControl();
+        return $control;
     }
 
 }

@@ -1,0 +1,13 @@
+{block content}
+
+<section class="item__list">
+    <header class="item__list__header">
+        <h1 class="item__list__title">
+            Fakulty ({count($faculties)})
+        </h1>
+
+        <a n:href="Faculty:add" class="button button--add">Přidat</a> {* Show only if user is admin. *}
+    </header>
+
+    {control table, $faculties, true, ['zkratka', 'Zkratka'], ['nazev', 'Název']} {* TODO: Editable only if user is admin. *}
+</section>
