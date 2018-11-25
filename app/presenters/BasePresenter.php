@@ -26,9 +26,9 @@ abstract class BasePresenter extends Presenter {
          */
         $this->template->menuItems = [
             'Domů' => ['Homepage:', []],
-            'Vyučující' => ['Teacher:', []],
-            'Pracoviště' => ['Department:', ['Faculty']],
-            'Předměty' => ['Subject:', []],
+            'Vyučující' => ['Teacher:', ['Role']],
+            'Pracoviště' => ['Department:', ['Faculty', 'Room']],
+            'Předměty' => ['Subject:', ['CompletionType', 'TeachingForm', 'Category', 'CourseType']],
             'Obory' => ['StudyField:', []],
             'Plány' => ['StudyPlan:', []],
             'Rozvrhy' => ['Schedule:', []]
