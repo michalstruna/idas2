@@ -1,0 +1,14 @@
+{block content}
+
+<section class="item__list">
+    <header class="item__list__header">
+        <h1 n:block="title" class="item__list__title">
+            Katedry ({count($departments)})
+        </h1>
+
+        {control tabMenu, $tabs}
+
+    </header>
+
+    {control table, $departments, $isAdmin, ['zkratka', 'Zkratka'], ['nazev', 'Název'], ['fakulta', 'Fakulta']}
+</section>
