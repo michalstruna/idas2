@@ -13,26 +13,26 @@ class StudyFieldModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array
     {
-        // TODO: Implement getAll() method.
+        return $this->database->fetchAll('SELECT * FROM SEM_OBOR');
     }
 
     public function getById(string $id)
     {
-        // TODO: Implement getById() method.
+        return $this->database->fetch('SELECT * FROM SEM_OBOR WHERE ID = ?', $id);
     }
 
     public function updateById(string $id, array $changes): void
     {
-        // TODO: Implement updateById() method.
+        $this->database->query('UPDATE SEM_OBOR SET NAZEV=?, ODHAD_STUDENTU=? WHERE ID=?', $changes['name'], $changes['students'], $id);
     }
 
     public function deleteById(string $id): void
     {
-        // TODO: Implement deleteById() method.
+        $this->database->query('DELETE FROM SEM_OBOR WHERE ID=?', $id);
     }
 
     public function insert(array $item): void
     {
-        // TODO: Implement insert() method.
+        $this->database->query('INSERT INTO SEM_OBOR (id, nazev, ODHAD_STUDENTU) VALUES (SEM_OBOR_SEQ.NEXTVAL, ?, ?)', $item['name'], $item['students']);
     }
 }
