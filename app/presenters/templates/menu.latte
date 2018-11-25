@@ -1,8 +1,8 @@
 {block menu}
-<nav n:inner-foreach="$menuItems as $item => $link" class="menu">
-    <a n:href="{$link}" class="menu__link{$presenter->isLinkCurrent($link) ? " menu__link--active" : ""}">
+<nav n:inner-foreach="$menuItems as $key => $link" class="menu">
+    <a n:href="{$link[0]}" class="menu__link{($presenter->isLinkCurrent($link[0]) || in_array($presenter->getName(), $link[1])) ? " menu__link--active" : ""}">
         <span class="menu__link--inner">
-            {$item}
+            {$key}
         </span>
     </a>
 </nav>

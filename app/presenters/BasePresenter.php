@@ -20,20 +20,23 @@ abstract class BasePresenter extends Presenter {
     public function beforeRender() {
         parent::beforeRender();
 
+        /**
+         * Menu items. Each item is associative array TEXT => [TARGET, [...SUBPAGE_PRESENTERS]].
+         */
         $this->template->menuItems = [
-            'Domů' => 'Homepage:',
-            'Vyučující' => 'Teacher:',
-            'Pracoviště' => 'Department:',
-            'Předměty' => 'Subject:',
-            'Obory' => 'StudyField:',
-            'Plány' => 'StudyPlan:',
-            'Rozvrhy' => 'Schedule:'
+            'Domů' => ['Homepage:', []],
+            'Vyučující' => ['Teacher:', []],
+            'Pracoviště' => ['Department:', ['Faculty']],
+            'Předměty' => ['Subject:', []],
+            'Obory' => ['StudyField:', []],
+            'Plány' => ['StudyPlan:', []],
+            'Rozvrhy' => ['Schedule:', []]
         ];
 
         if ($this->user->isLoggedIn()) {
-            $this->template->menuItems['Odhlásit'] = 'Sign:out';
+            $this->template->menuItems['Odhlásit'] = ['Sign:out', []];
         } else {
-            $this->template->menuItems['Přihlášení'] = 'Sign:in';
+            $this->template->menuItems['Přihlášení'] = ['Sign:in', []];
         }
     }
 
