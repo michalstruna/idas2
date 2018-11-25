@@ -244,6 +244,10 @@ form select {
     text-align: center;
 }
 
+.table__cell--center {
+    text-align: center;
+}
+
 .item__list__title {
     line-height: 4rem;
     margin: 0;
