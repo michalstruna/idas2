@@ -43,7 +43,7 @@ class StudyFieldPresenter extends BasePresenter {
             ->setMaxLength(50);
 
         $form->addInteger('students', 'Odhad počtu studentů')
-            ->setRequired('Prosím vyplňte kapacitu.')
+            ->setRequired('Prosím vyplňte odhad počtu studentů.')
             ->setHtmlAttribute('autocomplete', 'off')
             ->setDefaultValue($studyField ? $studyField['odhad_studentu'] : '');
 
