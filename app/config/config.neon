@@ -14,8 +14,16 @@ session:
 services:
 	router: App\RouterFactory::createRouter
 	authenticator: App\Model\UserModel
-	faculty: App\Model\FacultyModel
+	category: App\Model\CategoryModel
+	completionType: App\Model\CompletionTypeModel
+	courseType: App\Model\CourseTypeModel
 	department: App\Model\DepartmentModel
+	faculty: App\Model\FacultyModel
+	room: App\Model\RoomModel
+	studyField: App\Model\StudyFieldModel
+	subject: App\Model\SubjectModel
+	teacher: App\Model\TeacherModel
+	teachingForm: App\Model\TeachingFormModel
 
 database:
     dsn: 'oci:dbname=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=fei-sql1.upceucebny.cz)(PORT=1521))(CONNECT_DATA=(SID=IDAS12)))'
