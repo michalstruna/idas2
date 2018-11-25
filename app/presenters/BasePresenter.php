@@ -13,6 +13,9 @@ use App\Control\TableControl;
 
 abstract class BasePresenter extends Presenter {
 
+    protected static $SUCCESS = 'success';
+    protected static $ERROR = 'error';
+
     public function beforeRender() {
         parent::beforeRender();
 

@@ -68,11 +68,13 @@ class FacultyPresenter extends BasePresenter {
         try {
             if(empty($this->getParameter('id'))) {
                 $this->facultyModel->insert($form->getValues(true));
+                $this->flashMessage('Fakulta byla přidána.', self::$SUCCESS);
             } else {
                 $this->facultyModel->updateById($this->getParameter('id'), $form->getValues(true));
+                $this->flashMessage('Fakulta byla upravena.', self::$SUCCESS);
             }
         } catch(DriverException $exception) {
-            $this->flashMessage($exception->getMessage());
+            $this->flashMessage($exception->getMessage(), self::$ERROR);
         }
 
         $this->redirect('Faculty:');
@@ -86,8 +88,9 @@ class FacultyPresenter extends BasePresenter {
     public function actionDelete(string $id): void {
         try {
             $this->facultyModel->deleteById($id);
+            $this->flashMessage('Fakulta byla vymazána.', self::$SUCCESS);
         } catch(DriverException $exception) {
-            $this->flashMessage($exception->getMessage());
+            $this->flashMessage($exception->getMessage(), self::$ERROR);
         }
 
         $this->redirect('Faculty:');

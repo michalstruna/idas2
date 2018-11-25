@@ -122,8 +122,18 @@ form th {
 
 .flash {
     text-align: center;
+    margin: 1rem 0;
+    margin-top: 0;
     padding: 0.5rem 1rem;
-    width: calc(100% - 2rem);
+    width: 100%;
+}
+
+.flash.success {
+    background-color: #050;
+}
+
+.flash.error {
+    background-color: #a00;
 }
 
 form {
