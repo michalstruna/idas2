@@ -11,13 +11,13 @@ namespace App\Presenters;
 use App\Model\FacultyModel;
 use Nette\Database\DriverException;
 use Nette\Application\UI\Form;
-use Nette\Utils\ArrayHash;
 
 class FacultyPresenter extends BasePresenter {
 
     private $facultyModel;
 
     public function __construct(FacultyModel $facultyModel) {
+        parent::__construct();
         $this->facultyModel = $facultyModel;
     }
 
@@ -33,12 +33,14 @@ class FacultyPresenter extends BasePresenter {
         $form->addText('name', 'Název')
             ->setRequired('Prosím vyplňte název.')
             ->setHtmlAttribute('autocomplete', 'off')
-            ->setDefaultValue($faculty ? $faculty['nazev'] : '');
+            ->setDefaultValue($faculty ? $faculty['nazev'] : '')
+            ->setMaxLength(255);
 
         $form->addText('shortName', 'Zkratka')
             ->setRequired('Prosím vyplňte zkratku.')
             ->setHtmlAttribute('autocomplete', 'off')
-            ->setDefaultValue($faculty ? $faculty['zkratka'] : '');
+            ->setDefaultValue($faculty ? $faculty['zkratka'] : '')
+            ->setMaxLength(10);
 
         $form->addSubmit('send', $faculty ? 'Upravit' : 'Přidat');
 
@@ -48,23 +50,23 @@ class FacultyPresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->faculties = $this->facultyModel->getAll();
+        $this->template->tabs = ['Katedry' => 'Department:'];
     }
 
     public function renderEdit(string $id): void {
-
+        $this->requireAdmin();
     }
 
     public function renderAdd(): void {
-
+        $this->requireAdmin();
     }
 
     /**
      * Handler for edit or add faculty form.
      * @param Form $form
-     * @param ArrayHash $values
      * @throws \Nette\Application\AbortException
      */
-    public function onEdit(Form $form, ArrayHash $values): void {
+    public function onEdit(Form $form): void {
         try {
             if(empty($this->getParameter('id'))) {
                 $this->facultyModel->insert($form->getValues(true));
@@ -73,11 +75,12 @@ class FacultyPresenter extends BasePresenter {
                 $this->facultyModel->updateById($this->getParameter('id'), $form->getValues(true));
                 $this->flashMessage('Fakulta byla upravena.', self::$SUCCESS);
             }
+
+            $this->redirect('Faculty:');
         } catch(DriverException $exception) {
-            $this->flashMessage($exception->getMessage(), self::$ERROR);
+            $this->showErrorMessage($exception);
         }
 
-        $this->redirect('Faculty:');
     }
 
     /**
@@ -90,7 +93,7 @@ class FacultyPresenter extends BasePresenter {
             $this->facultyModel->deleteById($id);
             $this->flashMessage('Fakulta byla vymazána.', self::$SUCCESS);
         } catch(DriverException $exception) {
-            $this->flashMessage($exception->getMessage(), self::$ERROR);
+            $this->showErrorMessage($exception);
         }
 
         $this->redirect('Faculty:');

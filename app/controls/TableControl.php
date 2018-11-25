@@ -32,6 +32,7 @@ class TableControl extends Control {
         $template->columns = $columns;
         $template->handleEdit = $this->presenter->getName() . ':edit';
         $template->handleDelete = $this->presenter->getName() . ':delete';
+        $template->handleAdd = $this->presenter->getName() . ':add';
         $template->render();
     }
 

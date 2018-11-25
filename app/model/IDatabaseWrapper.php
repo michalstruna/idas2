@@ -14,7 +14,7 @@ interface IDatabaseWrapper {
      * Select items from DB.
      * @return array Array of DB items.
      */
-    public function getAll(): array; // TODO: Array of selected columns in parameter?
+    public function getAll(): array;
 
     /**
      * Select one item from DB.

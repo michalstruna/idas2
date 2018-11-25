@@ -10,7 +10,7 @@ namespace App\Model;
 
 use Nette\Database\Connection;
 
-class BaseModel implements IBaseModel {
+class BaseModel {
 
     protected $database;
 
