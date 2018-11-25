@@ -21,9 +21,11 @@ final class UserModel extends BaseModel implements IAuthenticator {
 
         if ($user !== null && Passwords::verify($credentials[1], $user['heslo'])) {
             $roles = [];
-            if ($user['admin'] === 1) {
+
+            if ($user['admin']) {
                 $roles[] = 'admin';
             }
+
             if ($user['ucitel_id'] !== null) {
                 $roles[] = 'teacher';
             }
