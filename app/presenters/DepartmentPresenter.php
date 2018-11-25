@@ -79,16 +79,16 @@ class DepartmentPresenter extends BasePresenter {
         try {
             if(empty($this->getParameter('id'))) {
                 $this->departmentModel->insert($form->getValues(true));
-                $this->flashMessage('Pracoviště bylo přidáno.', self::$SUCCESS);
+                $this->flashMessage('Katedra byla přidána.', self::$SUCCESS);
             } else {
                 $this->departmentModel->updateById($this->getParameter('id'), $form->getValues(true));
-                $this->flashMessage('Pracoviště bylo upraveno.', self::$SUCCESS);
+                $this->flashMessage('Katedra byla upravena.', self::$SUCCESS);
             }
+
+            $this->redirect('Department:');
         } catch(DriverException $exception) {
             $this->flashMessage($exception->getMessage(), self::$ERROR);
         }
-
-        $this->redirect('Department:');
     }
 
     /**
