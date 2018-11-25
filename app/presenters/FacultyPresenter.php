@@ -39,8 +39,8 @@ class FacultyPresenter extends BasePresenter {
         $form->addText('shortName', 'Zkratka')
             ->setRequired('Prosím vyplňte zkratku.')
             ->setHtmlAttribute('autocomplete', 'off')
-            ->setDefaultValue($faculty ? $faculty['zkratka'] : '');
-            //->setMaxLength(10);
+            ->setDefaultValue($faculty ? $faculty['zkratka'] : '')
+            ->setMaxLength(10);
 
         $form->addSubmit('send', $faculty ? 'Upravit' : 'Přidat');
 
