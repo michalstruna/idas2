@@ -14,6 +14,7 @@ class SubjectModel extends BaseModel implements IDatabaseWrapper {
     public function getAll(): array
     {
         // TODO: Implement getAll() method.
+        return [];
     }
 
     public function getById(string $id)
