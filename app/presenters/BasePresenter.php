@@ -40,8 +40,8 @@ abstract class BasePresenter extends Presenter {
             $this->template->menuItems['Přihlášení'] = ['Sign:in', []];
         }
 
-        $this->template->isUserAdmin = $this->user->isInRole('admin');
-        $this->template->isTeacherAdmin = $this->user->isInRole('teacher');
+        $this->template->isAdmin = $this->user->isInRole('admin');
+        $this->template->isTeacher = $this->user->isInRole('teacher');
     }
 
     protected function createComponentTable() {

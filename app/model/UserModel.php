@@ -19,12 +19,12 @@ final class UserModel extends BaseModel implements IAuthenticator {
     public function authenticate(array $credentials): IIdentity {
         $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE email = ?', $credentials[0]);
 
-        if ($user != null && Passwords::verify($credentials[1], $user['heslo'])) {
+        if ($user !== null && Passwords::verify($credentials[1], $user['heslo'])) {
             $roles = [];
-            if ($user['admin'] == 1) {
+            if ($user['admin'] === 1) {
                 $roles[] = 'admin';
             }
-            if ($user['ucitel_id'] != null) {
+            if ($user['ucitel_id'] !== null) {
                 $roles[] = 'teacher';
             }
             $data = [
