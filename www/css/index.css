@@ -225,12 +225,13 @@ form select {
 }
 
 .table__row:nth-of-type(2n) {
-    background-color: #4a4a4a;
+    background-color: #4f4f4f;
 }
 
 .table__cell {
     padding: 1rem 0.5rem;
     overflow: hidden;
+    text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
