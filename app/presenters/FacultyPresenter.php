@@ -78,7 +78,7 @@ class FacultyPresenter extends BasePresenter {
 
             $this->redirect('Faculty:');
         } catch(DriverException $exception) {
-            $this->flashMessage($exception->getMessage(), self::$ERROR);
+            $this->showErrorMessage($exception);
         }
 
     }
@@ -93,7 +93,7 @@ class FacultyPresenter extends BasePresenter {
             $this->facultyModel->deleteById($id);
             $this->flashMessage('Fakulta byla vymazána.', self::$SUCCESS);
         } catch(DriverException $exception) {
-            $this->flashMessage($exception->getMessage(), self::$ERROR);
+            $this->showErrorMessage($exception);
         }
 
         $this->redirect('Faculty:');

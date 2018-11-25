@@ -87,7 +87,7 @@ class DepartmentPresenter extends BasePresenter {
 
             $this->redirect('Department:');
         } catch(DriverException $exception) {
-            $this->flashMessage($exception->getMessage(), self::$ERROR);
+            $this->showErrorMessage($exception);
         }
     }
 
@@ -101,7 +101,7 @@ class DepartmentPresenter extends BasePresenter {
             $this->departmentModel->deleteById($id);
             $this->flashMessage('Pracoviště bylo vymazáno.', self::$SUCCESS);
         } catch(DriverException $exception) {
-            $this->flashMessage($exception->getMessage(), self::$ERROR);
+            $this->showErrorMessage($exception);
         }
 
         $this->redirect('Department:');

@@ -9,6 +9,7 @@
 namespace App\Presenters;
 
 use Nette\Application\UI\Presenter;
+use Nette\Database\DriverException;
 use App\Control\TableControl;
 use App\Control\TabMenuControl;
 
@@ -46,6 +47,11 @@ abstract class BasePresenter extends Presenter {
 
     protected function createComponentTabMenu() {
         return new TabMenuControl();
+    }
+
+    protected function showErrorMessage(DriverException $exception) {
+        $code = $exception->getCode();
+        $this->flashMessage("Něco se pokazilo (code: $code).", self::$ERROR);
     }
 
 }
