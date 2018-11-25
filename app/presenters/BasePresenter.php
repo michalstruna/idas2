@@ -10,6 +10,7 @@ namespace App\Presenters;
 
 use Nette\Application\UI\Presenter;
 use App\Control\TableControl;
+use App\Control\TabMenuControl;
 
 abstract class BasePresenter extends Presenter {
 
@@ -22,12 +23,11 @@ abstract class BasePresenter extends Presenter {
         $this->template->menuItems = [
             'Domů' => 'Homepage:',
             'Vyučující' => 'Teacher:',
-            'Pracoviště' => 'Workplace:',
+            'Pracoviště' => 'Department:',
             'Předměty' => 'Subject:',
             'Obory' => 'StudyField:',
             'Plány' => 'StudyPlan:',
-            'Rozvrhy' => 'Schedule:',
-            'Fakulty' => 'Faculty:'
+            'Rozvrhy' => 'Schedule:'
         ];
 
         if ($this->user->isLoggedIn()) {
@@ -38,8 +38,11 @@ abstract class BasePresenter extends Presenter {
     }
 
     protected function createComponentTable() {
-        $control = new TableControl();
-        return $control;
+        return new TableControl();
+    }
+
+    protected function createComponentTabMenu() {
+        return new TabMenuControl();
     }
 
 }

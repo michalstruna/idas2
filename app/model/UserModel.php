@@ -14,7 +14,7 @@ use Nette\Security\Identity;
 use Nette\Security\AuthenticationException;
 use Nette\Security\Passwords;
 
-final class UserModel extends BaseModel implements IAuthenticator, IUserModel {
+final class UserModel extends BaseModel implements IAuthenticator {
 
     public function authenticate(array $credentials): IIdentity {
         $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE email = ?', $credentials[0]);
