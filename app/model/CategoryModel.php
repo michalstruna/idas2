@@ -13,27 +13,27 @@ class CategoryModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array
     {
-        // TODO: Implement getAll() method.
+        return $this->database->fetchAll('SELECT * FROM SEM_KATEGORIE');
     }
 
     public function getById(string $id)
     {
-        // TODO: Implement getById() method.
+        return $this->database->fetch('SELECT * FROM SEM_KATEGORIE WHERE ID = ?', $id);
     }
 
     public function updateById(string $id, array $changes): void
     {
-        // TODO: Implement updateById() method.
+        $this->database->query('UPDATE SEM_KATEGORIE SET NAZEV=? WHERE ID=?', $changes['name'], $id);
     }
 
     public function deleteById(string $id): void
     {
-        // TODO: Implement deleteById() method.
+        $this->database->query('DELETE FROM SEM_KATEGORIE WHERE ID=?', $id);
     }
 
     public function insert(array $item): void
     {
-        // TODO: Implement insert() method.
+        $this->database->query('INSERT INTO SEM_KATEGORIE (id, nazev) VALUES (SEM_KATEGORIE_SEQ.NEXTVAL, ?)', $item['name']);
     }
 
 }
