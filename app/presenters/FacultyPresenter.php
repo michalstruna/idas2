@@ -54,11 +54,11 @@ class FacultyPresenter extends BasePresenter {
     }
 
     public function renderEdit(string $id): void {
-
+        $this->requireAdmin();
     }
 
     public function renderAdd(): void {
-
+        $this->requireAdmin();
     }
 
     /**

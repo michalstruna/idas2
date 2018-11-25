@@ -9,5 +9,5 @@
         {control tabMenu, $tabs}
     </header>
 
-    {control table, $faculties, true, ['zkratka', 'Zkratka'], ['nazev', 'Název']} {* TODO: Editable only if user is admin. *}
+    {control table, $faculties, $isUserAdmin, ['zkratka', 'Zkratka'], ['nazev', 'Název']}
 </section>

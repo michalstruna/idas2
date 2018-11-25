@@ -39,6 +39,9 @@ abstract class BasePresenter extends Presenter {
         } else {
             $this->template->menuItems['Přihlášení'] = ['Sign:in', []];
         }
+
+        $this->template->isUserAdmin = $this->user->isInRole('admin');
+        $this->template->isTeacherAdmin = $this->user->isInRole('teacher');
     }
 
     protected function createComponentTable() {
@@ -52,6 +55,13 @@ abstract class BasePresenter extends Presenter {
     protected function showErrorMessage(DriverException $exception) {
         $code = $exception->getCode();
         $this->flashMessage("Něco se pokazilo (code: $code).", self::$ERROR);
+    }
+
+    protected function requireAdmin() {
+        if (!$this->user->isInRole('admin')) {
+            $this->flashMessage('Nedostatečná oprávnění.', self::$ERROR);
+            $this->redirect('Homepage:');
+        }
     }
 
 }

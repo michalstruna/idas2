@@ -10,5 +10,5 @@
 
     </header>
 
-    {control table, $departments, true, ['zkratka', 'Zkratka'], ['nazev', 'Název'], ['fakulta', 'Fakulta']} {* TODO: Editable only if user is admin. *}
+    {control table, $departments, $isUserAdmin, ['zkratka', 'Zkratka'], ['nazev', 'Název'], ['fakulta', 'Fakulta']}
 </section>

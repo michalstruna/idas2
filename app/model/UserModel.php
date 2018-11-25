@@ -20,7 +20,17 @@ final class UserModel extends BaseModel implements IAuthenticator {
         $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE email = ?', $credentials[0]);
 
         if ($user != null && Passwords::verify($credentials[1], $user['heslo'])) {
-            return new Identity($user['id']);
+            $roles = [];
+            if ($user['admin'] == 1) {
+                $roles[] = 'admin';
+            }
+            if ($user['ucitel_id'] != null) {
+                $roles[] = 'teacher';
+            }
+            $data = [
+                'teacher_id' => $user['ucitel_id']
+            ];
+            return new Identity($user['id'], $roles, $data);
         }
 
         throw new AuthenticationException('Neplatné jméno nebo heslo.', self::IDENTITY_NOT_FOUND);
