@@ -13,27 +13,26 @@ class CompletionTypeModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array
     {
-        // TODO: Implement getAll() method.
+        return $this->database->fetchAll('SELECT * FROM SEM_ZPUS_ZAK');
     }
 
     public function getById(string $id)
     {
-        // TODO: Implement getById() method.
+        return $this->database->fetch('SELECT * FROM SEM_ZPUS_ZAK WHERE ID = ?', $id);
     }
 
     public function updateById(string $id, array $changes): void
     {
-        // TODO: Implement updateById() method.
+        $this->database->query('UPDATE SEM_ZPUS_ZAK SET NAZEV=? WHERE ID=?', $changes['name'], $id);
     }
 
     public function deleteById(string $id): void
     {
-        // TODO: Implement deleteById() method.
+        $this->database->query('DELETE FROM SEM_ZPUS_ZAK WHERE ID=?', $id);
     }
 
     public function insert(array $item): void
     {
-        // TODO: Implement insert() method.
+        $this->database->query('INSERT INTO SEM_ZPUS_ZAK (id, nazev) VALUES (SEM_ZPUSOB_ZAKONCENI_SEQ.NEXTVAL, ?)', $item['name']);
     }
-
 }
