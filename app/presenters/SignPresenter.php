@@ -45,7 +45,7 @@ final class SignPresenter extends BasePresenter {
             $this->redirect('Homepage:');
 
         } catch (AuthenticationException $exception) {
-            $form->addError('Nesprávné přihlašovací jméno nebo heslo.');
+            $this->flashMessage('Nesprávné přihlašovací jméno nebo heslo.', self::$ERROR);
         }
     }
 
