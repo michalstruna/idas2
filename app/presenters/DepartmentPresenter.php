@@ -59,7 +59,7 @@ class DepartmentPresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->departments = $this->departmentModel->getAll();
-        $this->template->tabs = ['Fakulty' => 'Faculty:'];
+        $this->template->tabs = ['Fakulty' => 'Faculty:', 'Místnosti' => 'Room:'];
     }
 
     public function renderEdit(string $id): void {

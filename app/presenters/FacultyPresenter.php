@@ -50,7 +50,7 @@ class FacultyPresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->faculties = $this->facultyModel->getAll();
-        $this->template->tabs = ['Katedry' => 'Department:'];
+        $this->template->tabs = ['Katedry' => 'Department:', 'Místnosti' => 'Room:'];
     }
 
     public function renderEdit(string $id): void {

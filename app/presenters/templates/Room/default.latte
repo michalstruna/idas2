@@ -3,11 +3,11 @@
 <section class="item__list">
     <header class="item__list__header">
         <h1 n:block="title" class="item__list__title">
-            Učitelé ({count($teachers)})
+            Místnosti ({count($rooms)})
         </h1>
 
         {control tabMenu, $tabs}
     </header>
 
-    {control table, $teachers, $isAdmin, ['zkratka', 'Zkratka'], ['nazev', 'Název']}
+    {control table, $rooms, $isAdmin, ['nazev', 'Název'], ['kapacita', 'Kapacita']}
 </section>

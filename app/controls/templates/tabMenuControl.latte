@@ -1,3 +1,7 @@
 {foreach $tabs as $key => $tab}
-    <a href={plink $tab} class="button button--large">{$key}</a>
+    <a href={plink $tab} class="button button--flex button--large">
+        <span class="button--inner">
+            {$key}
+        </span>
+    </a>
 {/foreach}
