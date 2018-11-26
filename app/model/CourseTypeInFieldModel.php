@@ -10,24 +10,37 @@ namespace App\Model;
 
 
 class CourseTypeInFieldModel  extends BaseModel implements IDatabaseWrapper {
+
     public function getAll(): array {
-        // TODO: Implement getAll() method.
+        return $this->database->fetchAll('SELECT * FROM SEM_P_ZPUS_PREDM');
     }
 
     public function getById(string $id) {
-        // TODO: Implement getById() method.
+        return $this->database->fetch('SELECT * FROM SEM_P_ZPUS_PREDM WHERE ID = ?', $id);
     }
 
     public function updateById(string $id, array $changes): void {
-        // TODO: Implement updateById() method.
+        $this->database->query(
+            'UPDATE SEM_ZPUS_PREDM SET pocet_hodin=?, kapacita=?, zpusob_vyuky_id=?, predm_obor_id=? WHERE ID=?',
+            $changes['hours'],
+            $changes['capacity'],
+            $changes['courseType'],
+            $changes['subjectInField'],
+            $id
+        );
     }
 
     public function deleteById(string $id): void {
-        // TODO: Implement deleteById() method.
+        $this->database->query('DELETE FROM SEM_ZPUS_PREDM WHERE ID=?', $id);
     }
 
     public function insert(array $item): void {
-        // TODO: Implement insert() method.
+        $this->database->query(
+            'INSERT INTO SEM_ZPUS_PREDM (id, pocet_hodin, kapacita, zpusob_vyuky_id, predm_obor_id) VALUES (SEM_ZPUS_PREDM_SEQ.NEXTVAL, ?, ?, ?, ?)',
+            $item['hours'],
+            $item['capacity'],
+            $item['courseType'],
+            $item['subjectInField']
+        );
     }
-
 }

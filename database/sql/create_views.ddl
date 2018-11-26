@@ -22,3 +22,12 @@ JOIN SEM_KATEGORIE ON SEM_KATEGORIE.ID = SEM_PREDM_OBOR.KATEGORIE_ID
 JOIN sem_obor ON sem_obor.ID = SEM_PREDM_OBOR.obor_id
 JOIN sem_predmet ON sem_predmet.ID = SEM_PREDM_OBOR.predmet_id
 ORDER BY sem_obor.nazev, sem_predmet.nazev, sem_kategorie.nazev, rocnik;
+
+CREATE OR REPLACE VIEW SEM_P_ZPUS_PREDM AS
+SELECT SEM_ZPUS_PREDM.*, SEM_ZPUS_VYUKY.nazev as "zpusob_vyuky", (SEM_OBOR.NAZEV || ' ' || SEM_PREDMET.NAZEV) as "predm_obor"
+FROM SEM_ZPUS_PREDM
+JOIN SEM_ZPUS_VYUKY ON SEM_ZPUS_VYUKY.id = SEM_ZPUS_PREDM.zpusob_vyuky_id
+JOIN SEM_PREDM_OBOR ON SEM_PREDM_OBOR.id = SEM_ZPUS_PREDM.predm_obor_id
+JOIN SEM_OBOR ON SEM_OBOR.id = SEM_PREDM_OBOR.obor_id
+JOIN SEM_PREDMET ON SEM_PREDMET.id = SEM_PREDM_OBOR.predmet_id
+ORDER BY sem_obor.nazev, sem_predmet.nazev, sem_zpus_vyuky.nazev;

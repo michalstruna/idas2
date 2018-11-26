@@ -53,7 +53,7 @@ abstract class BasePresenter extends Presenter {
     }
 
     protected function showErrorMessage(DriverException $exception) {
-        $code = $exception->getCode();
+        $code = 'ORA-' . $exception->getDriverCode();
         $this->flashMessage("Něco se pokazilo (code: $code).", self::$ERROR);
     }
 
