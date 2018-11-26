@@ -36,7 +36,7 @@ class SubjectModel extends BaseModel implements IDatabaseWrapper {
 
     public function insert(array $item): void {
         $this->database->query(
-            'INSERT INTO SEM_PREDMET (id, zkratka, nazev, forma_vyuky_id, zpusob_zakonceni_id) VALUES (SEM_UCITEL_SEQ.NEXTVAL, ?, ?, ?, ?)',
+            'INSERT INTO SEM_PREDMET (id, zkratka, nazev, forma_vyuky_id, zpusob_zakonceni_id) VALUES (SEM_PREDMET_SEQ.NEXTVAL, ?, ?, ?, ?)',
             $item['shortName'],
             $item['name'],
             $item['teachingForm'],
