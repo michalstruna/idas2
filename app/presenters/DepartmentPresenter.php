@@ -100,7 +100,7 @@ class DepartmentPresenter extends BasePresenter {
     public function actionDelete(string $id): void {
         try {
             $this->departmentModel->deleteById($id);
-            $this->flashMessage('Pracoviště bylo vymazáno.', self::$SUCCESS);
+            $this->flashMessage('Katedra byla vymazána.', self::$SUCCESS);
         } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }

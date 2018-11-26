@@ -12,23 +12,35 @@ namespace App\Model;
 class SubjectModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array {
-        // TODO: Implement getAll() method.
-        return [];
+        return $this->database->fetchAll('SELECT * FROM SEM_P_PREDMET');
     }
 
     public function getById(string $id) {
-        // TODO: Implement getById() method.
+        return $this->database->fetch('SELECT * FROM SEM_P_PREDMET WHERE ID = ?', $id);
     }
 
     public function updateById(string $id, array $changes): void {
-        // TODO: Implement updateById() method.
+        $this->database->query(
+            'UPDATE SEM_PREDMET SET zkratka=?, nazev=?, forma_vyuky_id=?, zpusob_zakonceni_id=?  WHERE ID=?',
+            $changes['shortName'],
+            $changes['name'],
+            $changes['teachingForm'],
+            $changes['completionType'],
+            $id
+        );
     }
 
     public function deleteById(string $id): void {
-        // TODO: Implement deleteById() method.
+        $this->database->query('DELETE FROM SEM_PREDMET WHERE ID=?', $id);
     }
 
     public function insert(array $item): void {
-        // TODO: Implement insert() method.
+        $this->database->query(
+            'INSERT INTO SEM_PREDMET (id, zkratka, nazev, forma_vyuky_id, zpusob_zakonceni_id) VALUES (SEM_UCITEL_SEQ.NEXTVAL, ?, ?, ?, ?)',
+            $item['shortName'],
+            $item['name'],
+            $item['teachingForm'],
+            $item['completionType']
+        );
     }
 }
