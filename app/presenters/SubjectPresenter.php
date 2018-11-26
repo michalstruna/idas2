@@ -34,7 +34,6 @@ final class SubjectPresenter extends BasePresenter {
         $this->completionTypeModel = $completionTypeModel;
     }
 
-
     /**
      * Create edit subject form.
      * @return Form Edit subject form

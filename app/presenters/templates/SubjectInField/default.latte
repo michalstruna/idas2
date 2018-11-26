@@ -1,0 +1,14 @@
+{block content}
+
+<section class="item__list">
+    <header class="item__list__header">
+        <h1 n:block="title" class="item__list__title">
+            Předměty v oboru ({count($subjectsInField)})
+        </h1>
+
+        {control tabMenu, $tabs}
+    </header>
+
+    {control table, $subjectsInField, $isAdmin, ['obor', 'Obor'], ['predmet', 'Predmet'], ['kategorie', 'Kategorie'],
+    ['rocnik', 'Ročník'], ['pocet_studentu', 'Počet studentů'] }
+</section>
