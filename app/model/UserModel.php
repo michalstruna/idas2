@@ -14,7 +14,7 @@ use Nette\Security\Identity;
 use Nette\Security\AuthenticationException;
 use Nette\Security\Passwords;
 
-final class UserModel extends BaseModel implements IAuthenticator {
+final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrapper {
 
     public function authenticate(array $credentials): IIdentity {
         $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE email = ?', $credentials[0]);
@@ -39,5 +39,47 @@ final class UserModel extends BaseModel implements IAuthenticator {
 
         throw new AuthenticationException('Neplatné jméno nebo heslo.', self::IDENTITY_NOT_FOUND);
     }
+
+    public function getAll(): array {
+        return $this->database->fetchAll('SELECT * FROM sem_uzivatel');
+    }
+
+    public function getById(string $id) {
+        return $this->database->fetch('SELECT * FROM sem_uzivatel WHERE id = ?', $id);
+    }
+
+    public function updateById(string $id, array $changes): void {
+        if(isset($changes['password'])) {
+            $this->database->query(
+                'UPDATE sem_uzivatel SET email = ?, password = ? WHERE id = ?',
+                $changes['email'],
+                self::hashPassword($changes['password']),
+                $id
+            );
+        } else {
+            $this->database->query(
+                'UPDATE sem_uzivatel SET email = ? WHERE id = ?',
+                $changes['email'],
+                $id
+            );
+        }
+    }
+
+    public function deleteById(string $id): void {
+        $this->database->query('DELETE FROM sem_uzivatel WHERE id = ?', $id);
+    }
+
+    public function insert(array $item): void {
+        $this->database->query(
+            ' INSERT INTO sem_uzivatel (id, email, heslo) VALUES (SEM_UZIVATEL_SEQ.NEXVAL, ?, ?',
+            $item['email'],
+            self::hashPassword($item['password'])
+        );
+    }
+
+    private function hashPassword(string $password): string {
+        return Passwords::hash($password, ['cost' => 12]);
+    }
+
 
 }
