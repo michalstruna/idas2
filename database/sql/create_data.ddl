@@ -1,5 +1,3 @@
-DELETE FROM sem_uzivatel WHERE id = 1;
-
 /**
  * Admin user (email: admin@admin.cz, password: admin).
  */
