@@ -50,7 +50,12 @@ class CategoryPresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->categories = $this->categoryModel->getAll();
-        $this->template->tabs = ['Předměty' => 'Subject:'];
+        $this->template->tabs = [
+            'Způsoby zakončení' => 'CompletionType:',
+            'Formy výuky' => 'TeachingForm:',
+            'Způsoby výuky' => 'CourseType:',
+            'Předměty' => 'Subject:'
+        ];
     }
 
     public function renderEdit(string $id): void {

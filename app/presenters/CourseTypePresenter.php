@@ -50,7 +50,12 @@ class CourseTypePresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->courseTypes = $this->courseTypeModel->getAll();
-        $this->template->tabs = ['Předměty' => 'Subject:'];
+        $this->template->tabs = [
+            'Způsoby zakončení' => 'CompletionType:',
+            'Formy výuky' => 'TeachingForm:',
+            'Kategorie' => 'Category:',
+            'Předměty' => 'Subject:'
+        ];
     }
 
     public function renderEdit(string $id): void {

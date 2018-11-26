@@ -56,7 +56,7 @@ class RoomPresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->rooms = $this->roomModel->getAll();
-        $this->template->tabs = ['Pracoviště' => 'Department:'];
+        $this->template->tabs = ['Katedry' => 'Department:', 'Fakulty' => 'Faculty:'];
     }
 
     public function renderEdit(string $id): void {

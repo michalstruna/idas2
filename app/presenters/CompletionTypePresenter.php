@@ -50,7 +50,12 @@ class CompletionTypePresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->completionTypes = $this->completionTypeModel->getAll();
-        $this->template->tabs = ['Předměty' => 'Subject:'];
+        $this->template->tabs = [
+            'Formy výuky' => 'TeachingForm:',
+            'Kategorie' => 'Category:',
+            'Způsoby výuky' => 'CourseType:',
+            'Předměty' => 'Subject:'
+        ];
     }
 
     public function renderEdit(string $id): void {

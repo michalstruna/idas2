@@ -51,7 +51,12 @@ class TeachingFormPresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->teachingForms = $this->teachingFormModel->getAll();
-        $this->template->tabs = ['Předměty' => 'Subject:'];
+        $this->template->tabs = [
+            'Způsoby zakončení' => 'CompletionType:',
+            'Kategorie' => 'Category:',
+            'Způsoby výuky' => 'CourseType:',
+            'Předměty' => 'Subject:'
+        ];
     }
 
     public function renderEdit(string $id): void {
