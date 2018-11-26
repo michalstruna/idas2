@@ -31,7 +31,7 @@ final class UserModel extends BaseModel implements IAuthenticator {
             }
 
             $data = [
-                'teacher_id' => $user['ucitel_id']
+                'teacherId' => $user['ucitel_id']
             ];
 
             return new Identity($user['id'], $roles, $data);
