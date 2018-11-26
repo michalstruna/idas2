@@ -94,7 +94,7 @@ body {
     padding: 2rem;
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="submit"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="submit"], input[type="number"] {
     background-color: transparent;
     border: none;
     border-bottom: 0.15rem solid #aaa;
