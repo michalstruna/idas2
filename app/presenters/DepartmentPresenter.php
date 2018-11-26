@@ -50,6 +50,7 @@ class DepartmentPresenter extends BasePresenter {
             $result[$faculty['id']] = $faculty['zkratka'] . ' - ' . $faculty['nazev'];
             return $result;
         }))
+            ->setDefaultValue($department['fakulta_id'])
             ->setRequired("Prosím vyplňte fakultu");
 
         $form->addSubmit('send', $department ? 'Upravit' : 'Přidat');

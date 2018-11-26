@@ -62,12 +62,14 @@ final class SubjectPresenter extends BasePresenter {
             $result[$teachingForm['id']] = $teachingForm['nazev'];
             return $result;
         }))
+            ->setDefaultValue($subject['forma_vyuky_id'])
             ->setRequired("Prosím vyplňte formu výuky");
 
         $form->addSelect('completionType', 'Způsob zakončení', array_reduce($completionType, function ($result, $completionType) {
             $result[$completionType['id']] =  $completionType['nazev'];
             return $result;
         }))
+            ->setDefaultValue($subject['zpusob_zakonceni_id'])
             ->setRequired("Prosím vyplňte způsob zakončení");
 
         $form->addSubmit('send', $subject ? 'Upravit' : 'Přidat');

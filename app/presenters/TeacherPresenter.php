@@ -85,6 +85,7 @@ class TeacherPresenter extends BasePresenter {
             $result[$department['id']] = $department['zkratka'] . ' - ' . $department['nazev'];
             return $result;
         }))
+            ->setDefaultValue($teacher['katedra_id'])
             ->setRequired("Prosím vyplňte katedru");;
 
         $form->addSubmit('send', $teacher ? 'Upravit' : 'Přidat');

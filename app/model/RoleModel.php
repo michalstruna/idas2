@@ -28,7 +28,7 @@ class RoleModel extends BaseModel implements IDatabaseWrapper {
     }
 
     public function insert(array $item): void {
-        $this->database->query('INSERT INTO SEM_ROLE (id, nazev) VALUES (SEM_MISTNOST_SEQ.NEXTVAL, ?)', $item['name']);
+        $this->database->query('INSERT INTO SEM_ROLE (id, nazev) VALUES (SEM_ROLE_SEQ.NEXTVAL, ?)', $item['name']);
     }
 
 }
