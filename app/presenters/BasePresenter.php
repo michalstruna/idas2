@@ -22,7 +22,7 @@ abstract class BasePresenter extends Presenter {
         parent::beforeRender();
 
         /**
-         * Menu items. Each item is associative array TEXT => [TARGET, [...SUBPAGE_PRESENTERS]].
+         * Menu items. Each item is associative array TEXT => [TARGET, [...SUBPAGE_PRESENTERS], ?[URL_PARAMETER]].
          */
         $this->template->menuItems = [
             'Domů' => ['Homepage:', []],
@@ -35,7 +35,7 @@ abstract class BasePresenter extends Presenter {
         ];
 
         if ($this->user->isLoggedIn()) {
-            $this->template->menuItems['Odhlásit'] = ['Sign:out', []];
+            $this->template->menuItems['Můj účet'] = ['User:edit', [], $this->getUser()->id];
         } else {
             $this->template->menuItems['Přihlášení'] = ['Sign:in', []];
         }

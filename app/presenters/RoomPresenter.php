@@ -21,12 +21,10 @@ class RoomPresenter extends BasePresenter {
      * RoomPresenter constructor.
      * @param $roomModel
      */
-    public function __construct(RoomModel $roomModel)
-    {
+    public function __construct(RoomModel $roomModel) {
         parent::__construct();
         $this->roomModel = $roomModel;
     }
-
 
     /**
      * Create edit room form.
@@ -74,7 +72,7 @@ class RoomPresenter extends BasePresenter {
      */
     public function onEdit(Form $form): void {
         try {
-            if(empty($this->getParameter('id'))) {
+            if (empty($this->getParameter('id'))) {
                 $this->roomModel->insert($form->getValues(true));
                 $this->flashMessage('Místnost byla přidána.', self::$SUCCESS);
             } else {
@@ -83,7 +81,7 @@ class RoomPresenter extends BasePresenter {
             }
 
             $this->redirect('Room:');
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
     }
@@ -97,7 +95,7 @@ class RoomPresenter extends BasePresenter {
         try {
             $this->roomModel->deleteById($id);
             $this->flashMessage('Místnost byla vymazána.', self::$SUCCESS);
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
 

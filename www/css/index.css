@@ -72,6 +72,10 @@ body {
     width: 100%;
 }
 
+.item__edit--wrap-content {
+    height: auto;
+}
+
 .login input, .item__edit input {
     width: 20rem;
 }

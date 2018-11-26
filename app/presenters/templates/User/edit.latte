@@ -1,0 +1,19 @@
+{block content}
+<section>
+    <header class="item__list__header" n:if="$isOwner">
+        <h1 n:block="title" class="item__list__title">
+            Můj účet
+        </h1>
+
+        {control tabMenu, $tabs}
+    </header>
+
+    <section n:class="item__edit, $isOwner ? item__edit--wrap-content">
+        <section class="block">
+            <h1 class="form__title">
+                Úprava účtu
+            </h1>
+            {control editUserForm}
+        </section>
+    </section>
+</section>

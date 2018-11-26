@@ -21,8 +21,7 @@ class CategoryPresenter extends BasePresenter {
      * CategoryPresenter constructor.
      * @param $categoryModel
      */
-    public function __construct(CategoryModel $categoryModel)
-    {
+    public function __construct(CategoryModel $categoryModel) {
         parent::__construct();
         $this->categoryModel = $categoryModel;
     }
@@ -73,7 +72,7 @@ class CategoryPresenter extends BasePresenter {
      */
     public function onEdit(Form $form): void {
         try {
-            if(empty($this->getParameter('id'))) {
+            if (empty($this->getParameter('id'))) {
                 $this->categoryModel->insert($form->getValues(true));
                 $this->flashMessage('Kategorie byla přidána.', self::$SUCCESS);
             } else {
@@ -82,7 +81,7 @@ class CategoryPresenter extends BasePresenter {
             }
 
             $this->redirect('Category:');
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
     }
@@ -96,7 +95,7 @@ class CategoryPresenter extends BasePresenter {
         try {
             $this->categoryModel->deleteById($id);
             $this->flashMessage('Kategorie byla vymazána.', self::$SUCCESS);
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
 

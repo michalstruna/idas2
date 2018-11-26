@@ -49,17 +49,17 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
     }
 
     public function updateById(string $id, array $changes): void {
-        if(isset($changes['password'])) {
+        if(empty($changes['password'])) {
             $this->database->query(
-                'UPDATE sem_uzivatel SET email = ?, password = ? WHERE id = ?',
+                'UPDATE sem_uzivatel SET email = ? WHERE id = ?',
                 $changes['email'],
-                self::hashPassword($changes['password']),
                 $id
             );
         } else {
             $this->database->query(
-                'UPDATE sem_uzivatel SET email = ? WHERE id = ?',
+                'UPDATE sem_uzivatel SET email = ?, heslo = ? WHERE id = ?',
                 $changes['email'],
+                self::hashPassword($changes['password']),
                 $id
             );
         }
@@ -77,8 +77,13 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
         );
     }
 
+    /**
+     * Hash password.
+     * @param string $password Plain text password.
+     * @return string Password hash.
+     */
     private function hashPassword(string $password): string {
-        return Passwords::hash($password, ['cost' => 12]);
+        return Passwords::hash($password, ['cost' => 10]);
     }
 
 
