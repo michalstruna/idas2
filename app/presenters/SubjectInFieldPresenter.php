@@ -97,7 +97,7 @@ class SubjectInFieldPresenter extends BasePresenter {
         $this->template->subjectsInField = $this->subjectInFieldModel->getAll();
         $this->template->tabs = [
             'Způsoby výuky předmětu' => 'CourseTypeInField:',
-            'Učí' => 'TeachingForm:'
+            'Učí' => 'Teaching:'
         ];
     }
 
