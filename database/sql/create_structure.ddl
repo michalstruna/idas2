@@ -172,6 +172,8 @@ CREATE TABLE sem_uzivatel (
 
 ALTER TABLE sem_uzivatel ADD CONSTRAINT sem_uzivatel_pk PRIMARY KEY ( id );
 
+ALTER TABLE sem_uzivatel ADD CONSTRAINT sem_uzivatel_u_em UNIQUE ( email );
+
 CREATE TABLE sem_zpus_predm (
     id                INTEGER NOT NULL,
     pocet_hodin       INTEGER NOT NULL,
