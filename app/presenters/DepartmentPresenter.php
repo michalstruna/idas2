@@ -49,7 +49,8 @@ class DepartmentPresenter extends BasePresenter {
         $form->addSelect('faculty', 'Fakulta', array_reduce($faculties, function ($result, $faculty) {
             $result[$faculty['id']] = $faculty['zkratka'] . ' - ' . $faculty['nazev'];
             return $result;
-        }));
+        }))
+            ->setRequired("Prosím vyplňte fakultu");
 
         $form->addSubmit('send', $department ? 'Upravit' : 'Přidat');
 
@@ -77,7 +78,7 @@ class DepartmentPresenter extends BasePresenter {
      */
     public function onEdit(Form $form): void {
         try {
-            if(empty($this->getParameter('id'))) {
+            if (empty($this->getParameter('id'))) {
                 $this->departmentModel->insert($form->getValues(true));
                 $this->flashMessage('Katedra byla přidána.', self::$SUCCESS);
             } else {
@@ -86,7 +87,7 @@ class DepartmentPresenter extends BasePresenter {
             }
 
             $this->redirect('Department:');
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
     }
@@ -100,7 +101,7 @@ class DepartmentPresenter extends BasePresenter {
         try {
             $this->departmentModel->deleteById($id);
             $this->flashMessage('Pracoviště bylo vymazáno.', self::$SUCCESS);
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
 
