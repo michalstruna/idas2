@@ -67,7 +67,7 @@ body {
 .item__edit, .login {
     align-items: center;
     display: flex;
-    height: calc(100vh - 2rem);
+    min-height: calc(100vh - 2rem);
     justify-content: center;
     width: 100%;
 }
