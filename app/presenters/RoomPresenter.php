@@ -27,7 +27,6 @@ class RoomPresenter extends BasePresenter {
         $this->roomModel = $roomModel;
     }
 
-
     /**
      * Create edit room form.
      * @return Form Edit room form

@@ -19,6 +19,7 @@ services:
 	courseType: App\Model\CourseTypeModel
 	department: App\Model\DepartmentModel
 	faculty: App\Model\FacultyModel
+	role: App\Model\RoleModel
 	room: App\Model\RoomModel
 	studyField: App\Model\StudyFieldModel
 	subject: App\Model\SubjectModel

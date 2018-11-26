@@ -95,7 +95,7 @@ class TeacherPresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->teachers = $this->teacherModel->getAll();
-        $this->template->tabs = [];
+        $this->template->tabs = ['Role' => 'Role:',];
     }
 
     public function renderEdit(string $id): void {

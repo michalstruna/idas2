@@ -1,0 +1,13 @@
+{block content}
+
+<section class="item__list">
+    <header class="item__list__header">
+        <h1 n:block="title" class="item__list__title">
+            Role ({count($roles)})
+        </h1>
+
+        {control tabMenu, $tabs}
+    </header>
+
+    {control table, $roles, $isAdmin, ['nazev', 'Název']}
+</section>
