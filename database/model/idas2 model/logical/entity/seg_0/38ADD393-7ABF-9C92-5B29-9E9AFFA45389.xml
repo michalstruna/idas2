@@ -27,7 +27,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="den" id="9313AB42-6F09-44B2-55DE-79EE75A0EEF6">
+<Attribute name="den v tydnu" id="9313AB42-6F09-44B2-55DE-79EE75A0EEF6">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 09:49:12 UTC</createdTime>
 <comment>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</comment>
@@ -36,6 +36,7 @@
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -93,6 +94,20 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="presne datum" id="D50B2E10-C4DB-435E-A191-D2629E088E3F">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:32:09 UTC</createdTime>
+<generatorID>C299D043-83EE-E6CE-9469-55666763B78E</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
