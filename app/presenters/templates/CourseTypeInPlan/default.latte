@@ -3,12 +3,12 @@
 <section class="item__list">
     <header class="item__list__header">
         <h1 n:block="title" class="item__list__title">
-            Způsoby výuky předmětu ({count($courseTypesInField)})
+            Způsoby výuky předmětu ({count($courseTypesInPlan)})
         </h1>
 
         {control tabMenu, $tabs}
     </header>
 
-    {control table, $courseTypesInField, $isAdmin, ['predm_obor', 'Předmět v oboru'], ['zpusob_vyuky', 'Zpusob výuky'],
+    {control table, $courseTypesInPlan, $isAdmin, ['predm_plan', 'Předmět v plánu'], ['zpusob_vyuky', 'Zpusob výuky'],
     ['pocet_hodin', 'Počet hodin'], ['kapacita', 'Kapacita']}
 </section>

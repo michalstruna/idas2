@@ -10,7 +10,7 @@ namespace App\Presenters;
 
 
 use App\Model\RoleModel;
-use App\Model\SubjectInFieldModel;
+use App\Model\SubjectInPlanModel;
 use App\Model\TeacherModel;
 use App\Model\TeachingModel;
 use Nette\Application\UI\Form;
@@ -24,22 +24,22 @@ class TeachingPresenter extends BasePresenter {
 
     private $roleModel;
 
-    private $subjectInFieldModel;
+    private $subjectInPlanModel;
 
     /**
      * TeachingPresenter constructor.
      * @param $teachingModel
      * @param $teacherModel
      * @param $roleModel
-     * @param $subjectInFieldModel
+     * @param $subjectInPlanModel
      */
     public function __construct(TeachingModel $teachingModel, TeacherModel $teacherModel, RoleModel $roleModel,
-                                SubjectInFieldModel $subjectInFieldModel) {
+                                SubjectInPlanModel $subjectInPlanModel) {
         parent::__construct();
         $this->teachingModel = $teachingModel;
         $this->teacherModel = $teacherModel;
         $this->roleModel = $roleModel;
-        $this->subjectInFieldModel = $subjectInFieldModel;
+        $this->subjectInPlanModel = $subjectInPlanModel;
     }
 
     /**
@@ -50,17 +50,17 @@ class TeachingPresenter extends BasePresenter {
         $teachingId = $this->getParameter('id');
         $teaching = isset($teachingId) ? $this->teachingModel->getById($teachingId) : null;
         $teachers = $this->teacherModel->getAll();
-        $subjectsInField = $this->subjectInFieldModel->getAll();
+        $subjectsInPlan = $this->subjectInPlanModel->getAll();
         $roles = $this->roleModel->getAll();
 
         $form = new Form;
 
-        $form->addSelect('subjectInField', 'Předmět v oboru', array_reduce($subjectsInField, function ($result, $subjectInField) {
-            $result[$subjectInField['id']] = $subjectInField['obor'] . ' - ' . $subjectInField['predmet'];
+        $form->addSelect('subjectInPlan', 'Předmět ve studijním plánu', array_reduce($subjectsInPlan, function ($result, $subjectInPlan) {
+            $result[$subjectInPlan['id']] = $subjectInPlan['plan'] . ' - ' . $subjectInPlan['predmet'];
             return $result;
         }))
-            ->setDefaultValue($teaching['predm_obor_id'])
-            ->setRequired("Prosím vyplňte předmět v oboru");
+            ->setDefaultValue($teaching['predm_plan_id'])
+            ->setRequired("Prosím vyplňte předmět ve studijním plánu");
 
         $form->addSelect('teacher', 'Vyučující', array_reduce($teachers, function ($result, $teacher) {
             $result[$teacher['id']] = $teacher['jmeno'] . ' ' . $teacher['prijmeni'];
@@ -86,8 +86,8 @@ class TeachingPresenter extends BasePresenter {
         $this->template->teachings = $this->teachingModel->getAll();
         $this->template->tabs = [
             'Studijní plány' => 'StudyPlan:',
-            'Předměty v oboru' => 'SubjectInField:',
-            'Způsoby výuky předmětu' => 'CourseTypeInField:'
+            'Předměty ve studijním plánu' => 'SubjectInPlan:',
+            'Způsoby výuky předmětu' => 'CourseTypeInPlan:'
         ];
     }
 

@@ -68,8 +68,8 @@ class StudyPlanPresenter extends BasePresenter {
     public function renderDefault(): void {
         $this->template->studyPlans = $this->studyPlanModel->getAll();
         $this->template->tabs = [
-            'Předměty v oboru' => 'SubjectInField:',
-            'Způsoby výuky předmětu' => 'CourseTypeInField:',
+            'Předměty ve studijním plánu' => 'SubjectInPlan:',
+            'Způsoby výuky předmětu' => 'CourseTypeInPlan:',
             'Učí' => 'Teaching:'
         ];
     }

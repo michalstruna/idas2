@@ -16,10 +16,11 @@ JOIN sem_zpus_zak ON sem_zpus_zak.ID = sem_predmet.zpusob_zakonceni_id
 JOIN sem_forma_vyuky ON SEM_FORMA_VYUKY.id = sem_predmet.forma_vyuky_id;
 
 CREATE OR REPLACE VIEW SEM_P_PREDM_PLAN AS
-SELECT SEM_PREDM_PLAN.*, sem_kategorie.nazev as "kategorie", SEM_STUD_PLAN.nazev as "plan", sem_predmet.nazev as "predmet"
+SELECT SEM_PREDM_PLAN.*, sem_kategorie.nazev as "kategorie", SEM_STUD_PLAN.nazev as "plan", sem_predmet.nazev as "predmet", sem_semestr.nazev as "semestr"
 FROM SEM_PREDM_PLAN
 JOIN SEM_KATEGORIE ON SEM_KATEGORIE.ID = SEM_PREDM_PLAN.KATEGORIE_ID
 JOIN SEM_STUD_PLAN ON SEM_STUD_PLAN.ID = SEM_PREDM_PLAN.STUDIJNI_PLAN_ID
+JOIN SEM_SEMESTR ON SEM_SEMESTR.ID = SEM_PREDM_PLAN.SEMESTR_ID
 JOIN sem_predmet ON sem_predmet.ID = SEM_PREDM_PLAN.predmet_id
 ORDER BY SEM_STUD_PLAN.nazev, sem_predmet.nazev, sem_kategorie.nazev, rocnik;
 
