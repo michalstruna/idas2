@@ -18,7 +18,7 @@ class TabMenuControl extends Control {
 
     /**
      * Render control.
-     * @param array $tabs Associative array of links. Each item is pair text => action.
+     * @param array $tabs Associative array of links. Each item is pair text => action. Action also can be array [action, parameter].
      */
     public function render(array $tabs): void {
         $template = $this->template;

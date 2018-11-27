@@ -12,15 +12,18 @@ use Nette\InvalidArgumentException;
 use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
 use App\Model\UserModel;
+use App\Model\TeacherModel;
 use Nette\Utils\ArrayHash;
 
 class UserPresenter extends BasePresenter {
 
     private $userModel;
+    private $teacherModel;
 
-    public function __construct(UserModel $userModel) {
+    public function __construct(UserModel $userModel, TeacherModel $teacherModel) {
         parent::__construct();
         $this->userModel = $userModel;
+        $this->teacherModel = $teacherModel;
     }
 
     /**
@@ -30,6 +33,7 @@ class UserPresenter extends BasePresenter {
     protected function createComponentEditUserForm(): Form {
         $userId = $this->getParameter('id');
         $user = isset($userId) ? $this->userModel->getById($userId) : null;
+        $teachers = $this->teacherModel->getAll();
 
         $form = new Form;
         $form->addEmail('email', 'Email')
@@ -41,6 +45,13 @@ class UserPresenter extends BasePresenter {
         $form->addPassword('password', 'Nové heslo');
 
         $form->addPassword('passwordAgain', 'Nové heslo znovu');
+
+        $form->addSelect('teacher', 'Učitel', array_reduce($teachers, function ($result, $teacher) {
+            $result[$teacher['id']] = $teacher['dlouhe_jmeno'];
+            return $result;
+        }))
+            ->setPrompt('Bez učitele')
+            ->setDefaultValue($user['ucitel_id']);
 
         $form->addSubmit('send', $user ? 'Upravit' : 'Přidat');
 
@@ -54,9 +65,7 @@ class UserPresenter extends BasePresenter {
     }
 
     public function renderEdit(string $id) {
-        $this->requireAdmin();
-
-        if(!$this->getUser()->getId() !== $this->getParameterId('id')) {
+        if(!$this->isOwner()) {
             $this->requireAdmin();
         }
 
@@ -64,7 +73,7 @@ class UserPresenter extends BasePresenter {
         $this->template->tabs = [];
 
         if($this->getUser()->isInRole('teacher')) {
-           $this->template->tabs[] = ['Profil' => 'Teacher:'];
+           $this->template->tabs['Můj profil'] = ['Teacher:edit', $this->getUser()->getIdentity()->teacherId];
         }
 
         $this->template->tabs['Odhlásit se'] = 'Sign:out';
@@ -85,7 +94,9 @@ class UserPresenter extends BasePresenter {
                 }
 
                 $this->userModel->updateById($this->getParameter('id'), $form->getValues(true));
+                $this->getUser()->getIdentity()->teacherId = $values['teacher'];
                 $this->flashMessage('Účet byl upraven.', self::$SUCCESS);
+                // TODO: Reauthenticate, if user changes roles himself?
 
                 if(!$this->isOwner()) {
                     $this->redirect('User:');
@@ -99,7 +110,7 @@ class UserPresenter extends BasePresenter {
     }
 
     /**
-     * ID of edited and logged user is same.
+     * ID of edited and logged user are same.
      * @return bool User is owner of this account.
      */
     private function isOwner(): bool {

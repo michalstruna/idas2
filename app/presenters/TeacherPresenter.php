@@ -99,11 +99,15 @@ class TeacherPresenter extends BasePresenter {
     }
 
     public function renderEdit(string $id): void {
-        if ($this->user->isInRole('teacher') && $this->user->identity->teacherId === $id) {
-            return;
+        if(!$this->isOwner()) {
+            $this->requireAdmin();
         }
 
-        $this->requireAdmin();
+        $this->template->isOwner = $this->isOwner();
+        $this->template->tabs = [
+            'Učitelé' => 'Teacher:',
+            'Můj účet' => ['User:edit', $this->getUser()->getId()]
+        ];
     }
 
     public function renderAdd(): void {
@@ -147,5 +151,15 @@ class TeacherPresenter extends BasePresenter {
 
         $this->redirect('Teacher:');
     }
+
+    /**
+     * ID of edited teacher and logged user are same.
+     * @return bool User and teacher are same.
+     */
+    private function isOwner(): bool {
+        $id = $this->getParameter('id');
+        return isset($id) && $this->getUser()->getIdentity()->teacherId === $id;
+    }
+
 
 }
