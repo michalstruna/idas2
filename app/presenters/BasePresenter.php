@@ -34,6 +34,10 @@ abstract class BasePresenter extends Presenter {
             'Rozvrhy' => ['Schedule:', []]
         ];
 
+        if ($this->user->isInRole('admin')) {
+            $this->template->menuItems['Uživatelé'] = ['User:', []];
+        }
+
         if ($this->user->isLoggedIn()) {
             $this->template->menuItems['Můj účet'] = ['User:edit', [], $this->getUser()->id];
         } else {

@@ -65,6 +65,7 @@ class UserPresenter extends BasePresenter {
     }
 
     public function renderDefault(): void {
+        $this->requireAdmin();
         $this->template->users = $this->userModel->getAll();
         $this->template->tabs = [];
     }
@@ -84,6 +85,10 @@ class UserPresenter extends BasePresenter {
         $this->template->tabs['Odhlásit se'] = 'Sign:out';
     }
 
+    public function renderAdd(): void {
+        $this->requireAdmin();
+    }
+
     /**
      * Handler for edit user.
      * @param Form $form
@@ -93,6 +98,8 @@ class UserPresenter extends BasePresenter {
         try {
             if(empty($this->getParameter('id'))) {
                 $this->requireAdmin();
+                $this->userModel->insert($form->getValues(true));
+                $this->flashMessage('Uživatel byl přidán.', self::$SUCCESS);
             } else {
                 if(!$this->isOwner()) {
                     $this->requireAdmin();

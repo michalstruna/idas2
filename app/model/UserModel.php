@@ -61,7 +61,7 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
     }
 
     public function getAll(): array {
-        return $this->database->fetchAll('SELECT * FROM sem_uzivatel');
+        return $this->database->fetchAll('SELECT * FROM sem_p_uzivatel');
     }
 
     public function getById(string $id) {
@@ -93,9 +93,11 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
 
     public function insert(array $item): void {
         $this->database->query(
-            ' INSERT INTO sem_uzivatel (id, email, heslo) VALUES (SEM_UZIVATEL_SEQ.NEXVAL, ?, ?',
+            ' INSERT INTO sem_uzivatel (id, email, heslo, admin) VALUES (SEM_UZIVATEL_SEQ.NEXVAL, ?, ?, ?)',
             $item['email'],
-            self::hashPassword($item['password'])
+            self::hashPassword($item['password'],
+                $item['admin']
+            )
         );
     }
 
@@ -107,6 +109,5 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
     private function hashPassword(string $password): string {
         return Passwords::hash($password, ['cost' => 10]);
     }
-
 
 }
