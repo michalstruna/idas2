@@ -62,7 +62,6 @@ final class SignPresenter extends BasePresenter {
      * Logout user and redirect to homepage.
      */
     public function actionOut(): void {
-        // TODO: Create ACL using new Nette\Security\Permission and check $user->isAllowed('logout').
         $this->getUser()->logout();
         $this->flashMessage('Odhlášení bylo úspěšné.');
         $this->redirect('Homepage:');

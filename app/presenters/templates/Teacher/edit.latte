@@ -1,11 +1,22 @@
 {block content}
 
-<section class="item__edit">
-    <a n:href="Teacher:" class="button button--large button--back">&larr;</a>
-    <section class="block">
-        <h1 n:block="title" class="form__title">
-            Úprava učitele
+<section>
+    <header class="item__list__header" n:if="$isOwner">
+        <h1 class="item__list__title">
+            Můj profil
         </h1>
-        {control editTeacherForm}
+
+        {control tabMenu, $tabs}
+    </header>
+
+    <a n:if="!$isOwner" n:href="Teacher:" class="button button--large button--back">&larr;</a> {* TODO: Move all back buttons to tab menu. *}
+
+    <section n:class="item__edit, $isOwner ? item__edit--wrap-content">
+        <section class="block">
+            <h1 n:block="title" class="form__title">
+                Úprava učitele
+            </h1>
+            {control editTeacherForm}
+        </section>
     </section>
 </section>

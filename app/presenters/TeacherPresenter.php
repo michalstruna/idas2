@@ -100,11 +100,15 @@ class TeacherPresenter extends BasePresenter {
     }
 
     public function renderEdit(string $id): void {
-        if ($this->user->isInRole('teacher') && $this->user->identity->teacherId === $id) {
-            return;
+        if(!$this->isOwner()) {
+            $this->requireAdmin();
         }
 
-        $this->requireAdmin();
+        $this->template->isOwner = $this->isOwner();
+        $this->template->tabs = [
+            'Učitelé' => 'Teacher:',
+            'Můj účet' => ['User:edit', $this->getUser()->getId()]
+        ];
     }
 
     public function renderAdd(): void {
@@ -162,4 +166,5 @@ class TeacherPresenter extends BasePresenter {
         $id = $this->getParameter('id');
         return isset($id) && $this->getUser()->getIdentity()->teacherId === $id;
     }
+
 }

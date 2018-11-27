@@ -80,7 +80,6 @@ class FacultyPresenter extends BasePresenter {
         } catch(DriverException $exception) {
             $this->showErrorMessage($exception);
         }
-
     }
 
     /**

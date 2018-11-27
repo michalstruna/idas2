@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    position: absolute;
+    position: fixed;
     width: 7rem;
 }
 
@@ -67,9 +67,13 @@ body {
 .item__edit, .login {
     align-items: center;
     display: flex;
-    height: calc(100vh - 2rem);
+    min-height: calc(100vh - 2rem);
     justify-content: center;
     width: 100%;
+}
+
+.item__edit--wrap-content {
+    min-height: 0;
 }
 
 .login input, .item__edit input {

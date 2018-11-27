@@ -1,0 +1,13 @@
+{block content}
+
+<section class="item__list">
+    <header class="item__list__header">
+        <h1 n:block="title" class="item__list__title">
+            Uživatelé ({count($users)})
+        </h1>
+
+        {control tabMenu, $tabs}
+    </header>
+
+    {control table, $users, $isAdmin, ['email', 'E-mail'], ['ucitel', 'Učitel'], ['admin', 'Je admin?'] }
+</section>
