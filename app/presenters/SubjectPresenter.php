@@ -101,6 +101,7 @@ final class SubjectPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function onEdit(Form $form): void {
+        $this->requireAdmin();
         try {
             if (empty($this->getParameter('id'))) {
                 $this->subjectModel->insert($form->getValues(true));
@@ -122,6 +123,7 @@ final class SubjectPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function actionDelete(string $id): void {
+        $this->requireAdmin();
         try {
             $this->subjectModel->deleteById($id);
             $this->flashMessage('Předmět byl vymazán.', self::$SUCCESS);

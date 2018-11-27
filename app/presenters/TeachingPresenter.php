@@ -104,6 +104,7 @@ class TeachingPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function onEdit(Form $form): void {
+        $this->requireAdmin();
         try {
             if(empty($this->getParameter('id'))) {
                 $this->teachingModel->insert($form->getValues(true));
@@ -125,6 +126,7 @@ class TeachingPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function actionDelete(string $id): void {
+        $this->requireAdmin();
         try {
             $this->teachingModel->deleteById($id);
             $this->flashMessage('Učení předmětu bylo vymazáno.', self::$SUCCESS);

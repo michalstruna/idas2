@@ -72,6 +72,7 @@ class RoomPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function onEdit(Form $form): void {
+        $this->requireAdmin();
         try {
             if(empty($this->getParameter('id'))) {
                 $this->roomModel->insert($form->getValues(true));
@@ -93,6 +94,7 @@ class RoomPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function actionDelete(string $id): void {
+        $this->requireAdmin();
         try {
             $this->roomModel->deleteById($id);
             $this->flashMessage('Místnost byla vymazána.', self::$SUCCESS);
