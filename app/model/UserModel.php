@@ -8,12 +8,12 @@
 
 namespace App\Model;
 
+use Nette\Database\Row;
 use Nette\Security\IAuthenticator;
 use Nette\Security\IIdentity;
 use Nette\Security\Identity;
 use Nette\Security\AuthenticationException;
 use Nette\Security\Passwords;
-use Nette\Security\User;
 
 final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrapper {
 
@@ -21,24 +21,43 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
         $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE email = ?', $credentials[0]);
 
         if ($user !== null && Passwords::verify($credentials[1], $user['heslo'])) {
-            $roles = [];
-
-            if ($user['admin']) {
-                $roles[] = 'admin';
-            }
-
-            if ($user['ucitel_id'] !== null) {
-                $roles[] = 'teacher';
-            }
-
-            $data = [
-                'teacherId' => $user['ucitel_id']
-            ];
-
-            return new Identity($user['id'], $roles, $data);
+            return $this->handleUserIdentity($user);
         }
 
         throw new AuthenticationException('Neplatné jméno nebo heslo.', self::IDENTITY_NOT_FOUND);
+    }
+
+    /**
+     * @param $id
+     * @return IIdentity
+     * @throws AuthenticationException
+     */
+    public function authenticateById($id): IIdentity {
+        $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE id = ?', $id);
+
+        if ($user !== null) {
+            return $this->handleUserIdentity($user);
+        }
+
+        throw new AuthenticationException('Neplatný uživatel.', self::IDENTITY_NOT_FOUND);
+    }
+
+    private function handleUserIdentity(Row $user): IIdentity {
+        $roles = [];
+
+        if ($user['admin']) {
+            $roles[] = 'admin';
+        }
+
+        if ($user['ucitel_id'] !== null) {
+            $roles[] = 'teacher';
+        }
+
+        $data = [
+            'teacherId' => $user['ucitel_id']
+        ];
+
+        return new Identity($user['id'], $roles, $data);
     }
 
     public function getAll(): array {
@@ -50,7 +69,7 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
     }
 
     public function updateById(string $id, array $changes): void {
-        if(empty($changes['password'])) {
+        if (empty($changes['password'])) {
             $this->database->query(
                 'UPDATE sem_uzivatel SET email = ?, ucitel_id = ? WHERE id = ?',
                 $changes['email'],

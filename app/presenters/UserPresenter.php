@@ -13,6 +13,7 @@ use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
 use App\Model\UserModel;
 use App\Model\TeacherModel;
+use Nette\Security\AuthenticationException;
 use Nette\Utils\ArrayHash;
 
 class UserPresenter extends BasePresenter {
@@ -77,32 +78,37 @@ class UserPresenter extends BasePresenter {
         $this->template->tabs = [];
 
         if($this->getUser()->isInRole('teacher')) {
-           $this->template->tabs['Můj profil'] = ['Teacher:edit', $this->getUser()->getIdentity()->teacherId];
+           $this->template->tabs['Můj profil učitele'] = ['Teacher:edit', $this->getUser()->getIdentity()->teacherId];
         }
 
         $this->template->tabs['Odhlásit se'] = 'Sign:out';
     }
 
     /**
-     * Handler for edit room user.
+     * Handler for edit user.
      * @param Form $form
      * @throws \Nette\Application\AbortException
      */
     public function onEdit(Form $form, ArrayHash $values): void {
         try {
             if(empty($this->getParameter('id'))) {
-
+                $this->requireAdmin();
             } else {
+                if(!$this->isOwner()) {
+                    $this->requireAdmin();
+                }
+
                 if($values['password'] !== $values['passwordAgain']) {
                     throw new InvalidArgumentException('Hesla se neshodují.');
                 }
 
                 $this->userModel->updateById($this->getParameter('id'), $form->getValues(true));
-                //$this->getUser()->getIdentity()->teacherId = $values['teacher'];
                 $this->flashMessage('Účet byl upraven.', self::$SUCCESS);
-                // TODO: Reauthenticate, if user changes roles himself?
 
-                if(!$this->isOwner()) {
+
+                $this->handleReAuthentication();
+
+                if($this->user->isInRole('admin')) {
                     $this->redirect('User:');
                 }
             }
@@ -114,12 +120,41 @@ class UserPresenter extends BasePresenter {
     }
 
     /**
+     * Delete user by ID.
+     * @param string $id
+     * @throws \Nette\Application\AbortException
+     */
+    public function actionDelete(string $id): void {
+        $this->requireAdmin();
+        try {
+            $this->userModel->deleteById($id);
+            $this->handleReAuthentication();
+            $this->flashMessage('Uživatel byl vymazán.', self::$SUCCESS);
+        } catch (DriverException $exception) {
+            $this->showErrorMessage($exception);
+        }
+
+        $this->redirect('Room:');
+    }
+
+    /**
      * ID of edited and logged user are same.
      * @return bool User is owner of this account.
      */
     private function isOwner(): bool {
         $id = $this->getParameter('id');
         return isset($id) && $this->getUser()->getId() === intval($this->getParameter('id'));
+    }
+
+    private function handleReAuthentication() {
+        if ($this->isOwner()) {
+            try {
+                $this->user->login($this->userModel->authenticateById($this->getParameter('id')));
+            } catch (AuthenticationException $exception) {
+                $this->redirect('SIgn:out');
+                $this->flashMessage($exception->getMessage(), self::$ERROR);
+            }
+        }
     }
 
 }
