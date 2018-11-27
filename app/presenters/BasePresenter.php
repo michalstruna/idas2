@@ -53,8 +53,25 @@ abstract class BasePresenter extends Presenter {
     }
 
     protected function showErrorMessage(DriverException $exception) {
-        $code = 'ORA-' . $exception->getDriverCode();
-        $this->flashMessage("Něco se pokazilo (code: $code).", self::$ERROR);
+        switch ($exception->getDriverCode()) {
+            case 1:
+                $message = 'Porušena unikátnost záznamů.';
+                break;
+            case 1400:
+                $message = 'Některá ze zadaných hodnot nesmí být prázdná.';
+                break;
+            case 2292;
+                $message = 'Nevyřešené závislosti (záznam nejde smazat dokud nebudou smazány všechny záznamy, které na něm závisí).';
+                break;
+            case 12899;
+                $message = 'Zadaná hodnota je příliš dlouhá.';
+                break;
+            default:
+                $code = 'ORA-' . $exception->getDriverCode();
+                $message = "Něco se pokazilo (code: $code).";
+                break;
+        }
+        $this->flashMessage($message, self::$ERROR);
     }
 
     protected function requireAdmin() {

@@ -107,6 +107,8 @@ CREATE TABLE sem_predm_obor (
 
 ALTER TABLE sem_predm_obor ADD CONSTRAINT sem_predm_obor_pk PRIMARY KEY ( id );
 
+ALTER TABLE sem_predm_obor ADD CONSTRAINT sem_predm_obor_uni UNIQUE ( kategorie_id, obor_id, predmet_id );
+
 CREATE TABLE sem_predmet (
     id                    INTEGER NOT NULL,
     zkratka               VARCHAR2(10 CHAR) NOT NULL,
@@ -146,6 +148,8 @@ CREATE TABLE sem_uci (
 );
 
 ALTER TABLE sem_uci ADD CONSTRAINT sem_uci_pk PRIMARY KEY ( id );
+
+ALTER TABLE sem_uci ADD CONSTRAINT sem_uci_uni UNIQUE ( ucitel_id, role_id, predm_obor_id );
 
 CREATE TABLE sem_ucitel (
     id                INTEGER NOT NULL,

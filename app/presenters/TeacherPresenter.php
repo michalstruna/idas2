@@ -153,7 +153,7 @@ class TeacherPresenter extends BasePresenter {
 
         $this->redirect('Teacher:');
     }
-    
+
     /**
      * ID of edited teacher and logged user are same.
      * @return bool User and teacher are same.
