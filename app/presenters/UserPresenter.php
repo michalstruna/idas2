@@ -115,6 +115,7 @@ class UserPresenter extends BasePresenter {
 
                 $this->userModel->insert($form->getValues(true));
                 $this->flashMessage('Uživatel byl přidán.', self::$SUCCESS);
+                $this->redirect('User:');
             } else {
                 if (!$this->isOwner()) {
                     $this->requireAdmin();
@@ -132,6 +133,8 @@ class UserPresenter extends BasePresenter {
 
                 if ($this->user->isInRole('admin')) {
                     $this->redirect('User:');
+                } else {
+                    $this->redirect('User:edit', $this->getParameter('id'));
                 }
             }
         } catch (DriverException $exception) {
@@ -156,7 +159,7 @@ class UserPresenter extends BasePresenter {
             $this->showErrorMessage($exception);
         }
 
-        $this->redirect('Room:');
+        $this->redirect('User:');
     }
 
     /**
@@ -173,8 +176,9 @@ class UserPresenter extends BasePresenter {
             try {
                 $this->user->login($this->userModel->authenticateById($this->getParameter('id')));
             } catch (AuthenticationException $exception) {
-                $this->redirect('SIgn:out');
+                $this->getUser()->logout();
                 $this->flashMessage($exception->getMessage(), self::$ERROR);
+                $this->redirect('Homepage:');
             }
         }
     }

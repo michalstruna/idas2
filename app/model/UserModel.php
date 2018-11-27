@@ -20,7 +20,7 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
     public function authenticate(array $credentials): IIdentity {
         $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE email = ?', $credentials[0]);
 
-        if ($user !== null && Passwords::verify($credentials[1], $user['heslo'])) {
+        if ($user && Passwords::verify($credentials[1], $user['heslo'])) {
             return $this->handleUserIdentity($user);
         }
 
@@ -35,7 +35,7 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
     public function authenticateById($id): IIdentity {
         $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE id = ?', $id);
 
-        if ($user !== null) {
+        if ($user) {
             return $this->handleUserIdentity($user);
         }
 
@@ -69,6 +69,7 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
     }
 
     public function updateById(string $id, array $changes): void {
+        $changes['admin'] = $changes['admin'] ? 1 : 0;
         if (empty($changes['password'])) {
             $this->database->query(
                 'UPDATE sem_uzivatel SET email = ?, ucitel_id = ?, admin = ? WHERE id = ?',
@@ -94,12 +95,13 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
     }
 
     public function insert(array $item): void {
+        $item['admin'] = $item['admin'] ? 1 : 0;
         $this->database->query(
-            ' INSERT INTO sem_uzivatel (id, email, admin, ucitel_id, heslo) VALUES (SEM_UZIVATEL_SEQ.NEXVAL, ?, ?, ?, ?)',
+            'INSERT INTO sem_uzivatel (id, email, admin, ucitel_id, heslo) VALUES (SEM_UZIVATEL_SEQ.NEXTVAL, ?, ?, ?, ?)',
             $item['email'],
             $item['admin'],
             $item['teacher'],
-            $this->hashPassword($item['password'])
+            '' . $this->hashPassword($item['password'])
         );
     }
 
