@@ -73,6 +73,7 @@ class TeachingFormPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function onEdit(Form $form): void {
+        $this->requireAdmin();
         try {
             if(empty($this->getParameter('id'))) {
                 $this->teachingFormModel->insert($form->getValues(true));
@@ -94,6 +95,7 @@ class TeachingFormPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function actionDelete(string $id): void {
+        $this->requireAdmin();
         try {
             $this->teachingFormModel->deleteById($id);
             $this->flashMessage('Forma výuky byla vymazána.', self::$SUCCESS);
