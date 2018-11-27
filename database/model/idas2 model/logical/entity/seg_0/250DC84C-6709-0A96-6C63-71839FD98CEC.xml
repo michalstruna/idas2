@@ -65,7 +65,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="predm obor id" id="01DC93AF-4AD9-56ED-7977-88CD6FF63626">
+<Attribute name="predm plan id" id="01DC93AF-4AD9-56ED-7977-88CD6FF63626">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 10:35:36 UTC</createdTime>
 <generatorID>18EBAB98-60BD-FDB3-2194-046101BA4CDA</generatorID>

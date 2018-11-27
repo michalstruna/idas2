@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="496CBDF0-2C2A-37FB-9928-803446CE0865" name="sem_semestr">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:19:44 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<ordsAlias>table_20</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="E1ED4245-987C-2FC5-B5EC-8471272C241A">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:20:10 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev" id="4AB7FD6C-F7F8-C2E1-8541-01AAE90B4A26">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:20:10 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2DE2BDBF-4CE1-1F0E-A09A-ABB78A005331" name="sem_semestr_PK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:20:10 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E1ED4245-987C-2FC5-B5EC-8471272C241A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

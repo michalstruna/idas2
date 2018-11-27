@@ -67,7 +67,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="zpusob vyuky predmetu id" id="B2730DDC-ED30-94B4-956E-9E49A098FBDC">
+<Attribute name="zpusob zakonceni predmetu id" id="B2730DDC-ED30-94B4-956E-9E49A098FBDC">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 12:36:59 UTC</createdTime>
 <generatorID>A6674A96-E201-76D8-3F28-FC2F29FC1105</generatorID>

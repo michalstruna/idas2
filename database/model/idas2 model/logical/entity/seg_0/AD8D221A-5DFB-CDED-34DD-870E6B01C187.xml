@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AD8D221A-5DFB-CDED-34DD-870E6B01C187" name="sem semestr">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:26:28 UTC</createdTime>
+<generatorID>496CBDF0-2C2A-37FB-9928-803446CE0865</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="86E46861-9064-4B40-D712-FA79C46B12B8">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:26:28 UTC</createdTime>
+<generatorID>E1ED4245-987C-2FC5-B5EC-8471272C241A</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nazev" id="C6F84DD2-CFEA-6257-75C5-8E441A4779A7">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:26:28 UTC</createdTime>
+<generatorID>4AB7FD6C-F7F8-C2E1-8541-01AAE90B4A26</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="910E0E1E-51B8-2DCC-DAD8-321617020EE0" name="sem semestr PK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:26:28 UTC</createdTime>
+<generatorID>2DE2BDBF-4CE1-1F0E-A09A-ABB78A005331</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>86E46861-9064-4B40-D712-FA79C46B12B8</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

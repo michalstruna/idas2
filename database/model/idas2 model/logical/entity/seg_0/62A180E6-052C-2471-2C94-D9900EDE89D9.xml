@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="62A180E6-052C-2471-2C94-D9900EDE89D9" name="sem obor">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="62A180E6-052C-2471-2C94-D9900EDE89D9" name="sem stud plan">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 10:36:21 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
@@ -52,9 +52,23 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="obor id" id="839813D5-2DA7-478C-4386-631DBA7AAF17">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:26:28 UTC</createdTime>
+<generatorID>6DD430EC-AE6A-F275-FC3B-0A1815E7406C</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<referedAttribute>75926690-59D1-D9E2-4252-7FDEB59BD025</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="D6246EB7-6859-A5F9-9AD2-E3591746FC21" name="sem_obor_PK">
+<identifier id="D6246EB7-6859-A5F9-9AD2-E3591746FC21" name="sem_obor_PKv3">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 10:36:33 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
