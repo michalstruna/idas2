@@ -598,7 +598,7 @@ INSERT INTO SEM_UCITEL (ID, TITUL_PRED, TITUL_ZA, KONTAKTNI_EMAIL, TELEFON, MOBI
 VALUES (SEM_UCITEL_SEQ.NEXTVAL, '', '', 'jana.mikulecka@upce.cz', '', '', 42.0, 'Jana', 'Mikulecka');
 
 INSERT INTO SEM_UCITEL (ID, TITUL_PRED, TITUL_ZA, KONTAKTNI_EMAIL, TELEFON, MOBIL, KATEDRA_ID, JMENO, PRIJMENI)
-VALUES (SEM_UCITEL_SEQ.NEXTVAL, 'PhDr.', '', 'olga.mitchell@upce.cz', '4,20466E+11', '', 6.0, 'Olga', 'Mitchell');
+VALUES (SEM_UCITEL_SEQ.NEXTVAL, 'PhDr.', '', 'olga.mitchell@upce.cz', '+420773758223', '', 6.0, 'Olga', 'Mitchell');
 
 INSERT INTO SEM_UCITEL (ID, TITUL_PRED, TITUL_ZA, KONTAKTNI_EMAIL, TELEFON, MOBIL, KATEDRA_ID, JMENO, PRIJMENI)
 VALUES (SEM_UCITEL_SEQ.NEXTVAL, 'RNDr. et PhDr.', 'Ph.D.', 'ivo.muller@upce.cz', '', '', 33.0, 'Ivo', 'M�ller');
@@ -793,7 +793,7 @@ INSERT INTO SEM_UCITEL (ID, TITUL_PRED, TITUL_ZA, KONTAKTNI_EMAIL, TELEFON, MOBI
 VALUES (SEM_UCITEL_SEQ.NEXTVAL, 'Mgr.', '', 'jaroslav.vozab@upce.cz', '', '', 33.0, 'Jaroslav', 'Vozab');
 
 INSERT INTO SEM_UCITEL (ID, TITUL_PRED, TITUL_ZA, KONTAKTNI_EMAIL, TELEFON, MOBIL, KATEDRA_ID, JMENO, PRIJMENI)
-VALUES (SEM_UCITEL_SEQ.NEXTVAL, 'Mgr.', '', 'janet.wolf@upce.cz', '4,20466E+11', '', 6.0, 'Janet', 'Wolf');
+VALUES (SEM_UCITEL_SEQ.NEXTVAL, 'Mgr.', '', 'janet.wolf@upce.cz', '+420604769254', '', 6.0, 'Janet', 'Wolf');
 
 INSERT INTO SEM_UCITEL (ID, TITUL_PRED, TITUL_ZA, KONTAKTNI_EMAIL, TELEFON, MOBIL, KATEDRA_ID, JMENO, PRIJMENI)
 VALUES (SEM_UCITEL_SEQ.NEXTVAL, 'Ing.', '', 'tomas.zalabsky@student.upce.cz', '', '', 18.0, 'Tomas', 'Zalabsky');
