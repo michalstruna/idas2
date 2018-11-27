@@ -46,12 +46,16 @@ class UserPresenter extends BasePresenter {
 
         $form->addPassword('passwordAgain', 'Nové heslo znovu');
 
-        $form->addSelect('teacher', 'Učitel', array_reduce($teachers, function ($result, $teacher) {
-            $result[$teacher['id']] = $teacher['dlouhe_jmeno'];
-            return $result;
-        }))
-            ->setPrompt('Bez učitele')
-            ->setDefaultValue($user['ucitel_id']);
+        if($this->user->isInRole('admin')) {
+            $form->addSelect('teacher', 'Učitel', array_reduce($teachers, function ($result, $teacher) {
+                $result[$teacher['id']] = $teacher['dlouhe_jmeno'];
+                return $result;
+            }))
+                ->setPrompt('Bez učitele')
+                ->setDefaultValue($user['ucitel_id']);
+        } else {
+            $form->addHidden('teacher', $user['ucitel_id']);
+        }
 
         $form->addSubmit('send', $user ? 'Upravit' : 'Přidat');
 
@@ -94,7 +98,7 @@ class UserPresenter extends BasePresenter {
                 }
 
                 $this->userModel->updateById($this->getParameter('id'), $form->getValues(true));
-                $this->getUser()->getIdentity()->teacherId = $values['teacher'];
+                //$this->getUser()->getIdentity()->teacherId = $values['teacher'];
                 $this->flashMessage('Účet byl upraven.', self::$SUCCESS);
                 // TODO: Reauthenticate, if user changes roles himself?
 

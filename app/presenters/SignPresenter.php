@@ -54,7 +54,7 @@ final class SignPresenter extends BasePresenter {
      */
     public function renderIn(): void {
         if ($this->getUser()->isLoggedIn()) {
-            $this->redirect('Home:');
+            $this->redirect('Homepage:');
         }
     }
 
