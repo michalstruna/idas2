@@ -73,7 +73,7 @@ body {
 }
 
 .item__edit--wrap-content {
-    height: auto;
+    min-height: 0;
 }
 
 .login input, .item__edit input {
