@@ -833,13 +833,13 @@ VALUES (SEM_KATEGORIE_SEQ.NEXTVAL, 'C');
 -- Forma výuky: -------------------------------------------------------------------------------------------------------
 
 INSERT INTO SEM_FORMA_VYUKY (ID, NAZEV)
-VALUES (SEM_FORMA_VYUKY_SEQ.NEXTVAL, 'Prezenční');
+VALUES (SEM_FORMA_VYUKY_SEQ.NEXTVAL, 'Prezencni');
 
 INSERT INTO SEM_FORMA_VYUKY (ID, NAZEV)
-VALUES (SEM_FORMA_VYUKY_SEQ.NEXTVAL, 'Kombinovaná');
+VALUES (SEM_FORMA_VYUKY_SEQ.NEXTVAL, 'Kombinovana');
 
 INSERT INTO SEM_FORMA_VYUKY (ID, NAZEV)
-VALUES (SEM_FORMA_VYUKY_SEQ.NEXTVAL, 'Distanční');
+VALUES (SEM_FORMA_VYUKY_SEQ.NEXTVAL, 'Distancni');
 
 -- Role: --------------------------------------------------------------------------------------------------------------
 
