@@ -20,7 +20,7 @@ class StudyFieldModel extends BaseModel implements IDatabaseWrapper {
     }
 
     public function updateById(string $id, array $changes): void {
-        $this->database->query('UPDATE SEM_OBOR SET NAZEV=?, ODHAD_STUDENTU=? WHERE ID=?', $changes['name'], $changes['students'], $id);
+        $this->database->query('UPDATE SEM_OBOR SET NAZEV=? WHERE ID=?', $changes['name'], $id);
     }
 
     public function deleteById(string $id): void {
@@ -28,6 +28,6 @@ class StudyFieldModel extends BaseModel implements IDatabaseWrapper {
     }
 
     public function insert(array $item): void {
-        $this->database->query('INSERT INTO SEM_OBOR (id, nazev, ODHAD_STUDENTU) VALUES (SEM_OBOR_SEQ.NEXTVAL, ?, ?)', $item['name'], $item['students']);
+        $this->database->query('INSERT INTO SEM_OBOR (id, nazev) VALUES (SEM_OBOR_SEQ.NEXTVAL, ?)', $item['name']);
     }
 }

@@ -28,7 +28,7 @@ class StudyFieldPresenter extends BasePresenter {
     }
 
     /**
-     * Create edit course type form.
+     * Create edit study field form.
      * @return Form Edit completion type form
      */
     protected function createComponentEditStudyFieldForm(): Form {
@@ -41,11 +41,6 @@ class StudyFieldPresenter extends BasePresenter {
             ->setHtmlAttribute('autocomplete', 'off')
             ->setDefaultValue($studyField ? $studyField['nazev'] : '')
             ->setMaxLength(50);
-
-        $form->addInteger('students', 'Odhad počtu studentů')
-            ->setRequired('Prosím vyplňte odhad počtu studentů.')
-            ->setHtmlAttribute('autocomplete', 'off')
-            ->setDefaultValue($studyField ? $studyField['odhad_studentu'] : '');
 
         $form->addSubmit('send', $studyField ? 'Upravit' : 'Přidat');
 

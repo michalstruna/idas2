@@ -30,7 +30,7 @@ abstract class BasePresenter extends Presenter {
             'Pracoviště' => ['Department:', ['Faculty', 'Room']],
             'Předměty' => ['Subject:', ['CompletionType', 'TeachingForm', 'Category', 'CourseType']],
             'Obory' => ['StudyField:', []],
-            'Plány' => ['SubjectInField:', ['CourseTypeInField', 'Teaching']],
+            'Plány' => ['StudyPlan:', ['SubjectInField', 'CourseTypeInField', 'Teaching']],
             'Rozvrhy' => ['Schedule:', []]
         ];
 

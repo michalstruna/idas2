@@ -23,6 +23,7 @@ services:
 	role: App\Model\RoleModel
 	room: App\Model\RoomModel
 	studyField: App\Model\StudyFieldModel
+	studyPlan: App\Model\StudyPlanModel
 	subject: App\Model\SubjectModel
 	subjectInField: App\Model\SubjectInFieldModel
 	teacher: App\Model\TeacherModel

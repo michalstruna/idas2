@@ -85,6 +85,7 @@ class TeachingPresenter extends BasePresenter {
     public function renderDefault(): void {
         $this->template->teachings = $this->teachingModel->getAll();
         $this->template->tabs = [
+            'Studijní plány' => 'StudyPlan:',
             'Předměty v oboru' => 'SubjectInField:',
             'Způsoby výuky předmětu' => 'CourseTypeInField:'
         ];
