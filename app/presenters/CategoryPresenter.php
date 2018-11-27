@@ -72,6 +72,7 @@ class CategoryPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function onEdit(Form $form): void {
+        $this->requireAdmin();
         try {
             if(empty($this->getParameter('id'))) {
                 $this->categoryModel->insert($form->getValues(true));
@@ -93,6 +94,7 @@ class CategoryPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function actionDelete(string $id): void {
+        $this->requireAdmin();
         try {
             $this->categoryModel->deleteById($id);
             $this->flashMessage('Kategorie byla vymazána.', self::$SUCCESS);

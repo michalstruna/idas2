@@ -72,6 +72,7 @@ class StudyFieldPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function onEdit(Form $form): void {
+        $this->requireAdmin();
         try {
             if(empty($this->getParameter('id'))) {
                 $this->studyFieldModel->insert($form->getValues(true));
@@ -93,6 +94,7 @@ class StudyFieldPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function actionDelete(string $id): void {
+        $this->requireAdmin();
         try {
             $this->studyFieldModel->deleteById($id);
             $this->flashMessage('Obor byl vymazán.', self::$SUCCESS);

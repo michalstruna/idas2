@@ -85,6 +85,7 @@ class TeacherPresenter extends BasePresenter {
             $result[$department['id']] = $department['zkratka'] . ' - ' . $department['nazev'];
             return $result;
         }))
+            ->setDefaultValue($teacher['katedra_id'])
             ->setRequired("Prosím vyplňte katedru");;
 
         $form->addSubmit('send', $teacher ? 'Upravit' : 'Přidat');
@@ -95,7 +96,7 @@ class TeacherPresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->teachers = $this->teacherModel->getAll();
-        $this->template->tabs = [];
+        $this->template->tabs = ['Role' => 'Role:',];
     }
 
     public function renderEdit(string $id): void {
@@ -118,9 +119,13 @@ class TeacherPresenter extends BasePresenter {
     public function onEdit(Form $form): void {
         try {
             if(empty($this->getParameter('id'))) {
+                $this->requireAdmin();
                 $this->teacherModel->insert($form->getValues(true));
                 $this->flashMessage('Vyučující byl přidán.', self::$SUCCESS);
             } else {
+                if(!$this->isOwner()) {
+                    $this->requireAdmin();
+                }
                 $this->teacherModel->updateById($this->getParameter('id'), $form->getValues(true));
                 $this->flashMessage('Vyučující byl upraven.', self::$SUCCESS);
             }
@@ -138,6 +143,7 @@ class TeacherPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function actionDelete(string $id): void {
+        $this->requireAdmin();
         try {
             $this->teacherModel->deleteById($id);
             $this->flashMessage('Vyučující byl vymazán.', self::$SUCCESS);
@@ -148,4 +154,12 @@ class TeacherPresenter extends BasePresenter {
         $this->redirect('Teacher:');
     }
 
+    /**
+     * ID of edited teacher and logged user are same.
+     * @return bool User and teacher are same.
+     */
+    private function isOwner(): bool {
+        $id = $this->getParameter('id');
+        return isset($id) && $this->getUser()->getIdentity()->teacherId === $id;
+    }
 }

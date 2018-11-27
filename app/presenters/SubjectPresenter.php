@@ -34,7 +34,6 @@ final class SubjectPresenter extends BasePresenter {
         $this->completionTypeModel = $completionTypeModel;
     }
 
-
     /**
      * Create edit subject form.
      * @return Form Edit subject form
@@ -62,12 +61,14 @@ final class SubjectPresenter extends BasePresenter {
             $result[$teachingForm['id']] = $teachingForm['nazev'];
             return $result;
         }))
+            ->setDefaultValue($subject['forma_vyuky_id'])
             ->setRequired("Prosím vyplňte formu výuky");
 
         $form->addSelect('completionType', 'Způsob zakončení', array_reduce($completionType, function ($result, $completionType) {
             $result[$completionType['id']] =  $completionType['nazev'];
             return $result;
         }))
+            ->setDefaultValue($subject['zpusob_zakonceni_id'])
             ->setRequired("Prosím vyplňte způsob zakončení");
 
         $form->addSubmit('send', $subject ? 'Upravit' : 'Přidat');
@@ -100,6 +101,7 @@ final class SubjectPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function onEdit(Form $form): void {
+        $this->requireAdmin();
         try {
             if (empty($this->getParameter('id'))) {
                 $this->subjectModel->insert($form->getValues(true));
@@ -121,6 +123,7 @@ final class SubjectPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function actionDelete(string $id): void {
+        $this->requireAdmin();
         try {
             $this->subjectModel->deleteById($id);
             $this->flashMessage('Předmět byl vymazán.', self::$SUCCESS);

@@ -1,0 +1,13 @@
+{block content}
+
+<section class="item__list">
+    <header class="item__list__header">
+        <h1 n:block="title" class="item__list__title">
+            Učí ({count($teachings)})
+        </h1>
+
+        {control tabMenu, $tabs}
+    </header>
+
+    {control table, $teachings, $isAdmin, ['predmet', 'Předmět v oboru'], ['ucitel', 'Učitel'], ['role', 'Role'] }
+</section>
