@@ -71,17 +71,19 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
     public function updateById(string $id, array $changes): void {
         if (empty($changes['password'])) {
             $this->database->query(
-                'UPDATE sem_uzivatel SET email = ?, ucitel_id = ? WHERE id = ?',
+                'UPDATE sem_uzivatel SET email = ?, ucitel_id = ?, admin = ? WHERE id = ?',
                 $changes['email'],
                 $changes['teacher'],
+                $changes['admin'],
                 $id
             );
         } else {
             $this->database->query(
-                'UPDATE sem_uzivatel SET email = ?, ucitel_id = ?, heslo = ? WHERE id = ?',
+                'UPDATE sem_uzivatel SET email = ?, ucitel_id = ?, admin = ?, heslo = ? WHERE id = ?',
                 $changes['email'],
                 $changes['teacher'],
-                self::hashPassword($changes['password']),
+                $changes['admin'],
+                $this->hashPassword($changes['password']),
                 $id
             );
         }
@@ -93,11 +95,11 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
 
     public function insert(array $item): void {
         $this->database->query(
-            ' INSERT INTO sem_uzivatel (id, email, heslo, admin) VALUES (SEM_UZIVATEL_SEQ.NEXVAL, ?, ?, ?)',
+            ' INSERT INTO sem_uzivatel (id, email, admin, ucitel_id, heslo) VALUES (SEM_UZIVATEL_SEQ.NEXVAL, ?, ?, ?, ?)',
             $item['email'],
-            self::hashPassword($item['password'],
-                $item['admin']
-            )
+            $item['admin'],
+            $item['teacher'],
+            $this->hashPassword($item['password'])
         );
     }
 

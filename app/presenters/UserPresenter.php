@@ -43,19 +43,28 @@ class UserPresenter extends BasePresenter {
             ->setDefaultValue($user ? $user['email'] : '')
             ->setMaxLength(255);
 
-        $form->addPassword('password', 'Nové heslo');
+        $pass1 = $form->addPassword('password', $user ? 'Nové heslo' : 'Heslo');
 
-        $form->addPassword('passwordAgain', 'Nové heslo znovu');
+        $pass2 = $form->addPassword('passwordAgain', $user ? 'Nové heslo znovu' : 'Heslo znovu');
 
-        if($this->user->isInRole('admin')) {
+        if ($user === null) {
+            $pass1->setRequired('Prosím vyplňte heslo');
+            $pass2->setRequired('Prosím vyplňte heslo znovu');
+        }
+
+        if ($this->user->isInRole('admin')) {
             $form->addSelect('teacher', 'Učitel', array_reduce($teachers, function ($result, $teacher) {
                 $result[$teacher['id']] = $teacher['dlouhe_jmeno'];
                 return $result;
             }))
                 ->setPrompt('Bez učitele')
                 ->setDefaultValue($user['ucitel_id']);
+
+            $form->addCheckbox('admin', 'Uživatel je admin')
+                ->setDefaultValue($user ? $user['admin'] === '1' : false);
         } else {
             $form->addHidden('teacher', $user['ucitel_id']);
+            $form->addHidden('admin', $user['admin']);
         }
 
         $form->addSubmit('send', $user ? 'Upravit' : 'Přidat');
@@ -71,15 +80,15 @@ class UserPresenter extends BasePresenter {
     }
 
     public function renderEdit(string $id) {
-        if(!$this->isOwner()) {
+        if (!$this->isOwner()) {
             $this->requireAdmin();
         }
 
         $this->template->isOwner = $this->isOwner();
         $this->template->tabs = [];
 
-        if($this->getUser()->isInRole('teacher')) {
-           $this->template->tabs['Můj profil učitele'] = ['Teacher:edit', $this->getUser()->getIdentity()->teacherId];
+        if ($this->getUser()->isInRole('teacher')) {
+            $this->template->tabs['Můj profil učitele'] = ['Teacher:edit', $this->getUser()->getIdentity()->teacherId];
         }
 
         $this->template->tabs['Odhlásit se'] = 'Sign:out';
@@ -92,20 +101,26 @@ class UserPresenter extends BasePresenter {
     /**
      * Handler for edit user.
      * @param Form $form
+     * @param ArrayHash $values
      * @throws \Nette\Application\AbortException
      */
     public function onEdit(Form $form, ArrayHash $values): void {
         try {
-            if(empty($this->getParameter('id'))) {
+            if (empty($this->getParameter('id'))) {
                 $this->requireAdmin();
+
+                if ($values['password'] !== $values['passwordAgain']) {
+                    throw new InvalidArgumentException('Hesla se neshodují.');
+                }
+
                 $this->userModel->insert($form->getValues(true));
                 $this->flashMessage('Uživatel byl přidán.', self::$SUCCESS);
             } else {
-                if(!$this->isOwner()) {
+                if (!$this->isOwner()) {
                     $this->requireAdmin();
                 }
 
-                if($values['password'] !== $values['passwordAgain']) {
+                if ($values['password'] !== $values['passwordAgain']) {
                     throw new InvalidArgumentException('Hesla se neshodují.');
                 }
 
@@ -115,7 +130,7 @@ class UserPresenter extends BasePresenter {
 
                 $this->handleReAuthentication();
 
-                if($this->user->isInRole('admin')) {
+                if ($this->user->isInRole('admin')) {
                     $this->redirect('User:');
                 }
             }
