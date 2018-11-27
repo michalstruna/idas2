@@ -13,6 +13,7 @@ use Nette\Security\IIdentity;
 use Nette\Security\Identity;
 use Nette\Security\AuthenticationException;
 use Nette\Security\Passwords;
+use Nette\Security\User;
 
 final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrapper {
 
@@ -51,14 +52,16 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
     public function updateById(string $id, array $changes): void {
         if(empty($changes['password'])) {
             $this->database->query(
-                'UPDATE sem_uzivatel SET email = ? WHERE id = ?',
+                'UPDATE sem_uzivatel SET email = ?, ucitel_id = ? WHERE id = ?',
                 $changes['email'],
+                $changes['teacher'],
                 $id
             );
         } else {
             $this->database->query(
-                'UPDATE sem_uzivatel SET email = ?, heslo = ? WHERE id = ?',
+                'UPDATE sem_uzivatel SET email = ?, ucitel_id = ?, heslo = ? WHERE id = ?',
                 $changes['email'],
+                $changes['teacher'],
                 self::hashPassword($changes['password']),
                 $id
             );
