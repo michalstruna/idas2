@@ -9,7 +9,7 @@
 namespace App\Model;
 
 
-class CourseTypeInFieldModel  extends BaseModel implements IDatabaseWrapper {
+class CourseTypeInFieldModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array {
         return $this->database->fetchAll('SELECT * FROM SEM_P_ZPUS_PREDM');
