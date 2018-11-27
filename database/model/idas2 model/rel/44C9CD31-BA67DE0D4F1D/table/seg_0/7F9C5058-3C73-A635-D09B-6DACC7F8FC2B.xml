@@ -5,7 +5,6 @@
 <generatorID>62186B95-E4DE-937D-9250-A192700773BC</generatorID>
 <ownerDesignName>idas2 model</ownerDesignName>
 <ordsAlias>sem_predm_obor</ordsAlias>
-<useDDLTransformationScript>true</useDDLTransformationScript>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -106,7 +105,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="CDAF276C-7249-4AD0-D629-5B2D493783E7" name="sem_predm_obor_PK">
+<ind_PK_UK id="CDAF276C-7249-4AD0-D629-5B2D493783E7" name="sem_predm_plan_PK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>5C66A30B-A33E-FF55-68B7-2D4FA0EA9572</generatorID>

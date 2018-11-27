@@ -109,7 +109,7 @@ CREATE TABLE sem_predm_plan (
     semestr_id         INTEGER NOT NULL
 );
 
-ALTER TABLE sem_predm_plan ADD CONSTRAINT sem_predm_obor_pk PRIMARY KEY ( id );
+ALTER TABLE sem_predm_plan ADD CONSTRAINT sem_predm_plan_pk PRIMARY KEY ( id );
 
 ALTER TABLE sem_predm_plan ADD CONSTRAINT sem_predm_plan__un UNIQUE ( predmet_id,
 studijni_plan_id );
