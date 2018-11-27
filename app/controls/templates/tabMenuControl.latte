@@ -1,5 +1,5 @@
 {foreach $tabs as $key => $tab}
-    <a href={plink $tab} class="button button--flex button--large">
+    <a href={if is_array($tab)}{plink $tab[0], $tab[1]}{else}{plink $tab}{/if} class="button button--flex button--large">
         <span class="button--inner">
             {$key}
         </span>
