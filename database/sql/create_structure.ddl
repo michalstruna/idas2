@@ -143,10 +143,10 @@ CREATE TABLE sem_rozvrh (
 );
 
 COMMENT ON COLUMN sem_rozvrh.den_v_tydnu IS
-    'den v tydnu <0, 6> - 0 znamena pondeli, 6 znamena nedele';
+    'Den v tydnu <0, 6> - 0 znamena pondeli, 6 znamena nedele.';
 
 COMMENT ON COLUMN sem_rozvrh.schvaleno IS
-    'zda byla rozvrhova akce schvalena administratorem';
+    'Zda byla rozvrhova akce schvalena administratorem.';
 
 ALTER TABLE sem_rozvrh ADD CONSTRAINT sem_rozvrh_pk PRIMARY KEY ( id );
 

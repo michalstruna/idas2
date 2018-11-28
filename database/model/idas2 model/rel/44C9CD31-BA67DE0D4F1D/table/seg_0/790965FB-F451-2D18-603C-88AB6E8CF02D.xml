@@ -23,7 +23,7 @@
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <comment>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</comment>
-<commentInRDBMS>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</commentInRDBMS>
+<commentInRDBMS>Den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele.</commentInRDBMS>
 <generatorID>9313AB42-6F09-44B2-55DE-79EE75A0EEF6</generatorID>
 <ownerDesignName>idas2 model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -103,7 +103,7 @@
 <Column name="schvaleno" id="05EB39E1-36CA-10D8-23DB-77661247A5A2">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-28 10:02:54 UTC</createdTime>
-<commentInRDBMS>zda byla rozvrhova akce schvalena administratorem</commentInRDBMS>
+<commentInRDBMS>Zda byla rozvrhova akce schvalena administratorem.</commentInRDBMS>
 <ownerDesignName>idas2 model</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
