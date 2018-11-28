@@ -111,7 +111,7 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="5C66A30B-A33E-FF55-68B7-2D4FA0EA9572" name="sem_predm_obor_PK">
+<identifier id="5C66A30B-A33E-FF55-68B7-2D4FA0EA9572" name="sem_predm_plan_PK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 10:35:16 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
