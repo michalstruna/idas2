@@ -55,7 +55,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="predm obor id" id="4DBE658E-4ECD-CACB-F4FB-57639ABDC657">
+<Attribute name="predm plan id" id="4DBE658E-4ECD-CACB-F4FB-57639ABDC657">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 12:17:03 UTC</createdTime>
 <generatorID>FE6B0205-D620-469F-830A-A3D7E1605B11</generatorID>
@@ -82,6 +82,20 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>A4DC20EA-5426-18A9-DA24-891B613F95D7</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="55872687-D4C8-08A5-C1C1-CDC3DC12B34F" name="sem uci  UN">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:26:28 UTC</createdTime>
+<generatorID>0503A5DA-E0A5-3CA0-C5CF-2152F9C3310A</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>685EA9C0-25FB-50CB-841C-01C9914AA464</attributeRef>
+<attributeRef>9682D5B8-75B3-1167-3AAE-543D5590DD7D</attributeRef>
+<attributeRef>4DBE658E-4ECD-CACB-F4FB-57639ABDC657</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

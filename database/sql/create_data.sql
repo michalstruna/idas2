@@ -1,5 +1,5 @@
 
--- Fakulty: ------------------------------------------------------------------------------------------------------------
+-- region Fakulty: ------------------------------------------------------------------------------------------------------------
 INSERT INTO SEM_FAKULTA (ID, ZKRATKA, NAZEV)
 VALUES (SEM_FAKULTA_SEQ.NEXTVAL, 'DFJ', 'Dopravní fakulta Jana Pernera');
 
@@ -24,8 +24,9 @@ VALUES (SEM_FAKULTA_SEQ.NEXTVAL, 'FZS', 'Fakulta zdravotnických studií');
 INSERT INTO SEM_FAKULTA (ID, ZKRATKA, NAZEV)
 VALUES (SEM_FAKULTA_SEQ.NEXTVAL, 'REK', 'Univerzita Pardubice');
 
+-- endregion
 
--- Katedry: ------------------------------------------------------------------------------------------------------------
+-- region Katedry: ------------------------------------------------------------------------------------------------------------
 
 INSERT INTO SEM_KATEDRA (ID, ZKRATKA, FAKULTA_ID, NAZEV)
 VALUES (SEM_KATEDRA_SEQ.NEXTVAL, 'ARK', 6.0, 'Atelier restaurovani kamene');
@@ -243,8 +244,9 @@ VALUES (SEM_KATEDRA_SEQ.NEXTVAL, 'VVCD', 1.0, 'Vyukove a vyzkumne centrum v dopr
 INSERT INTO SEM_KATEDRA (ID, ZKRATKA, FAKULTA_ID, NAZEV)
 VALUES (SEM_KATEDRA_SEQ.NEXTVAL, 'VZC', 1.0, 'Vyzkumne centrum LN0A028');
 
+-- endregion
 
--- Ucitele ------------------------------------------------------------------------------------------------------------
+-- region Ucitele ------------------------------------------------------------------------------------------------------------
 
 INSERT INTO SEM_UCITEL (ID, TITUL_PRED, TITUL_ZA, KONTAKTNI_EMAIL, TELEFON, MOBIL, KATEDRA_ID, JMENO, PRIJMENI)
 VALUES (SEM_UCITEL_SEQ.NEXTVAL, 'Ing.', '', 'lubomir.andrle@upce.cz', '', '', 29.0, 'Lubomir', 'Andrle');
@@ -819,7 +821,9 @@ VALUES (SEM_UCITEL_SEQ.NEXTVAL, 'Ing.', '', 'stanislav.zitta@student.upce.cz', '
 INSERT INTO SEM_UCITEL (ID, TITUL_PRED, TITUL_ZA, KONTAKTNI_EMAIL, TELEFON, MOBIL, KATEDRA_ID, JMENO, PRIJMENI)
 VALUES (SEM_UCITEL_SEQ.NEXTVAL, 'RNDr.', 'Ph.D.', 'david.zak@upce.cz', '', '', 29.0, 'David', 'Zak');
 
--- Kategorie: ---------------------------------------------------------------------------------------------------------
+-- endregion
+
+-- region Kategorie: ---------------------------------------------------------------------------------------------------------
 
 INSERT INTO SEM_KATEGORIE(ID, NAZEV)
 VALUES (SEM_KATEGORIE_SEQ.NEXTVAL, 'A');
@@ -830,7 +834,19 @@ VALUES (SEM_KATEGORIE_SEQ.NEXTVAL, 'B');
 INSERT INTO SEM_KATEGORIE(ID, NAZEV)
 VALUES (SEM_KATEGORIE_SEQ.NEXTVAL, 'C');
 
--- Forma výuky: -------------------------------------------------------------------------------------------------------
+-- endregion
+
+-- region Semestry: ---------------------------------------------------------------------------------------------------
+
+INSERT INTO SEM_SEMESTR(ID, NAZEV)
+VALUES (SEM_SEMESTR_SEQ.NEXTVAL, 'LS');
+
+INSERT INTO SEM_SEMESTR(ID, NAZEV)
+VALUES (SEM_SEMESTR_SEQ.NEXTVAL, 'ZS');
+
+-- endregion
+
+-- region Forma výuky: -------------------------------------------------------------------------------------------------------
 
 INSERT INTO SEM_FORMA_VYUKY (ID, NAZEV)
 VALUES (SEM_FORMA_VYUKY_SEQ.NEXTVAL, 'Prezencni');
@@ -841,7 +857,9 @@ VALUES (SEM_FORMA_VYUKY_SEQ.NEXTVAL, 'Kombinovana');
 INSERT INTO SEM_FORMA_VYUKY (ID, NAZEV)
 VALUES (SEM_FORMA_VYUKY_SEQ.NEXTVAL, 'Distancni');
 
--- Role: --------------------------------------------------------------------------------------------------------------
+-- endregion
+
+-- region Role: --------------------------------------------------------------------------------------------------------------
 
 INSERT INTO SEM_ROLE (ID, NAZEV)
 VALUES (SEM_ROLE_SEQ.NEXTVAL, 'Přednášející');
@@ -849,7 +867,9 @@ VALUES (SEM_ROLE_SEQ.NEXTVAL, 'Přednášející');
 INSERT INTO SEM_ROLE (ID, NAZEV)
 VALUES (SEM_ROLE_SEQ.NEXTVAL, 'Cvičící');
 
--- Způsob výuky: -----------------------------------------------------------------------------------------------------
+-- endregion
+
+-- region Způsob výuky: -----------------------------------------------------------------------------------------------------
 
 INSERT INTO SEM_ZPUS_VYUKY (ID, NAZEV)
 VALUES (SEM_ZPUSOB_VYUKY_SEQ.NEXTVAL, 'Přednáška');
@@ -860,7 +880,9 @@ VALUES (SEM_ZPUSOB_VYUKY_SEQ.NEXTVAL, 'Seminář');
 INSERT INTO SEM_ZPUS_VYUKY (ID, NAZEV)
 VALUES (SEM_ZPUSOB_VYUKY_SEQ.NEXTVAL, 'Cvičení');
 
--- Zpusob zakonceni: -------------------------------------------------------------------------------------------------
+-- endregion
+
+-- region Zpusob zakonceni: -------------------------------------------------------------------------------------------------
 
 INSERT INTO SEM_ZPUS_ZAK (ID, NAZEV)
 VALUES (SEM_ZPUSOB_ZAKONCENI_SEQ.NEXTVAL, 'Zkouska');
@@ -871,108 +893,122 @@ VALUES (SEM_ZPUSOB_ZAKONCENI_SEQ.NEXTVAL,'Zapocet');
 INSERT INTO SEM_ZPUS_ZAK (ID, NAZEV)
 VALUES (SEM_ZPUSOB_ZAKONCENI_SEQ.NEXTVAL,'Klasifikovany zapocet');
 
--- Studijní obory: ----------------------------------------------------------------------------------------------------
+-- endregion
+
+-- region Obory: --------------------------------------------------------------------------------------------------
+
+INSERT INTO SEM_OBOR (ID, NAZEV) VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Informační technologie');
+
+INSERT INTO SEM_OBOR (ID, NAZEV) VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Řízení procesů');
+
+INSERT INTO SEM_OBOR (ID, NAZEV) VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Komunikační a mikroprocesorová technika');
+
+-- endregion
+
+-- region Studijní plany: ----------------------------------------------------------------------------------------------------
 
 -- FEI
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Elektrotechnika a informatika - Bakalar', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Elektrotechnika a informatika - Bakalar', 100, 2);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Elektrotechnika a informatika - Inzenyr', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Elektrotechnika a informatika - Inzenyr', 60, 2);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Elektrotechnika a informatika - Doktor', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Elektrotechnika a informatika - Doktor', 40, 2);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Informacni technologie - Bakalar', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Informacni technologie - Bakalar', 40, 1);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Informacni technologie - Inzenyr', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Informacni technologie - Inzenyr', 40, 1);
 
 -- DOPRAVNI
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Dopravní inženýrství a spoje - Inzenyr', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Dopravní inženýrství a spoje - Inzenyr', 60, 2);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Dopravní technologie a spoje - Bakalar', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Dopravní technologie a spoje - Bakalar', 60, 2);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Stavební inženýrství - Bakalar', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Stavební inženýrství - Bakalar', 40, 2);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Stavební inženýrství - Inzenyr', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Stavební inženýrství - Inzenyr', 50, 2);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Technika a technologie v dopravě - Doktor', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Technika a technologie v dopravě - Doktor', 50, 2);
 
 --- CHEMIE
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Analytická chemie - Doktor', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Analytická chemie - Doktor', 50, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Anorganická chemie - Doktor', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Anorganická chemie - Doktor', 50, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Anorganické a polymerní materiály - Bakalář', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Anorganické a polymerní materiály - Bakalář', 50, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Farmakochemie a medicinální materiály - Bakalář', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Farmakochemie a medicinální materiály - Bakalář', 50, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Fyzikální chemie - Doktor', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Fyzikální chemie - Doktor', 70, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Chemické a procesní inženýrství - Bakalář', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Chemické a procesní inženýrství - Bakalář', 70, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Chemické a procesní inženýrství - Doktor', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Chemické a procesní inženýrství - Doktor', 70, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Chemické a procesní inženýrství - Inženýr', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Chemické a procesní inženýrství - Inženýr', 70, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Chemie - Inženýr', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Chemie - Inženýr', 70, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Chemie a chemické technologie - Doktor', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Chemie a chemické technologie - Doktor', 30, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Chemie a technická chemie - Bakalář', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Chemie a technická chemie - Bakalář', 30, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Chemie a technologie materiálů - Doktor', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Chemie a technologie materiálů - Doktor', 40, 1);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Chemie a technologie materiálů - Inženýr', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Chemie a technologie materiálů - Inženýr', 40, 1);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Chemie a technologie potravin - Bakalář', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Chemie a technologie potravin - Bakalář', 40, 1);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Chemie a technologie potravin - Inženýr', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Chemie a technologie potravin - Inženýr', 40, 1);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Organická chemie - Doktor', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Organická chemie - Doktor', 40, 1);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Polygrafie - Bakalář', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Polygrafie - Bakalář', 40, 1);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Polygrafie - Inženýr', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Polygrafie - Inženýr', 30, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Povrchová ochrana materiálů - Bakalář', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Povrchová ochrana materiálů - Bakalář', 30, 3);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Speciální chemicko-biologické obory - Bakalář', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Speciální chemicko-biologické obory - Bakalář', 50, 2);
 
-INSERT INTO SEM_OBOR (ID, NAZEV, ODHAD_STUDENTU)
-VALUES (SEM_OBOR_SEQ.NEXTVAL, 'Speciální chemicko-biologické obory - Magistr', 100);
+INSERT INTO SEM_STUD_PLAN (ID, NAZEV, ODHAD_STUDENTU, OBOR_ID)
+VALUES (SEM_STUDIJNI_PLAN_SEQ.NEXTVAL, 'Speciální chemicko-biologické obory - Magistr', 50, 2);
 
--- Předměty: --------------------------------------------------------------------------------------------------------
+-- endregion
+
+-- region Předměty: --------------------------------------------------------------------------------------------------------
 
 INSERT INTO SEM_PREDMET (ID, ZKRATKA, FORMA_VYUKY_ID, ZPUSOB_ZAKONCENI_ID, NAZEV)
 VALUES (SEM_PREDMET_SEQ.NEXTVAL, 'IMSWS', 1, 1, 'Navrh a modelovani SW systemu');
@@ -1172,7 +1208,113 @@ VALUES (SEM_PREDMET_SEQ.NEXTVAL, 'ISOS2', 2, 1, 'Sprava operacnich systemu II');
 INSERT INTO SEM_PREDMET (ID, ZKRATKA, FORMA_VYUKY_ID, ZPUSOB_ZAKONCENI_ID, NAZEV)
 VALUES (SEM_PREDMET_SEQ.NEXTVAL, 'IPDAE', 1, 1, 'Prenos dat a informaci');
 
--- Uzivatele: --------------------------------------------------------------------------------------------------------
+-- endregion
+
+-- region Místnosti: -----------------------------------------------------------------------------------------------
+--Row 1
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL, '02013',1.0);
+--Row 2
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'ZV',38.0);
+--Row 3
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02018',1.0);
+--Row 4
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'SU104',15.0);
+--Row 5
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'H1',224.0);
+--Row 6
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'H2',116.0);
+--Row 7
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'SEM403',30.0);
+--Row 8
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02017',1.0);
+--Row 9
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'SEM402',80.0);
+--Row 10
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'SEM404',60.0);
+--Row 11
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'SU402',24.0);
+--Row 12
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'SU301',30.0);
+--Row 13
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02057',1.0);
+--Row 14
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'SU401',20.0);
+--Row 15
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02027',1.0);
+--Row 16
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'EL203',15.0);
+--Row 17
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02031',1.0);
+--Row 18
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'EL101',20.0);
+--Row 19
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'EL102',20.0);
+--Row 20
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'PC105',24.0);
+--Row 21
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02029',1.0);
+--Row 22
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02025',20.0);
+--Row 23
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02034',1.0);
+--Row 24
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02033',1.0);
+--Row 25
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02030',1.0);
+--Row 26
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'02032',1.0);
+--Row 27
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'EL204',10.0);
+--Row 28
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'EL406',10.0);
+--Row 29
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'EL407',16.0);
+--Row 30
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'EL405',14.0);
+--Row 31
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'EL408',8.0);
+--Row 32
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03012',1.0);
+--Row 33
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03053',1.0);
+--Row 34
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'PC104',24.0);
+--Row 35
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'NET101',8.0);
+--Row 36
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'NET102',15.0);
+--Row 37
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03017',1.0);
+--Row 38
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03058',1.0);
+--Row 39
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03013',1.0);
+--Row 40
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03014',1.0);
+--Row 41
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03015',1.0);
+--Row 42
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03052',20.0);
+--Row 43
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03054',1.0);
+--Row 44
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'PC406',20.0);
+--Row 45
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'PC407',20.0);
+--Row 46
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'IT401',20.0);
+--Row 47
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'IT402',20.0);
+--Row 48
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03055',1.0);
+--Row 49
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03016',1.0);
+--Row 50
+INSERT INTO SEM_MISTNOST (ID, NAZEV, KAPACITA) VALUES (SEM_MISTNOST_SEQ.NEXTVAL,'03045',1.0);
+
+-- endregion
+
+-- region Uzivatele: --------------------------------------------------------------------------------------------------------
 
 /**
  * Admin user (email: admin@admin.cz, password: admin).
@@ -1193,3 +1335,5 @@ INSERT INTO sem_uzivatel (id, email, heslo, admin, ucitel_id) VALUES (SEM_UZIVAT
  * No rights user (email: test@test.cz, password: test).
  */
 INSERT INTO sem_uzivatel (id, email, heslo, admin) VALUES (SEM_UZIVATEL_SEQ.NEXTVAL, 'test@test.cz', '$2a$10$Gccc9Rausu3Yxzuhm8vNQueYEx8dE8SCjo/rRGKtBLC0KMkn9QgHq', 0);
+
+-- endregion

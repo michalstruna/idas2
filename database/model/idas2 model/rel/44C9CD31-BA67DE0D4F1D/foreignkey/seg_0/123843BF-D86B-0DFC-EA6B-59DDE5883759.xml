@@ -1,10 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="123843BF-D86B-0DFC-EA6B-59DDE5883759" containerWithKeyObject="7F9C5058-3C73-A635-D09B-6DACC7F8FC2B" localFKIndex="A486D315-30D1-E727-3BFB-3668164763A4" name="sem_predm_obor_sem_obor_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="123843BF-D86B-0DFC-EA6B-59DDE5883759" containerWithKeyObject="7F9C5058-3C73-A635-D09B-6DACC7F8FC2B" localFKIndex="A486D315-30D1-E727-3BFB-3668164763A4" name="sem_predm_obor_stud_plan_FK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>2D3084C2-E87E-5947-BD6D-AFDCED58AB1E</generatorID>
 <ownerDesignName>idas2 model</ownerDesignName>
-<referredTableLongName>sem_obor</referredTableLongName>
+<referredTableLongName>sem_stud_plan</referredTableLongName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>2D1D0A86-4ABA-816F-24AC-2FD8F8300FB4</referredTableID>
 <keyObject>0930AA19-CBB6-B793-F4C4-412D0BDBFA4E</keyObject>

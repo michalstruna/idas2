@@ -1,0 +1,54 @@
+CREATE OR REPLACE VIEW sem_p_katedra AS
+SELECT sem_katedra.*, sem_fakulta.zkratka as "fakulta"
+FROM sem_katedra
+JOIN sem_fakulta
+ON sem_katedra.fakulta_id = sem_fakulta.id;
+
+CREATE OR REPLACE VIEW SEM_P_UCITEL AS
+SELECT sem_ucitel.*, (titul_pred || ' ' || jmeno || ' ' || prijmeni || ' ' || titul_za) as "dlouhe_jmeno", sem_katedra.zkratka as "katedra"
+FROM sem_ucitel
+JOIN SEM_KATEDRA ON sem_katedra.id = SEM_UCITEL.katedra_id;
+
+CREATE OR REPLACE VIEW SEM_P_PREDMET AS
+SELECT sem_predmet.*, sem_zpus_zak.nazev as "zpusob_zakonceni", sem_forma_vyuky.nazev as "forma_vyuky"
+FROM SEM_PREDMET
+JOIN sem_zpus_zak ON sem_zpus_zak.ID = sem_predmet.zpusob_zakonceni_id
+JOIN sem_forma_vyuky ON SEM_FORMA_VYUKY.id = sem_predmet.forma_vyuky_id;
+
+CREATE OR REPLACE VIEW SEM_P_PREDM_PLAN AS
+SELECT SEM_PREDM_PLAN.*, sem_kategorie.nazev as "kategorie", SEM_STUD_PLAN.nazev as "plan", sem_predmet.nazev as "predmet", sem_semestr.nazev as "semestr"
+FROM SEM_PREDM_PLAN
+JOIN SEM_KATEGORIE ON SEM_KATEGORIE.ID = SEM_PREDM_PLAN.KATEGORIE_ID
+JOIN SEM_STUD_PLAN ON SEM_STUD_PLAN.ID = SEM_PREDM_PLAN.STUDIJNI_PLAN_ID
+JOIN SEM_SEMESTR ON SEM_SEMESTR.ID = SEM_PREDM_PLAN.SEMESTR_ID
+JOIN sem_predmet ON sem_predmet.ID = SEM_PREDM_PLAN.predmet_id
+ORDER BY SEM_STUD_PLAN.nazev, sem_predmet.nazev, sem_kategorie.nazev, rocnik;
+
+CREATE OR REPLACE VIEW SEM_P_ZPUS_PREDM AS
+SELECT SEM_ZPUS_PREDM.*, SEM_ZPUS_VYUKY.nazev as "zpusob_vyuky", (SEM_STUD_PLAN.NAZEV || ' ' || SEM_PREDMET.NAZEV) as "PREDM_PLAN"
+FROM SEM_ZPUS_PREDM
+JOIN SEM_ZPUS_VYUKY ON SEM_ZPUS_VYUKY.id = SEM_ZPUS_PREDM.zpusob_vyuky_id
+JOIN SEM_PREDM_PLAN ON SEM_PREDM_PLAN.id = SEM_ZPUS_PREDM.PREDM_PLAN_id
+JOIN SEM_STUD_PLAN ON SEM_STUD_PLAN.id = SEM_PREDM_PLAN.STUDIJNI_PLAN_ID
+JOIN SEM_PREDMET ON SEM_PREDMET.id = SEM_PREDM_PLAN.predmet_id
+ORDER BY SEM_STUD_PLAN.nazev, sem_predmet.nazev, sem_zpus_vyuky.nazev;
+
+CREATE OR REPLACE VIEW SEM_P_UCI AS
+SELECT SEM_UCI.*, (SEM_UCITEL.JMENO || ' ' || SEM_UCITEL.PRIJMENI) as "ucitel", SEM_ROLE.NAZEV as "role", (SEM_STUD_PLAN.NAZEV || ' - ' || SEM_PREDMET.NAZEV) as "predmet"
+FROM SEM_UCI
+JOIN SEM_UCITEL ON SEM_UCITEL.ID = SEM_UCI.UCITEL_ID
+JOIN SEM_ROLE ON SEM_ROLE.ID = SEM_UCI.ROLE_ID
+JOIN SEM_PREDM_PLAN ON SEM_PREDM_PLAN.ID = SEM_UCI.PREDM_PLAN_ID
+JOIN SEM_PREDMET ON SEM_PREDMET.ID = SEM_PREDM_PLAN.PREDMET_ID
+JOIN SEM_STUD_PLAN ON SEM_STUD_PLAN.ID = SEM_PREDM_PLAN.STUDIJNI_PLAN_ID;
+
+CREATE OR REPLACE VIEW SEM_P_UZIVATEL AS
+SELECT SEM_UZIVATEL.ID as "id", email, admin, (SEM_UCITEL.JMENO || ' ' || SEM_UCITEL.PRIJMENI) as "ucitel", SEM_BOOL_TO_STRING(admin) as "je_admin"
+FROM SEM_UZIVATEL
+LEFT JOIN SEM_UCITEL ON SEM_UCITEL.ID = SEM_UZIVATEL.UCITEL_ID
+ORDER BY email;
+
+CREATE OR REPLACE VIEW SEM_P_STUD_PLAN AS
+SELECT SEM_STUD_PLAN.*, SEM_OBOR.NAZEV AS "obor"
+FROM SEM_STUD_PLAN
+JOIN SEM_OBOR ON SEM_OBOR.ID = SEM_STUD_PLAN.OBOR_ID;

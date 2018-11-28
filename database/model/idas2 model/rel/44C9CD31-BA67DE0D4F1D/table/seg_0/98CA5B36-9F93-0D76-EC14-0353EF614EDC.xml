@@ -85,6 +85,16 @@
 <colUsage columnID="D0A806B5-9334-459F-44DB-B6CE75DFEE78"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="37445DFA-D325-AF1C-4691-A33ED748010D" name="sem_uzivatel__UN">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:25:38 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="47B6D562-505A-5F22-A71D-489724EFED38"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="D6B87FF9-BFC0-BBF1-50ED-4A5E949191DD" name="sem_uzivatel_sem_ucitel_FK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>

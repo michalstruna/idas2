@@ -19,13 +19,14 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="den" id="936E11E8-E527-1F22-3E25-923B4D92F8D1">
+<Column name="den_v_tydnu" id="936E11E8-E527-1F22-3E25-923B4D92F8D1">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <comment>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</comment>
 <commentInRDBMS>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</commentInRDBMS>
 <generatorID>9313AB42-6F09-44B2-55DE-79EE75A0EEF6</generatorID>
 <ownerDesignName>idas2 model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -87,6 +88,17 @@
 <associations>
 <colAssociation fkAssociation="88DCA745-F329-3278-B600-C412DBE8B086" referredColumn="57FDC33E-C17B-AAB4-82F4-DEDC7A242FED"/>
 </associations>
+</Column>
+<Column name="presne_datum" id="C299D043-83EE-E6CE-9469-55666763B78E">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:30:47 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

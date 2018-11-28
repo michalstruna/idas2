@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="62186B95-E4DE-937D-9250-A192700773BC" name="sem predm obor">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="62186B95-E4DE-937D-9250-A192700773BC" name="sem predm plan">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-19 21:35:26 UTC</createdTime>
 <ownerDesignName>idas2 model</ownerDesignName>
@@ -67,7 +67,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="obor id" id="FFD7762D-C4A1-892F-8209-6DBF18E73EA7">
+<Attribute name="studijni plan id" id="FFD7762D-C4A1-892F-8209-6DBF18E73EA7">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 10:37:34 UTC</createdTime>
 <generatorID>2D3084C2-E87E-5947-BD6D-AFDCED58AB1E</generatorID>
@@ -95,6 +95,20 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="semestr id" id="986A94A6-16E5-B8B4-7CA2-F63B666DF65A">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:26:28 UTC</createdTime>
+<generatorID>0555A3DC-E29A-E24E-099D-44B2F144632C</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<referedAttribute>86E46861-9064-4B40-D712-FA79C46B12B8</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="5C66A30B-A33E-FF55-68B7-2D4FA0EA9572" name="sem_predm_obor_PK">
@@ -108,6 +122,19 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>53C8D0D1-A008-3F81-6E7C-20ABD1865978</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="3E3F5EDE-46A1-3A0E-4F6A-0C5224D26CC8" name="sem predm plan  UN">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:26:28 UTC</createdTime>
+<generatorID>2C6F806F-6C36-B819-829A-AE5188D799DC</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>DDA89AF1-0186-0F51-BE4B-8168E506558C</attributeRef>
+<attributeRef>FFD7762D-C4A1-892F-8209-6DBF18E73EA7</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

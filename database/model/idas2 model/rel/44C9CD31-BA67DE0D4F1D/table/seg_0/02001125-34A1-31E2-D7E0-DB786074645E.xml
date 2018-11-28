@@ -57,7 +57,7 @@
 <colAssociation fkAssociation="795AB784-1770-285D-5B27-9124E4B9780A" referredColumn="AE4A395B-9A7B-D0E5-A64F-1E59CF43D0A9"/>
 </associations>
 </Column>
-<Column name="predm_obor_id" id="F9C356D6-7F51-FF6C-E468-89B3D939CA96">
+<Column name="predm_plan_id" id="F9C356D6-7F51-FF6C-E468-89B3D939CA96">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>01DC93AF-4AD9-56ED-7977-88CD6FF63626</generatorID>
@@ -97,7 +97,7 @@
 <colUsage columnID="2379886B-A933-99C6-1D37-2EFD66AF1E47"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="6573897A-F340-3916-CEAF-423DB46DD300" name="sem_zpus_predm_predm_obor_FK">
+<ind_PK_UK id="6573897A-F340-3916-CEAF-423DB46DD300" name="sem_zpus_predm_predm_plan_FK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>18EBAB98-60BD-FDB3-2194-046101BA4CDA</generatorID>

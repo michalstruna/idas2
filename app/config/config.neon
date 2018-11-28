@@ -17,14 +17,16 @@ services:
 	category: App\Model\CategoryModel
 	completionType: App\Model\CompletionTypeModel
 	courseType: App\Model\CourseTypeModel
-	courseTypeInField: App\Model\CourseTypeInFieldModel
+	courseTypeInPlan: App\Model\CourseTypeInPlanModel
 	department: App\Model\DepartmentModel
 	faculty: App\Model\FacultyModel
 	role: App\Model\RoleModel
 	room: App\Model\RoomModel
+	semester: App\Model\SemesterModel
 	studyField: App\Model\StudyFieldModel
+	studyPlan: App\Model\StudyPlanModel
 	subject: App\Model\SubjectModel
-	subjectInField: App\Model\SubjectInFieldModel
+	subjectInPlan: App\Model\SubjectInPlanModel
 	teacher: App\Model\TeacherModel
 	teaching: App\Model\TeachingModel
 	teachingForm: App\Model\TeachingFormModel

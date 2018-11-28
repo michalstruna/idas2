@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION SEM_BOOL_TO_STRING(p_bool NUMBER)
+RETURN VARCHAR2 DETERMINISTIC IS
+begin
+    IF p_bool > 0 THEN
+        RETURN 'Ano';
+    ELSE
+        RETURN 'Ne';
+    END IF;
+end;

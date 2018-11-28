@@ -1,0 +1,14 @@
+{block content}
+
+<section class="item__list">
+    <header class="item__list__header">
+        <h1 n:block="title" class="item__list__title">
+            Předměty ve studjním plánu ({count($subjectsInField)})
+        </h1>
+
+        {control tabMenu, $tabs}
+    </header>
+
+    {control table, $subjectsInField, $isAdmin, ['plan', 'Studijní plán'], ['predmet', 'Predmet'], ['kategorie', 'Kategorie'],
+    ['semestr', 'Semestr'], ['rocnik', 'Ročník'], ['pocet_studentu', 'Počet studentů'] }
+</section>

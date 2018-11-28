@@ -1,10 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7F9C5058-3C73-A635-D09B-6DACC7F8FC2B" name="sem_predm_obor">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7F9C5058-3C73-A635-D09B-6DACC7F8FC2B" name="sem_predm_plan">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>62186B95-E4DE-937D-9250-A192700773BC</generatorID>
 <ownerDesignName>idas2 model</ownerDesignName>
-<useDDLTransformationScript>true</useDDLTransformationScript>
+<ordsAlias>sem_predm_obor</ordsAlias>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -59,7 +59,7 @@
 <colAssociation fkAssociation="6B685126-57AC-A829-63EE-EC24F176A338" referredColumn="8A4C5C5C-5375-D3AE-322F-BAD2E29FC0B6"/>
 </associations>
 </Column>
-<Column name="obor_id" id="7984B94B-231C-D7AA-3739-81381D8C1465">
+<Column name="studijni_plan_id" id="7984B94B-231C-D7AA-3739-81381D8C1465">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>FFD7762D-C4A1-892F-8209-6DBF18E73EA7</generatorID>
@@ -89,9 +89,23 @@
 <colAssociation fkAssociation="52307DEC-3352-ADE7-112F-52EE2DB6D9A5" referredColumn="77066039-BBAF-3C7C-7E77-1F8690D0C4E5"/>
 </associations>
 </Column>
+<Column name="semestr_id" id="6F350F92-1090-2AAF-9E46-4C9065ADE7E5">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:20:21 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB5FB771-FE83-20C1-FD3D-0916B3C8BD56" referredColumn="E1ED4245-987C-2FC5-B5EC-8471272C241A"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="CDAF276C-7249-4AD0-D629-5B2D493783E7" name="sem_predm_obor_PK">
+<ind_PK_UK id="CDAF276C-7249-4AD0-D629-5B2D493783E7" name="sem_predm_plan_PK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>5C66A30B-A33E-FF55-68B7-2D4FA0EA9572</generatorID>
@@ -101,6 +115,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="43E6957F-F1F9-8846-FD79-6DB0E2CA0707"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2C6F806F-6C36-B819-829A-AE5188D799DC" name="sem_predm_plan__UN">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:24:48 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DA809740-AF33-3684-59BF-23AFC78FAD01"/>
+<colUsage columnID="7984B94B-231C-D7AA-3739-81381D8C1465"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="202A0AAD-56A4-4D6B-E0FC-36CBFBB2653E" name="sem_predm_obor_kategorie_FK">
@@ -114,7 +139,7 @@
 <colUsage columnID="D66E635E-C994-94BC-1836-C1C11D752057"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="A486D315-30D1-E727-3BFB-3668164763A4" name="sem_predm_obor_sem_obor_FK">
+<ind_PK_UK id="A486D315-30D1-E727-3BFB-3668164763A4" name="sem_predm_obor_stud_plan_FK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>2D3084C2-E87E-5947-BD6D-AFDCED58AB1E</generatorID>
@@ -134,6 +159,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="DA809740-AF33-3684-59BF-23AFC78FAD01"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3F271A78-085E-FFE9-616C-CEE772CAE72B" name="sem_predm_plan_semestr_FK">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:20:21 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6F350F92-1090-2AAF-9E46-4C9065ADE7E5"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

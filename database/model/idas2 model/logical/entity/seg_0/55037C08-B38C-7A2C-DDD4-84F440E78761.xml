@@ -96,5 +96,17 @@
 <attributeRef>DD588472-832C-D77C-D255-36631ADB9F41</attributeRef>
 </usedAttributes>
 </identifier>
+<identifier id="50A54363-55B6-48C8-AB7B-83F8904B2794" name="sem uzivatel  UN">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:26:28 UTC</createdTime>
+<generatorID>37445DFA-D325-AF1C-4691-A33ED748010D</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>FA68DE63-E630-F229-1FD6-6FA2C61B5C8E</attributeRef>
+</usedAttributes>
+</identifier>
 </identifiers>
 </Entity>

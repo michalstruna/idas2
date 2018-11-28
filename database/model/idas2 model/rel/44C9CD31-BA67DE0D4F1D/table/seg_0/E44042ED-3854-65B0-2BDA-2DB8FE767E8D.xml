@@ -49,7 +49,7 @@
 <colAssociation fkAssociation="D4A92D35-5345-BD2F-C6C1-CBFE06CD5B3B" referredColumn="EE9ED1A1-AE22-6483-E9CB-32BE260EACE1"/>
 </associations>
 </Column>
-<Column name="predm_obor_id" id="27172724-F8C9-5DBA-D624-FBB96DC0A640">
+<Column name="predm_plan_id" id="27172724-F8C9-5DBA-D624-FBB96DC0A640">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>4DBE658E-4ECD-CACB-F4FB-57639ABDC657</generatorID>
@@ -78,7 +78,19 @@
 <colUsage columnID="57FDC33E-C17B-AAB4-82F4-DEDC7A242FED"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="ABC63367-093F-29DA-7D79-9F1E56FB4241" name="sem_uci_sem_predm_obor_FK">
+<ind_PK_UK id="0503A5DA-E0A5-3CA0-C5CF-2152F9C3310A" name="sem_uci__UN">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:25:17 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8A983395-5AAA-DF9A-96B2-5AABF5CEC0EB"/>
+<colUsage columnID="4F54D30A-9E66-230F-5A43-274ED5EB4678"/>
+<colUsage columnID="27172724-F8C9-5DBA-D624-FBB96DC0A640"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ABC63367-093F-29DA-7D79-9F1E56FB4241" name="sem_uci_sem_predm_plan_FK">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>
 <generatorID>FE6B0205-D620-469F-830A-A3D7E1605B11</generatorID>

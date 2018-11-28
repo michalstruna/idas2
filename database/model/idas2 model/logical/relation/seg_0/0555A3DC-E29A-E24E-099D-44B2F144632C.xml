@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="sem_predm_plan_semestr_FK" directorySegmentName="seg_0" id="0555A3DC-E29A-E24E-099D-44B2F144632C">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-27 20:26:28 UTC</createdTime>
+<generatorID>EB5FB771-FE83-20C1-FD3D-0916B3C8BD56</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<sourcePk>910E0E1E-51B8-2DCC-DAD8-321617020EE0</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>AD8D221A-5DFB-CDED-34DD-870E6B01C187</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>62186B95-E4DE-937D-9250-A192700773BC</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
