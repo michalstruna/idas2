@@ -100,6 +100,18 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="schvaleno" id="05EB39E1-36CA-10D8-23DB-77661247A5A2">
+<createdBy>tomas</createdBy>
+<createdTime>2018-11-28 10:02:54 UTC</createdTime>
+<commentInRDBMS>zda byla rozvrhova akce schvalena administratorem</commentInRDBMS>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="E4141E53-646C-9BFD-6461-324FBF14B7E4" name="sem_rozvrh_PK">
