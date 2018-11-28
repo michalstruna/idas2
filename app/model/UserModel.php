@@ -33,7 +33,7 @@ final class UserModel extends BaseModel implements IAuthenticator, IDatabaseWrap
      * @throws AuthenticationException
      */
     public function authenticateById($id): IIdentity {
-        $user = $this->database->fetch('SELECT * FROM sem_uzivatel WHERE id = ?', $id);
+        $user = $this->getById($id);
 
         if ($user) {
             return $this->handleUserIdentity($user);
