@@ -70,7 +70,8 @@ class StudyPlanPresenter extends BasePresenter {
         $this->template->tabs = [
             'Předměty ve studijním plánu' => 'SubjectInPlan:',
             'Způsoby výuky předmětu' => 'CourseTypeInPlan:',
-            'Učí' => 'Teaching:'
+            'Učí' => 'Teaching:',
+            'Semestry' => 'Semester:'
         ];
     }
 
