@@ -20,6 +20,7 @@ services:
 	courseTypeInPlan: App\Model\CourseTypeInPlanModel
 	department: App\Model\DepartmentModel
 	faculty: App\Model\FacultyModel
+	image: App\Model\ImageModel
 	role: App\Model\RoleModel
 	room: App\Model\RoomModel
 	semester: App\Model\SemesterModel
