@@ -25,7 +25,7 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper {
             $changes['day'],
             $changes['start'],
             $changes['room'],
-            $changes['end'],
+            $changes['completion'],
             $changes['teaching'],
             isset($changes['date']) ? $changes['date'] : null,
             false,
@@ -43,7 +43,7 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper {
             $item['day'],
             $item['start'],
             $item['room'],
-            $item['end'],
+            $item['completion'],
             $item['teaching'],
             isset($item['date']) ? $item['date'] : null,
             false

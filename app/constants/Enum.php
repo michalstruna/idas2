@@ -12,7 +12,7 @@ use ReflectionClass;
 
 Trait Enum {
 
-    static function getConstants() {
+    static function toArray(): array {
         $reflection = new ReflectionClass(__CLASS__);
         return $reflection->getConstants();
     }
