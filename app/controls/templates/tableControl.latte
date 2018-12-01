@@ -10,7 +10,7 @@
     {if count($items) > 0}
         <tr n:foreach="$items as $item" class="table__row">
             <td n:foreach="$columns as $column" class="table__cell">
-                {$item[$column[0]]}
+                {isset($column[2]) ? $column[2]($item[$column[0]], $item) : $item[$column[0]]}
             </td>
             {if $editable}
                 <td class="table__cell table__cell--small">
