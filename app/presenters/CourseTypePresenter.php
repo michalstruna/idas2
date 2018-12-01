@@ -21,8 +21,7 @@ class CourseTypePresenter extends BasePresenter {
      * CourseTypePresenter constructor.
      * @param $courseTypeModel
      */
-    public function __construct(CourseTypeModel $courseTypeModel)
-    {
+    public function __construct(CourseTypeModel $courseTypeModel) {
         parent::__construct();
         $this->courseTypeModel = $courseTypeModel;
     }
@@ -73,7 +72,7 @@ class CourseTypePresenter extends BasePresenter {
      */
     public function onEdit(Form $form): void {
         try {
-            if(empty($this->getParameter('id'))) {
+            if (empty($this->getParameter('id'))) {
                 $this->courseTypeModel->insert($form->getValues(true));
                 $this->flashMessage('Způsob výuky byl přidán.', self::$SUCCESS);
             } else {
@@ -82,7 +81,7 @@ class CourseTypePresenter extends BasePresenter {
             }
 
             $this->redirect('CourseType:');
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
     }
@@ -96,7 +95,7 @@ class CourseTypePresenter extends BasePresenter {
         try {
             $this->courseTypeModel->deleteById($id);
             $this->flashMessage('Způsob výuky byl vymazán.', self::$SUCCESS);
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
 

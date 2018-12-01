@@ -21,8 +21,7 @@ class CompletionTypePresenter extends BasePresenter {
      * CompletionTypePresenter constructor.
      * @param $completionTypeModel
      */
-    public function __construct(CompletionTypeModel $completionTypeModel)
-    {
+    public function __construct(CompletionTypeModel $completionTypeModel) {
         parent::__construct();
         $this->completionTypeModel = $completionTypeModel;
     }
@@ -73,7 +72,7 @@ class CompletionTypePresenter extends BasePresenter {
      */
     public function onEdit(Form $form): void {
         try {
-            if(empty($this->getParameter('id'))) {
+            if (empty($this->getParameter('id'))) {
                 $this->completionTypeModel->insert($form->getValues(true));
                 $this->flashMessage('Způsob zakončení byl přidán.', self::$SUCCESS);
             } else {
@@ -82,7 +81,7 @@ class CompletionTypePresenter extends BasePresenter {
             }
 
             $this->redirect('CompletionType:');
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
     }
@@ -96,7 +95,7 @@ class CompletionTypePresenter extends BasePresenter {
         try {
             $this->completionTypeModel->deleteById($id);
             $this->flashMessage('Způsob zakončení byl vymazán.', self::$SUCCESS);
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
 
