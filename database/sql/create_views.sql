@@ -52,3 +52,19 @@ CREATE OR REPLACE VIEW SEM_P_STUD_PLAN AS
 SELECT SEM_STUD_PLAN.*, SEM_OBOR.NAZEV AS "obor"
 FROM SEM_STUD_PLAN
 JOIN SEM_OBOR ON SEM_OBOR.ID = SEM_STUD_PLAN.OBOR_ID;
+
+CREATE OR REPLACE VIEW sem_p_rozvrh AS
+SELECT sem_rozvrh.*, sem_ucitel.jmeno || ' ' || sem_ucitel.prijmeni as "ucitel", sem_zpus_predm.pocet_hodin AS "pocet_hodin", sem_predmet.zkratka AS "predmet", sem_mistnost.nazev AS "mistnost", sem_mistnost.kapacita AS "kapacita"
+FROM sem_rozvrh
+JOIN sem_mistnost
+ON sem_rozvrh.mistnost_id = sem_mistnost.id
+JOIN sem_zpus_predm
+ON sem_rozvrh.zpusob_zakonceni_predmetu_id = sem_zpus_predm.id
+JOIN sem_predm_plan
+ON sem_zpus_predm.predm_plan_id = sem_predm_plan.id
+JOIN sem_predmet
+ON sem_predm_plan.predmet_id = sem_predmet.id
+JOIN sem_uci
+ON sem_rozvrh.uci_id = sem_uci.id
+JOIN sem_ucitel
+ON sem_uci.ucitel_id = sem_ucitel.id;
