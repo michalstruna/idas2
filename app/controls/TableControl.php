@@ -22,7 +22,7 @@ class TableControl extends Control {
      * Render control.
      * @param array $items Array of items. Each item must have 'id' property.
      * @param bool $editable There are buttons EDIT and DELETE in each row.
-     * @param array ...$columns Array of columns. Each item is array [$key, $text].
+     * @param array ...$columns Array of columns. Each item is array [$key, $text, ?$map].
      */
     public function render(array $items, bool $editable, array ...$columns): void {
         $template = $this->template;

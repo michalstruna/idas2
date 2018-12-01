@@ -12,7 +12,7 @@ namespace App\Model;
 class ScheduleModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array {
-        return $this->database->fetchAll('SELECT * FROM sem_rozvrh');
+        return $this->database->fetchAll('SELECT * FROM sem_p_rozvrh');
     }
 
     public function getById(string $id) {
@@ -25,7 +25,7 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper {
             $changes['day'],
             $changes['start'],
             $changes['room'],
-            $changes['completion'],
+            $changes['courseType'],
             $changes['teaching'],
             isset($changes['date']) ? $changes['date'] : null,
             false,
@@ -43,7 +43,7 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper {
             $item['day'],
             $item['start'],
             $item['room'],
-            $item['completion'],
+            $item['courseType'],
             $item['teaching'],
             isset($item['date']) ? $item['date'] : null,
             false
