@@ -84,12 +84,28 @@ class ImportTeacherPresenter extends BasePresenter {
         return $form;
     }
 
-    function renderDefault(){
+    function renderDefault() {
         $this->requireAdmin();
         $this->template->tabs = [
             'Import předmětů' => 'ImportSubject:',
             'Import kateder' => 'ImportDepartment:'
         ];
+    }
+
+    function actionDefault() {
+        $this->requireAdmin();
+        $request = $this->getHttpRequest();
+        if (!$request->isMethod('POST')) {
+            return;
+        }
+
+        try {
+            $this->importModel->importTeachers($request->getPost());
+            $this->flashMessage('Učitelé (' . count($request->getPost('name')) . ') byli naimportováni.', self::$SUCCESS);
+        } catch (\Exception $e) {
+            $this->showErrorMessage($e);
+        }
+
     }
 
 }
