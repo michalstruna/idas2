@@ -8,6 +8,7 @@
 
 namespace App\Presenters;
 
+use App\Control\ScheduleControl;
 use App\Model\ScheduleModel;
 use App\Model\RoomModel;
 use App\Model\CourseTypeInPlanModel;
@@ -110,9 +111,7 @@ class SchedulePresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->scheduleActions = $this->scheduleModel->getAll();
-        $this->template->tabs = [
-            'Rozvrh' => 'Schedule:'
-        ];
+        $this->template->tabs = [];
 
         $this->template->getDayNameByIndex = function($index): string {
             return Days::findByNestedKey('index', (int) $index)['text'];
@@ -131,8 +130,25 @@ class SchedulePresenter extends BasePresenter {
 
     }
 
+    /**
+     * Delete schedule action by ID.
+     * @param string $id
+     * @throws \Nette\Application\AbortException
+     */
     public function actionDelete(string $id): void {
+        $this->requireAdmin(); // TODO: Or owner teacher.
+        try {
+            $this->scheduleModel->deleteById($id);
+            $this->flashMessage('Rozvrhová akce byla vymazána.', self::$SUCCESS);
+        } catch (DriverException $exception) {
+            $this->showErrorMessage($exception);
+        }
 
+        $this->redirect('Schedule:');
+    }
+
+    public function createComponentSchedule(): ScheduleControl {
+        return new ScheduleControl();
     }
 
 }
