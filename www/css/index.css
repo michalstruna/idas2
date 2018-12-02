@@ -308,6 +308,7 @@ form select {
     background-color: #444;
     box-shadow: 0 0 0.5rem #111;
     display: grid;
+    margin-bottom: 3rem;
     position: relative;
     width: 100%;
 }
@@ -325,9 +326,23 @@ form select {
     box-sizing: border-box;
     background-color: #464;
     font-size: 90%;
-    height: 4.5rem;
+    height: 5rem;
     padding: 0.5rem;
     position: relative;
+    text-align: center;
+}
+
+.schedule__action--left, .schedule__action--right {
+    color: #aaa;
+    font-size: 90%;
+}
+
+.schedule__action--left {
+    float: left;
+}
+
+.schedule__action--right {
+    float: right;
 }
 
 .schedule__action--inner {
@@ -337,8 +352,9 @@ form select {
     right: 0%;
     padding: 0.5rem;
     position: absolute;
+    text-align: left;
     top: 50%;
-    width: 10rem;
+    width: 13rem;
     z-index: 10;
 }
 

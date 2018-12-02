@@ -16,12 +16,18 @@
                 n:foreach="$items['area'] as $item"
                 class="schedule__action"
                 style="grid-column: {$item['xMin']} / {$item['xMax']}; grid-row: {$item['y']}">
-            {$item['data']['predmet']}
+            <span class="schedule__action--left"> ◄ {$item['data']['zacatek']}.00</span>
+            <span class="schedule__action--right">{$item['data']['zacatek'] + $item['data']['pocet_hodin']}.00 ►</span>
+            <br style="clear: both"/>
+            {$item['data']['predmet']}<br />
+            {$item['data']['mistnost']}<br />
+            {$item['data']['ucitel']|replaceRE:'/.* /':''}<br />
+
             <div class="schedule__action--inner">
                 {$item['data']['predmet']} ({$item['data']['zpusob_vyuky']})<br />
-                Vyučující: {$item['data']['ucitel']}<br />
-                Místnost: {$item['data']['mistnost']}<br />
-                Probíhá: {$getDayNameByIndex($item['data']['den_v_tydnu'])}, {$item['data']['zacatek']}-{$item['data']['zacatek'] + $item['data']['pocet_hodin']} h<br />
+                🏢 Místnost: {$item['data']['mistnost']}<br />
+                👤 Vyučující: {$item['data']['ucitel']}<br />
+                🕑 Probíhá: {$getDayNameByIndex($item['data']['den_v_tydnu'])}, {$item['data']['zacatek']}-{$item['data']['zacatek'] + $item['data']['pocet_hodin']} h<br />
                 {if $editable}
                     <a href="{plink $handleEdit $item['data']['id']}">Upravit</a> | <a href="{plink $handleDelete $item['data']['id']}">Odstranit</a>
                 {/if}
