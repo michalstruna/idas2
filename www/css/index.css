@@ -308,6 +308,7 @@ form select {
     background-color: #444;
     box-shadow: 0 0 0.5rem #111;
     display: grid;
+    grid-template-columns: 3rem auto;
     margin-bottom: 3rem;
     position: relative;
     width: 100%;
