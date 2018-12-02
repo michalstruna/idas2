@@ -34,8 +34,9 @@ form.addEventListener("submit", function (e) {
         <h1 class="item__list__title">
             Import učitelů
         </h1>
+        <button onclick="importAll()">Importovat vše</button>
     </header>`;
-            html += '<table class="table">';
+            html += '<form method="post"><table class="table">';
             html += `<tr class="table__row table__row-header">
 <th class="table__cell table__cell--header">Jméno</th>
 <th class="table__cell table__cell--header">Příjmení</th>
@@ -51,22 +52,27 @@ form.addEventListener("submit", function (e) {
                 let teacher = json[i];
                 html += '<tr class="table__row">';
 
-                html += '<td class="table__cell"> ' + toDbString(teacher[name]) + '</td>';
-                html += '<td class="table__cell"> ' + toDbString(teacher[surname]) + '</td>';
-                html += '<td class="table__cell"> ' + toDbString(teacher[titlePrefix]) + '</td>';
-                html += '<td class="table__cell"> ' + toDbString(teacher[titlePostfix]) + '</td>';
-                html += '<td class="table__cell"> ' + toDbString(teacher[telephone]) + '</td>';
-                html += '<td class="table__cell"> ' + toDbString(teacher[mobile]) + '</td>';
-                html += '<td class="table__cell"> ' + toDbString(teacher[email]) + '</td>';
+                html += '<td class="table__cell"> <input type="text" name="name[]" value="' + toDbString(teacher[name]) + '"></td>';
+                html += '<td class="table__cell"> <input type="text" name="surname[]" value="' + toDbString(teacher[surname]) + '"></td>';
+                html += '<td class="table__cell"> <input type="text" name="titlePrefix[]" value="' + toDbString(teacher[titlePrefix]) + '"></td>';
+                html += '<td class="table__cell"> <input type="text" name="titlePostfix[]" value="' + toDbString(teacher[titlePostfix]) + '"></td>';
+                html += '<td class="table__cell"> <input type="text" name="telephone[]" value="' + toDbString(teacher[telephone]) + '"></td>';
+                html += '<td class="table__cell"> <input type="text" name="mobile[]" value="' + toDbString(teacher[mobile]) + '"></td>';
+                html += '<td class="table__cell"> <input type="text" name="email[]" value="' + toDbString(teacher[email]) + '"></td>';
                 html += '<td class="table__cell"> ' + 'cxy' + '</td>';
                 html += '<td class="table__cell"> ' + '<button onclick="removeRow()">X</button>' + '</td>';
 
                 html += '</tr>';
             }
-            html += '</table>';
+            html += '</table></form>';
             content.innerHTML = html;
         };
     })();
     reader.readAsText(file);
 
 }, true);
+
+function importAll() {
+    let form = document.getElementsByTagName('form')[0];
+    form.submit();
+}
