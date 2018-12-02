@@ -42,7 +42,7 @@ class ScheduleControl extends Control {
     /**
      * Return 2D area of all schedule actions with their coordinates.
      * @param array $scheduleActions
-     * @return array Array with 'area' and 'days' keys.
+     * @return array Array with 'area', 'days', 'xMin' and 'xMax' keys.
      * Each 'area' item is array with keys 'xMin', 'xMax', 'y', 'data'.
      * Each 'days' item is array with keys 'yMin', 'yMax', index.
      * @throws \ReflectionException
@@ -51,6 +51,8 @@ class ScheduleControl extends Control {
         $area = [];
         $resources = [];
         $daysYCoordinates = [];
+        $xMin = 23;
+        $xMax = 0;
         $globalMaxY = empty($daysYCoordinates) ? 1 : end($daysYCoordinates);
 
         foreach (Days::toArray() as $day) {
@@ -62,10 +64,9 @@ class ScheduleControl extends Control {
                     $start = $scheduleAction['zacatek'];
                     $end = $scheduleAction['zacatek'] + $scheduleAction['pocet_hodin'];
                     $y = $this->getFreeVerticalCoordinate($resources, $start, $end, $globalMaxY + 1);
-
-                    if ($y >= $yMax) {
-                        $yMax = $y;
-                    }
+                    $yMax = max($y, $yMax);
+                    $xMin = min($start, $xMin);
+                    $xMax = max($end, $xMax);
 
                     array_push($area, [
                         'xMin' => $start + 2,
@@ -76,7 +77,7 @@ class ScheduleControl extends Control {
                 }
             }
 
-            if ((int)end($area)['data']['den_v_tydnu'] === $day['index']) {
+            if ((int)end($area)['data']['den_v_tydnu'] === $day['index'] && $xMax) {
                 $globalMaxY = $yMax;
                 array_push($daysYCoordinates, [
                     'yMin' => $yMin,
@@ -86,7 +87,7 @@ class ScheduleControl extends Control {
             }
         }
 
-        return ['area' => $area, 'daysY' => $daysYCoordinates];
+        return ['area' => $area, 'daysY' => $daysYCoordinates, 'xMin' => $xMin, 'xMax' => $xMax - 1];
     }
 
     /**
