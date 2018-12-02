@@ -17,8 +17,6 @@ class ImportTeacherPresenter extends BasePresenter {
 
     private $importModel;
 
-    private $gg = 5;
-
     /**
      * ImportPresenter constructor.
      * @param $importModel
@@ -87,7 +85,6 @@ class ImportTeacherPresenter extends BasePresenter {
     }
 
     function renderDefault(){
-        dump($this->gg);
         $this->requireAdmin();
         $this->template->teachers = [];
     }
@@ -98,7 +95,6 @@ class ImportTeacherPresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function onImport(Form $form): void {
-        dump("Test");
         $this->requireAdmin();
         try {
             /** @var \Nette\Http\FileUpload */
