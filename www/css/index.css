@@ -323,14 +323,27 @@ form select {
 }
 
 .schedule__action {
-    border: 1px solid #353;
     box-sizing: border-box;
-    background-color: #464;
     font-size: 90%;
     height: 5rem;
     padding: 0.5rem;
     position: relative;
     text-align: center;
+}
+
+.schedule__action--p {
+    border: 1px solid #247;
+    background-color: #357;
+}
+
+.schedule__action--s {
+    border: 1px solid #383;
+    background-color: #494;
+}
+
+.schedule__action--c {
+    border: 1px solid #353;
+    background-color: #464;
 }
 
 .schedule__action--left, .schedule__action--right {
