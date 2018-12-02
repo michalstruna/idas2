@@ -12,6 +12,7 @@ use App\Model\FacultyModel;
 use App\Model\DepartmentModel;
 use Nette\Database\DriverException;
 use Nette\Application\UI\Form;
+use Nette\Application\Responses\JsonResponse;
 
 class DepartmentPresenter extends BasePresenter {
 
@@ -107,6 +108,10 @@ class DepartmentPresenter extends BasePresenter {
         }
 
         $this->redirect('Department:');
+    }
+
+    public function actionJson() {
+        $this->sendResponse(new JsonResponse($this->departmentModel->getAll()));
     }
 
 }
