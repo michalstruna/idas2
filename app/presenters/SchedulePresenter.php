@@ -115,12 +115,15 @@ class SchedulePresenter extends BasePresenter {
     public function renderDefault(): void {
         $this->template->scheduleActions = $this->scheduleModel->getAll();
         $this->template->tabs = [];
+        $this->template->hoursSum = array_sum(array_map(function ($action) {
+            return $action['pocet_hodin'];
+        }, $this->template->scheduleActions));
 
-        $this->template->getDayNameByIndex = function($index): string {
-            return Days::findByNestedKey('index', (int) $index)['text'];
+        $this->template->getDayNameByIndex = function ($index): string {
+            return Days::findByNestedKey('index', (int)$index)['text'];
         };
 
-        $this->template->formatInterval = function($start, $item): string {
+        $this->template->formatInterval = function ($start, $item): string {
             return Time::formatInterval($start, $item['pocet_hodin']);
         };
     }
