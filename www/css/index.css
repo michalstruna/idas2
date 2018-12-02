@@ -110,11 +110,12 @@ body {
 
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="submit"], input[type="number"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="submit"], input[type="number"], input[type="date"] {
     background-color: transparent;
     border: none;
     border-bottom: 0.15rem solid #aaa;
     color: #eee;
+    font-family: Arial;
     font-size: 100%;
     margin: 1rem 0;
     outline: none;
@@ -325,7 +326,7 @@ form select {
 .schedule__action {
     box-sizing: border-box;
     font-size: 90%;
-    height: 5rem;
+    height: auto;
     padding: 0.5rem;
     position: relative;
     text-align: center;
@@ -344,6 +345,11 @@ form select {
 .schedule__action--c {
     border: 1px solid #353;
     background-color: #464;
+}
+
+.schedule__action--unique {
+    background-color: #970;
+    border-color: #860;
 }
 
 .schedule__action--left, .schedule__action--right {

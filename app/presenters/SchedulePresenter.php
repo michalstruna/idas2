@@ -80,6 +80,9 @@ class SchedulePresenter extends BasePresenter {
             ->setDefaultValue($scheduleAction ? $scheduleAction['uci_id'] : null)
             ->setRequired('Prosím vyberte výuku');
 
+        $form->addText('date', 'Přesný datum')
+            ->setType('date')
+            ->setDefaultValue($scheduleAction ? $scheduleAction['datum'] : '');
 
 
         $form->addSubmit('send', $scheduleAction ? 'Upravit' : 'Přidat');

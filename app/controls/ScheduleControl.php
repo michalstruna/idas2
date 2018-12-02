@@ -20,7 +20,7 @@ class ScheduleControl extends Control {
 
     /**
      * Render control.
-     * @param array $scheduleActions Array of items. Each item must have 'id', 'zacatek', 'pocet_hodin', 'zpusob_vyuky', 'ucitel' and 'mistnost' properties.
+     * @param array $scheduleActions Array of items. Each item must have 'id', 'zacatek', 'pocet_hodin', 'zpusob_vyuky', 'ucitel' and 'mistnost' and one of 'datum' / 'den_v_tydnu' keys.
      * @throws \ReflectionException
      */
     public function render(array $scheduleActions): void {

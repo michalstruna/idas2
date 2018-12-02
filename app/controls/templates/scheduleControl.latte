@@ -14,7 +14,7 @@
         </div>
         <div
                 n:foreach="$items['area'] as $item"
-                n:class="schedule__action, 'schedule__action--' . strtolower($item['data']['zpusob_vyuky'][0])"
+                n:class="schedule__action, 'schedule__action--' . strtolower($item['data']['zpusob_vyuky'][0]), $item['data']['datum'] ? 'schedule__action--unique'"
                 style="grid-column: {$item['xMin'] - $items['xMin']} / {$item['xMax'] - $items['xMin']}; grid-row: {$item['y']}">
             <span class="schedule__action--left"> ◄ {$item['data']['zacatek']}.00</span>
             <span class="schedule__action--right">{$item['data']['zacatek'] + $item['data']['pocet_hodin']}.00 ►</span>
@@ -22,6 +22,7 @@
             {$item['data']['predmet']}<br />
             {$item['data']['mistnost']}<br />
             {$item['data']['ucitel']|replaceRE:'/.* /':''}<br />
+            {$item['data']['datum']}
 
             <div class="schedule__action--inner">
                 {$item['data']['predmet']} ({$item['data']['zpusob_vyuky']})<br />
