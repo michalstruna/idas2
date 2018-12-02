@@ -81,7 +81,7 @@ form.addEventListener("submit", function (e) {
                 }
                 html += '</select></td>';
 
-                html += '<td class="table__cell"> ' + '<button onclick="removeRow()">Zahodit záznam</button>' + '</td>';
+                html += '<td class="table__cell"> ' + '<span class="button underlined clickable" onclick="removeRow()">Zahodit záznam</span>' + '</td>';
 
                 html += '</tr>';
             }

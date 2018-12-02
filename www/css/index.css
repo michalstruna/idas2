@@ -298,3 +298,11 @@ form select {
 .clickable {
     cursor: pointer;
 }
+
+.underlined {
+    text-decoration: underline;
+}
+
+.underlined:hover {
+    text-decoration: none;
+}
