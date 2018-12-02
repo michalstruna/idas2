@@ -22,10 +22,15 @@ form.addEventListener("submit", function (e) {
     const reader = new FileReader();
     reader.onload = (function () {
         return function (e) {
-            const json = JSON.parse(e.target.result)[0].ucitel;
+            const data = JSON.parse(e.target.result);
+            let json = data[0].ucitel;
             if (json === undefined) {
-                alert('Nepovedlo se přečíst zdrojový soubor. Jste si jistí, že má správný formát?');
-                return;
+                if (Array.isArray(data)) {
+                    json = data;
+                } else {
+                    alert('Nepovedlo se přečíst zdrojový soubor. Jste si jistí, že má správný formát?');
+                    return;
+                }
             }
 
             const name = document.getElementsByName('name')[0].value;
@@ -75,7 +80,7 @@ form.addEventListener("submit", function (e) {
                 }
                 html += '</select></td>';
 
-                html += '<td class="table__cell"> ' + '<button onclick="removeRow()">X</button>' + '</td>';
+                html += '<td class="table__cell"> ' + '<button onclick="removeRow()">Zahodit záznam</button>' + '</td>';
 
                 html += '</tr>';
             }

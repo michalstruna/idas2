@@ -32,9 +32,20 @@ class ImportSubjectPresenter extends BasePresenter {
     function createComponentImportSubjectsForm() {
         $form = new Form;
 
+        $form->addText('shortName', 'Zkratka')
+            ->setRequired('Prosím vyplňte název pro zkratku.')
+            ->setHtmlAttribute('autocomplete', 'off')
+            ->setDefaultValue('zkratka')
+            ->setMaxLength(50);
+
+        $form->addText('name', 'Název')
+            ->setRequired('Prosím vyplňte název pro nazev.')
+            ->setHtmlAttribute('autocomplete', 'off')
+            ->setDefaultValue('nazev')
+            ->setMaxLength(50);
+
         $form->addUpload('file', 'Importovaný soubor (JSON)')
             ->setRequired(true);
-
 
         $form->addSubmit('send', 'Importovat');
 

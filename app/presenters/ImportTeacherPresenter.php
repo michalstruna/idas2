@@ -32,6 +32,7 @@ class ImportTeacherPresenter extends BasePresenter {
      */
     function createComponentImportTeachersForm() {
         $form = new Form;
+
         $form->addText('name', 'Jméno')
             ->setRequired('Prosím vyplňte název pro jméno.')
             ->setHtmlAttribute('autocomplete', 'off')

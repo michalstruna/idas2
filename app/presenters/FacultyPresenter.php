@@ -11,6 +11,7 @@ namespace App\Presenters;
 use App\Model\FacultyModel;
 use Nette\Database\DriverException;
 use Nette\Application\UI\Form;
+use Nette\Application\Responses\JsonResponse;
 
 class FacultyPresenter extends BasePresenter {
 
