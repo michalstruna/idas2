@@ -74,7 +74,7 @@ form.addEventListener("submit", function (e) {
                     html += '<option value="' + department.id + '">' + department.nazev + '</option>';
                 }
                 html += '</select></td>';
-                
+
                 html += '<td class="table__cell"> ' + '<button onclick="removeRow()">X</button>' + '</td>';
 
                 html += '</tr>';
@@ -86,8 +86,3 @@ form.addEventListener("submit", function (e) {
     reader.readAsText(file);
 
 }, true);
-
-function importAll() {
-    const form = document.getElementsByTagName('form')[0];
-    form.submit();
-}

@@ -1,7 +1,5 @@
 {block content}
 <header class="item__list__header">
-
-    {if count($teachers) == 0}
     <section class="item__edit">
         <section class="block">
             <h1 class="form__title">
@@ -10,14 +8,6 @@
             {control importTeachersForm}
         </section>
     </section>
-    {else}
-        <h1 n:block="title" class="item__list__title">
-            Import učitelů
-        </h1>
-        {foreach $teachers as $teacher}
-            $teacher <br>
-        {/foreach}
-    {/if}
 </header>
 
 {/block}

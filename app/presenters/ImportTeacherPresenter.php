@@ -80,36 +80,17 @@ class ImportTeacherPresenter extends BasePresenter {
 
         $form->addSubmit('send', 'Importovat');
 
-        $form->onSuccess[] = [$this, 'onImport'];
         return $form;
     }
 
     function renderDefault(){
         $this->requireAdmin();
-        $this->template->teachers = [];
     }
 
-    /**
-     * Handler for import form.
-     * @param Form $form
-     * @throws \Nette\Application\AbortException
-     */
-    public function onImport(Form $form): void {
+    public function handleDefault(): void {
         $this->requireAdmin();
-        try {
-            /** @var \Nette\Http\FileUpload */
-            $fileUpload = $form['file']->getValue();
-            $fileData = $fileUpload->getContents();
-            $json = json_decode($fileData, true);
-            if ($json === null || $json[0]['ucitel'] === null) {
-                $this->flashMessage("Nevalidní JSON!", self::$ERROR);
-                return;
-            }
-
-            $teachers = $json[0]['ucitel'];
-        } catch (DriverException $exception) {
-            $this->showErrorMessage($exception);
-        }
+        dump('Zachoood');
+        die();
     }
 
 }
