@@ -138,9 +138,18 @@ form th {
 }
 
 @keyframes fade-in {
-    0% { opacity: 1; pointer-events: all; }
-    80% { opacity: 1; poiner-events: all; }
-    100% { opacity: 0; pointer-events: none; }
+    0% {
+        opacity: 1;
+        pointer-events: all;
+    }
+    80% {
+        opacity: 1;
+        poiner-events: all;
+    }
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .flash {
@@ -293,4 +302,80 @@ form select {
 
 .item__list__header > *:last-child {
     margin-right: 0;
+}
+
+.schedule {
+    background-color: #444;
+    box-shadow: 0 0 0.5rem #111;
+    display: grid;
+    position: relative;
+    width: 100%;
+}
+
+.schedule--empty {
+    align-items: center;
+    display: flex;
+    height: calc(100vh - 9rem);
+    justify-content: center;
+    width: 100%;
+}
+
+.schedule__action {
+    border: 1px solid #353;
+    box-sizing: border-box;
+    background-color: #464;
+    font-size: 90%;
+    height: 4.5rem;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.schedule__action--inner {
+    background-color: #222;
+    font-size: 90%;
+    display: none;
+    right: 0%;
+    padding: 0.5rem;
+    position: absolute;
+    top: 50%;
+    width: 10rem;
+    z-index: 10;
+}
+
+.schedule__action a {
+    color: #fff;
+}
+
+.schedule__action:hover .schedule__action--inner {
+    display: block;
+}
+
+.schedule__hour__title {
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.schedule__day__title {
+    align-items: center;
+    display: flex;
+    font-size: 100%;
+    font-weight: bold;
+    padding: 0.5rem;
+    justify-content: center;
+}
+
+.schedule__line--vertical {
+    grid-row: 1 / 100;
+    border: 1px solid #222;
+    height: 100%;
+    width: 0;
+}
+
+.schedule__line--horizontal {
+    grid-column: 1 / 26;
+    border: 1px solid #222;
+    height: 0;
+    width: 100%;
 }

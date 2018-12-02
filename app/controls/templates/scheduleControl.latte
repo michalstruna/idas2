@@ -1,0 +1,34 @@
+{if empty($items[area])}
+    <div class="schedule--empty">
+        Nenalezeny žádné rozvrhové akce.
+    </div>
+{else}
+    <div class="schedule">
+        <div n:foreach="range(0, 23) as $hour" class="schedule__line--vertical" style="grid-column: {$hour + 2}"></div>
+        <div n:foreach="$items['daysY'] as $day" class="schedule__line--horizontal" style="grid-row: {$day['yMin']}"></div>
+        <div n:foreach="range(0, 23) as $hour" style="grid-column: {$hour + 2}; grid-row: 1" class="schedule__hour__title">
+            {$hour}
+        </div>
+        <div n:foreach="$items['daysY'] as $key => $day" style="grid-column: 1; grid-row: {$day['yMin']} / {$day['yMax']}" class="schedule__day__title">
+            {$getDayNameByIndex($day['index'])|truncate:2:''}
+        </div>
+        <div
+                n:foreach="$items['area'] as $item"
+                class="schedule__action"
+                style="grid-column: {$item['xMin']} / {$item['xMax']}; grid-row: {$item['y']}">
+            {$item['data']['predmet']}
+            <div class="schedule__action--inner">
+                {$item['data']['predmet']} ({$item['data']['zpusob_vyuky']})<br />
+                Vyučující: {$item['data']['ucitel']}<br />
+                Místnost: {$item['data']['mistnost']}<br />
+                Probíhá: {$getDayNameByIndex($item['data']['den_v_tydnu'])}, {$item['data']['zacatek']}-{$item['data']['zacatek'] + $item['data']['pocet_hodin']} h<br />
+                {if $editable}
+                    <a href="{plink $handleEdit $item['data']['id']}">Upravit</a> | <a href="{plink $handleDelete $item['data']['id']}">Odstranit</a>
+                {/if}
+            </div>
+        </div>
+    </div>
+{/if}
+
+
+<a n:if="$editable" href={plink $handleAdd} class="button button--large button--add">+</a>
