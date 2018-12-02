@@ -3,7 +3,7 @@
     <section>
         <header class="item__list__header">
             <h1 n:block="title" class="item__list__title">
-                Import učitelů
+                Import kateder
             </h1>
 
             {control tabMenu, $tabs}
@@ -12,9 +12,9 @@
         <section class="item__edit item__edit--wrap-content">
             <section class="block">
                 <h1 class="form__title">
-                    Import učitelů <br>(mapování sloupců)
+                    Import kateder <br>(mapování sloupců)
                 </h1>
-                {control importTeachersForm}
+                {control importDepartmentsForm}
             </section>
         </section>
     </section>
@@ -23,4 +23,4 @@
 
 {block customScripts}
 
-<script src="{$basePath}/js/importTeacher.js"></script>
+<script src="{$basePath}/js/importDepartment.js"></script>

@@ -103,4 +103,8 @@ class CompletionTypePresenter extends BasePresenter {
         $this->redirect('CompletionType:');
     }
 
+    public function actionJson() {
+        $this->sendResponse(new JsonResponse($this->completionTypeModel->getAll()));
+    }
+
 }

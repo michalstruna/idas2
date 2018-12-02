@@ -106,4 +106,8 @@ class TeachingFormPresenter extends BasePresenter {
         $this->redirect('TeachingForm:');
     }
 
+    public function actionJson() {
+        $this->sendResponse(new JsonResponse($this->teachingFormModel->getAll()));
+    }
+
 }

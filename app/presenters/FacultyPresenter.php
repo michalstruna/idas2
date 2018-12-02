@@ -98,4 +98,8 @@ class FacultyPresenter extends BasePresenter {
         $this->redirect('Faculty:');
     }
 
+    public function actionJson() {
+        $this->sendResponse(new JsonResponse($this->facultyModel->getAll()));
+    }
+
 }

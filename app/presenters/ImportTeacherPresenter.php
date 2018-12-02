@@ -85,12 +85,10 @@ class ImportTeacherPresenter extends BasePresenter {
 
     function renderDefault(){
         $this->requireAdmin();
-    }
-
-    public function handleDefault(): void {
-        $this->requireAdmin();
-        dump('Zachoood');
-        die();
+        $this->template->tabs = [
+            'Import předmětů' => 'ImportSubject:',
+            'Import kateder' => 'ImportDepartment:'
+        ];
     }
 
 }
