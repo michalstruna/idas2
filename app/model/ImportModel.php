@@ -26,4 +26,27 @@ class ImportModel extends BaseModel {
             );
         }
     }
+
+    function importSubjects($data) {
+        for ($i = 0; $i < count($data['name']); $i++) {
+            $this->database->query(
+                'BEGIN SEM_IMPORT.IMPORT_PREDMETU(?, ?, ?, ?); END;',
+                $data['shortName'][$i],
+                $data['name'][$i],
+                $data['teachingForm'][$i],
+                $data['completionType'][$i]
+            );
+        }
+    }
+
+    function importDepartments($data) {
+        for ($i = 0; $i < count($data['name']); $i++) {
+            $this->database->query(
+                'BEGIN SEM_IMPORT.IMPORT_KATEDRY(?, ?, ?); END;',
+                $data['shortName'][$i],
+                $data['name'][$i],
+                $data['faculty'][$i]
+            );
+        }
+    }
 }

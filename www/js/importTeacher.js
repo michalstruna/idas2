@@ -47,7 +47,7 @@ form.addEventListener("submit", function (e) {
         <h1 class="item__list__title">
             Import učitelů
         </h1>
-        <button onclick="importAll()">Importovat vše</button>
+        <span class="button button--flex button--large button--inner clickable" onclick="importAll()">Importovat vše</span>
     </header>`;
             html += '<form method="post"><table class="table">';
             html += `<tr class="table__row table__row-header">

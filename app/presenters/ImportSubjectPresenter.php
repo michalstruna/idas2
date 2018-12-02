@@ -11,6 +11,7 @@ namespace App\Presenters;
 
 use App\Model\ImportModel;
 use Nette\Application\UI\Form;
+use Nette\Database\DriverException;
 
 class ImportSubjectPresenter extends BasePresenter {
 
@@ -58,5 +59,20 @@ class ImportSubjectPresenter extends BasePresenter {
             'Import učitelů' => 'ImportTeacher:',
             'Import kateder' => 'ImportDepartment:'
         ];
+    }
+
+    function actionDefault() {
+        $this->requireAdmin();
+        $request = $this->getHttpRequest();
+        if (!$request->isMethod('POST')) {
+            return;
+        }
+
+        try {
+            $this->importModel->importSubjects($request->getPost());
+            $this->flashMessage('Předměty (' . count($request->getPost('name')) . ') byly naimportovány.', self::$SUCCESS);
+        } catch (DriverException $e) {
+            $this->showErrorMessage($e);
+        }
     }
 }

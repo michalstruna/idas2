@@ -102,10 +102,9 @@ class ImportTeacherPresenter extends BasePresenter {
         try {
             $this->importModel->importTeachers($request->getPost());
             $this->flashMessage('Učitelé (' . count($request->getPost('name')) . ') byli naimportováni.', self::$SUCCESS);
-        } catch (\Exception $e) {
+        } catch (DriverException $e) {
             $this->showErrorMessage($e);
         }
-
     }
 
 }
