@@ -179,7 +179,7 @@ form select {
     height: 3.5rem;
     outline: none;
     padding: 0 1rem;
-    width: 100%;
+    width: 22rem;
 }
 
 .item__edit td, .item__add td {
@@ -309,4 +309,9 @@ form select {
 
 .underlined:hover {
     text-decoration: none;
+}
+
+img {
+    display: block;
+    margin: 10px auto;
 }

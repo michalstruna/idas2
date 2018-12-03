@@ -9,7 +9,9 @@
 namespace App\Presenters;
 
 
+use App\Control\TableImageControl;
 use App\Model\DepartmentModel;
+use App\Model\ImageModel;
 use App\Model\TeacherModel;
 use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
@@ -20,15 +22,19 @@ class TeacherPresenter extends BasePresenter {
 
     private $departmentModel;
 
+    private $imageModel;
+
     /**
      * TeacherPresenter constructor.
      * @param TeacherModel $teacherModel
      * @param DepartmentModel $departmentModel
+     * @param ImageModel $imageModel
      */
-    public function __construct(TeacherModel $teacherModel, DepartmentModel $departmentModel) {
+    public function __construct(TeacherModel $teacherModel, DepartmentModel $departmentModel, ImageModel $imageModel) {
         parent::__construct();
         $this->teacherModel = $teacherModel;
         $this->departmentModel = $departmentModel;
+        $this->imageModel = $imageModel;
     }
 
     /**
@@ -42,6 +48,12 @@ class TeacherPresenter extends BasePresenter {
         $departments = $this->departmentModel->getAll();
 
         $form = new Form;
+
+        $form->addUpload('image')
+            ->setRequired(false)
+            ->addCondition(Form::IMAGE)
+            ->addRule(Form::MIME_TYPE, 'Soubor musí být obrázek typu JPEG nebo PNG', array('image/jpeg', 'image/png'));
+
         $form->addText('firstName', 'Jméno')
             ->setRequired('Prosím vyplňte jméno.')
             ->setHtmlAttribute('autocomplete', 'off')
@@ -94,16 +106,21 @@ class TeacherPresenter extends BasePresenter {
         return $form;
     }
 
+    public function createComponentTableImage() {
+        return new TableImageControl();
+    }
+
     public function renderDefault(): void {
         $this->template->teachers = $this->teacherModel->getAll();
         $this->template->tabs = ['Role' => 'Role:',];
     }
 
     public function renderEdit(string $id): void {
-        if(!$this->isOwner()) {
+        if (!$this->isOwner()) {
             $this->requireAdmin();
         }
 
+        $this->template->imageId = $this->teacherModel->getById($id)->obrazek_id;
         $this->template->isOwner = $this->isOwner();
         $this->template->tabs = [
             'Učitelé' => 'Teacher:',
@@ -122,20 +139,38 @@ class TeacherPresenter extends BasePresenter {
      */
     public function onEdit(Form $form): void {
         try {
-            if(empty($this->getParameter('id'))) {
+            $teacherId = $this->getParameter('id');
+            if (empty($teacherId)) {
                 $this->requireAdmin();
-                $this->teacherModel->insert($form->getValues(true));
+                $teacherId = $this->teacherModel->insert($form->getValues(true));
                 $this->flashMessage('Vyučující byl přidán.', self::$SUCCESS);
             } else {
-                if(!$this->isOwner()) {
+                if (!$this->isOwner()) {
                     $this->requireAdmin();
                 }
-                $this->teacherModel->updateById($this->getParameter('id'), $form->getValues(true));
+                $this->teacherModel->updateById($teacherId, $form->getValues(true));
                 $this->flashMessage('Vyučující byl upraven.', self::$SUCCESS);
             }
 
+            try {
+                /** @var \Nette\Http\FileUpload */
+                $fileUpload = $form['image']->getValue();
+                if ($fileUpload->getTemporaryFile() !== null) {
+                    if ($fileUpload->isImage() && $fileUpload->isOk()) {
+                        $file = $fileUpload->getContents();
+
+                        $imageId = $this->imageModel->insert($file, $fileUpload->getContentType());
+                        $this->teacherModel->updateImage($teacherId, $imageId);
+                    } else if (!$fileUpload->isImage()) {
+                        $this->flashMessage('Nahraný soubor nebyl obrázek.', self::$ERROR);
+                    }
+                }
+            } catch (DriverException $exception) {
+                 $this->flashMessage('Nebylo možné nahrát obrázek.', self::$ERROR);
+            }
+
             $this->redirect('Teacher:');
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
 
@@ -151,7 +186,7 @@ class TeacherPresenter extends BasePresenter {
         try {
             $this->teacherModel->deleteById($id);
             $this->flashMessage('Vyučující byl vymazán.', self::$SUCCESS);
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
 

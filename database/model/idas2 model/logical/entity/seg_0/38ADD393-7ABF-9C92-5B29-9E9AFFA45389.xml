@@ -31,7 +31,7 @@
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 09:49:12 UTC</createdTime>
 <comment>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</comment>
-<commentInRDBMS>den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele</commentInRDBMS>
+<commentInRDBMS>Den v tydnu &lt;0, 6&gt; - 0 znamena pondeli, 6 znamena nedele.</commentInRDBMS>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
 <item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
@@ -113,7 +113,7 @@
 <Attribute name="schvaleno" id="FF54E23B-B519-5B8D-05DD-BE6064BEB36E">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-28 10:03:16 UTC</createdTime>
-<commentInRDBMS>zda byla rozvrhova akce schvalena administratorem</commentInRDBMS>
+<commentInRDBMS>Zda byla rozvrhova akce schvalena administratorem.</commentInRDBMS>
 <generatorID>05EB39E1-36CA-10D8-23DB-77661247A5A2</generatorID>
 <ownerDesignName>idas2 model</ownerDesignName>
 <engineerTo>
