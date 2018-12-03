@@ -10,7 +10,6 @@ namespace App\Presenters;
 
 
 use App\Model\ImageModel;
-use Nette\Utils\Image;
 
 class ImagePresenter extends BasePresenter {
 
@@ -39,15 +38,11 @@ class ImagePresenter extends BasePresenter {
             return;
         }
 
-        header('Content-Type: '. $imageData['TYP']);
+        header('Content-Type: ' . $imageData['TYP']);
         print $imageData['OBRAZEK']->load();
     }
 
     private function showDefault() {
-        dump(Image::fromFile('./../../img/blank.png'));
-        die();
-        $img = './../../www/img/blank.png';
-        header('Content-Type: image/png');
-        readfile($img);
+        $this->redirectUrl($this->template->basePath . '/img/blank.png');
     }
 }
