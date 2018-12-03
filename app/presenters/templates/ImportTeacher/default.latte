@@ -1,0 +1,26 @@
+{block content}
+
+    <section>
+        <header class="item__list__header">
+            <h1 n:block="title" class="item__list__title">
+                Import učitelů
+            </h1>
+
+            {control tabMenu, $tabs}
+        </header>
+
+        <section class="item__edit item__edit--wrap-content">
+            <section class="block">
+                <h1 class="form__title">
+                    Import učitelů <br>(mapování sloupců)
+                </h1>
+                {control importTeachersForm}
+            </section>
+        </section>
+    </section>
+
+{/block}
+
+{block customScripts}
+
+<script src="{$basePath}/js/importTeacher.js"></script>

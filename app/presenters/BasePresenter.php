@@ -34,6 +34,7 @@ abstract class BasePresenter extends Presenter {
         ];
 
         if ($this->user->isInRole('admin')) {
+            $this->template->menuItems['Import dat'] = ['ImportTeacher:', ['ImportSubject', 'ImportDepartment']];
             $this->template->menuItems['Uživatelé'] = ['User:', []];
         }
 

@@ -1,4 +1,8 @@
 parameters:
+    ociLogin:
+        connection: '(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = fei-sql1.upceucebny.cz)(PORT = 1521)) (CONNECT_DATA = (SID = IDAS12)))'
+        user: C##
+        password:
 
 application:
 	errorPresenter: Error
@@ -21,6 +25,8 @@ services:
 	department: App\Model\DepartmentModel
 	faculty: App\Model\FacultyModel
 	image: App\Model\ImageModel
+	import: App\Model\ImportModel
+	ociLoginProvider: App\Model\OciLoginProvider ( %ociLogin% )
 	role: App\Model\RoleModel
 	room: App\Model\RoomModel
 	semester: App\Model\SemesterModel

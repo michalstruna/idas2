@@ -12,6 +12,7 @@ namespace App\Presenters;
 use App\Model\CompletionTypeModel;
 use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
+use Nette\Application\Responses\JsonResponse;
 
 class CompletionTypePresenter extends BasePresenter {
 
@@ -100,6 +101,10 @@ class CompletionTypePresenter extends BasePresenter {
         }
 
         $this->redirect('CompletionType:');
+    }
+
+    public function actionJson() {
+        $this->sendResponse(new JsonResponse($this->completionTypeModel->getAll()));
     }
 
 }

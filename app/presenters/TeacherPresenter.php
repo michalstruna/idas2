@@ -9,12 +9,12 @@
 namespace App\Presenters;
 
 
+use App\Control\TableImageControl;
 use App\Model\DepartmentModel;
 use App\Model\ImageModel;
 use App\Model\TeacherModel;
 use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
-use Nette\Http\FileUpload;
 
 class TeacherPresenter extends BasePresenter {
 
@@ -106,6 +106,10 @@ class TeacherPresenter extends BasePresenter {
         return $form;
     }
 
+    public function createComponentTableImage() {
+        return new TableImageControl();
+    }
+
     public function renderDefault(): void {
         $this->template->teachers = $this->teacherModel->getAll();
         $this->template->tabs = ['Role' => 'Role:',];
@@ -116,6 +120,7 @@ class TeacherPresenter extends BasePresenter {
             $this->requireAdmin();
         }
 
+        $this->template->imageId = $this->teacherModel->getById($id)->obrazek_id;
         $this->template->isOwner = $this->isOwner();
         $this->template->tabs = [
             'Učitelé' => 'Teacher:',
@@ -134,41 +139,38 @@ class TeacherPresenter extends BasePresenter {
      */
     public function onEdit(Form $form): void {
         try {
-            if (empty($this->getParameter('id'))) {
+            $teacherId = $this->getParameter('id');
+            if (empty($teacherId)) {
                 $this->requireAdmin();
-                $this->teacherModel->insert($form->getValues(true));
+                $teacherId = $this->teacherModel->insert($form->getValues(true));
                 $this->flashMessage('Vyučující byl přidán.', self::$SUCCESS);
             } else {
                 if (!$this->isOwner()) {
                     $this->requireAdmin();
                 }
-                $this->teacherModel->updateById($this->getParameter('id'), $form->getValues(true));
+                $this->teacherModel->updateById($teacherId, $form->getValues(true));
                 $this->flashMessage('Vyučující byl upraven.', self::$SUCCESS);
             }
 
             try {
                 /** @var \Nette\Http\FileUpload */
                 $fileUpload = $form['image']->getValue();
+                if ($fileUpload->getTemporaryFile() !== null) {
+                    if ($fileUpload->isImage() && $fileUpload->isOk()) {
+                        $file = $fileUpload->getContents();
 
-                if ($fileUpload->isImage() && $fileUpload->isOk()) {
-
-                    //$file = fopen($fileUpload->getTemporaryFile(), 'rb');
-                    $file = $fileUpload->getContents();
-                    //$file = (string) $file;
-                    //var_dump($file);
-
-                    $this->imageModel->insert($file, $fileUpload->getContentType());
-                } else if (!$fileUpload->isImage()) {
-                    $this->flashMessage('Nahraný soubor nebyl obrázek.', self::$ERROR);
+                        $imageId = $this->imageModel->insert($file, $fileUpload->getContentType());
+                        $this->teacherModel->updateImage($teacherId, $imageId);
+                    } else if (!$fileUpload->isImage()) {
+                        $this->flashMessage('Nahraný soubor nebyl obrázek.', self::$ERROR);
+                    }
                 }
             } catch (DriverException $exception) {
-                throw $exception;
-                // $this->flashMessage('Nebylo možné nahrát obrázek.', self::$ERROR);
+                 $this->flashMessage('Nebylo možné nahrát obrázek.', self::$ERROR);
             }
 
-            //$this->redirect('Teacher:');
+            $this->redirect('Teacher:');
         } catch (DriverException $exception) {
-            throw $exception;
             $this->showErrorMessage($exception);
         }
 
