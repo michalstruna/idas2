@@ -425,7 +425,7 @@ form select {
 }
 
 .item__list__filter form {
-    height: 4rem;
+    height: 3rem;
     vertical-align: middle;
     width: 100%;
 
@@ -442,10 +442,11 @@ form select {
 }
 
 .item__list__filter input[type="submit"] {
-    margin: 0.5rem;
+    margin: 0;
     padding: 0.5rem;
 }
 
 .item__list__filter select {
+    margin-top: -1rem;
     width: 20vw;
 }
