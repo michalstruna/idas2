@@ -28,7 +28,7 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleMode
             $changes['courseType'],
             $changes['teaching'],
             isset($changes['date']) ? $changes['date'] : '',
-            false,
+            $changes['approved'],
             $id
         );
     }
@@ -46,7 +46,7 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleMode
             $item['courseType'],
             $item['teaching'],
             isset($item['date']) ? $item['date'] : '',
-            false
+            $item['approved']
         );
     }
 

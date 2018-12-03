@@ -354,6 +354,14 @@ form select {
     border-color: #860;
 }
 
+.schedule__action--unapproved {
+    opacity: 0.5;
+}
+
+.schedule__action--unapproved:hover {
+    opacity: 1;
+}
+
 .schedule__action--left, .schedule__action--right {
     color: #aaa;
     font-size: 90%;

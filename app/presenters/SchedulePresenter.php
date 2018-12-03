@@ -126,6 +126,12 @@ class SchedulePresenter extends BasePresenter {
             ->setDefaultValue($scheduleAction ? $scheduleAction['datum'] : '');
 
 
+        if ($this->getUser()->isInRole('admin')) {
+            $form->addCheckbox('approved', 'Schváleno')
+                ->setDefaultValue($scheduleAction ? $scheduleAction['schvaleno'] : false);
+        }
+
+
         $form->addSubmit('send', $scheduleAction ? 'Upravit' : 'Přidat');
 
         $form->onSuccess[] = [$this, 'onEdit'];
