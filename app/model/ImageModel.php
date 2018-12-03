@@ -8,9 +8,6 @@
 
 namespace App\Model;
 
-
-use PDO;
-
 class ImageModel extends BaseModel {
 
     function getById($id) {
@@ -18,19 +15,22 @@ class ImageModel extends BaseModel {
     }
 
     function insert($image, $suffix) {
+        $sql = "INSERT INTO SEM_OBRAZEK (id, obrazek, pripona, vytvoreno) VALUES (SEM_OBRAZEK_SEQ.NEXTVAL, empty_blob(), 'test', SYSDATE) RETURNING obrazek INTO :obrazek";
 
-        $statement = $this->database->getPdo()->prepare('INSERT INTO SEM_OBRAZEK (id, obrazek, pripona, vytvoreno) VALUES (SEM_OBRAZEK_SEQ.NEXTVAL, :obrazek, :pripona, SYSDATE)');
+        $connection = oci_connect('C##xxx', 'xxx', '(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = fei-sql1.upceucebny.cz)(PORT = 1521)) (CONNECT_DATA = (SID = IDAS12)))');
+        $result = oci_parse($connection, $sql);
+        $blob = oci_new_descriptor($connection, OCI_D_LOB);
+        oci_bind_by_name($result, ":obrazek", $blob, -1, OCI_B_BLOB);
+        oci_execute($result, OCI_DEFAULT) or die ("Unable to execute query");
 
-        $test = base64_encode(addslashes($image));
-        $statement->bindParam(':obrazek', $test, PDO::PARAM_LOB);
-        $statement->bindParam(':pripona', $suffix);
+        if(!$blob->save($image)) {
+            oci_rollback($connection);
+        }
+        else {
+            oci_commit($connection);
+        }
 
-        return $statement->execute();
-
-        return $this->database->query(
-            'INSERT INTO SEM_OBRAZEK (id, obrazek, pripona, vytvoreno) VALUES (SEM_OBRAZEK_SEQ.NEXTVAL, ?, ?, SYSDATE)',
-            $image,
-            $suffix
-        );
+        oci_free_statement($result);
+        $blob->free();
     }
 }
