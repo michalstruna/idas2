@@ -26,6 +26,7 @@ services:
 	faculty: App\Model\FacultyModel
 	image: App\Model\ImageModel
 	import: App\Model\ImportModel
+	obligation: App\Model\ObligationModel
 	ociLoginProvider: App\Model\OciLoginProvider ( %ociLogin% )
 	role: App\Model\RoleModel
 	room: App\Model\RoomModel
