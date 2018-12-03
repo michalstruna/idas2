@@ -12,7 +12,7 @@ namespace App\Model;
 class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleModel {
 
     public function getAll(): array {
-        return $this->database->fetchAll('SELECT * FROM sem_p_rozvrh');
+        return $this->database->fetchAll('SELECT sem_rozvrh.*, "ucitel_id" FROM sem_p_rozvrh');
     }
 
     public function getById(string $id) {

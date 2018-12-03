@@ -33,6 +33,7 @@ class SchedulePresenter extends BasePresenter {
     private $semesterModel;
 
     public function __construct(ScheduleModel $scheduleModel, RoomModel $roomModel, CourseTypeInPlanModel $courseTypeModel, TeachingModel $teachingModel, TeacherModel $teacherModel, SemesterModel $semesterModel) {
+        parent::__construct();
         $this->scheduleModel = $scheduleModel;
         $this->roomModel = $roomModel;
         $this->courseTypeModel = $courseTypeModel;
@@ -189,12 +190,25 @@ class SchedulePresenter extends BasePresenter {
         };
     }
 
-    public function renderEdit(string $id): void {
+    private function requireTeacherOwnerIfUnapproved(string $id): void {
+        $scheduleAction = $this->scheduleModel->getById($id);
 
+        if (
+            !$this->getUser()->isInRole('admin') &&
+            ($this->getUser()->getId() !== $scheduleAction['ucitel_id'] || $scheduleAction['schvaleno'] || !$this->getUser()->isInRole('teacher'))
+        ) {
+            $this->redirect('Schedule: ');
+        }
+    }
+
+    public function renderEdit(string $id): void {
+        $this->requireTeacherOwnerIfUnapproved($id);
     }
 
     public function renderAdd(): void {
-
+        if ($this->getUser()->isInRole('teacher')) {
+            $this->requireAdmin();
+        }
     }
 
     /**
@@ -203,7 +217,8 @@ class SchedulePresenter extends BasePresenter {
      * @throws \Nette\Application\AbortException
      */
     public function actionDelete(string $id): void {
-        $this->requireAdmin(); // TODO: Or owner teacher.
+        $this->requireTeacherOwnerIfUnapproved($id);
+
         try {
             $this->scheduleModel->deleteById($id);
             $this->flashMessage('Rozvrhová akce byla vymazána.', self::$SUCCESS);

@@ -35,7 +35,7 @@
                 👤 Vyučující: {$item['data']['ucitel']}<br />
                 🕑 Probíhá: {$getDayNameByIndex($item['data']['den_v_tydnu'])}, {$item['data']['zacatek']}-{$item['data']['zacatek'] + $item['data']['pocet_hodin']} h<br />
                 Semestr: {$item['data']['semestr']}<br />
-                {if $editable}
+                {if $isEditVisible}
                     <a href="{plink $handleEdit $item['data']['id']}">Upravit</a> | <a href="{plink $handleDelete $item['data']['id']}">Odstranit</a>
                 {/if}
             </div>
@@ -44,4 +44,4 @@
 {/if}
 
 
-<a n:if="$editable" href={plink $handleAdd} class="button button--large button--add">+</a>
+<a n:if="$isAddVisible" href={plink $handleAdd} class="button button--large button--add">+</a>
