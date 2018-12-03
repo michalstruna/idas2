@@ -120,6 +120,7 @@ class TeacherPresenter extends BasePresenter {
             $this->requireAdmin();
         }
 
+        $this->template->imageId = $this->teacherModel->getById($id)->obrazek_id;
         $this->template->isOwner = $this->isOwner();
         $this->template->tabs = [
             'Učitelé' => 'Teacher:',

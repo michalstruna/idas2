@@ -6,6 +6,14 @@
         <h1 n:block="title" class="form__title">
             Nový učitel
         </h1>
+
+        <img id="teacher--image" src="{$basePath}/image/load/" width="80" height="80">
+
         {control editTeacherForm}
     </section>
 </section>
+
+{/block}
+
+{block customScripts}
+<script src="{$basePath}/js/teacherDetail.js"></script>
