@@ -18,7 +18,12 @@
 	</section>
 
 	{block scripts}
-	<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+		<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+		<script src="{$basePath}/js/index.js"></script>
 	{/block}
+
+	{ifset customScripts}
+		{include customScripts}
+	{/ifset}
 </body>
 </html>
