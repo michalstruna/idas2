@@ -324,6 +324,8 @@ form select {
 }
 
 .schedule__action {
+    background-color: #666;
+    border: 1px solid #555;
     box-sizing: border-box;
     font-size: 90%;
     height: auto;
@@ -333,18 +335,18 @@ form select {
 }
 
 .schedule__action--p {
-    border: 1px solid #247;
     background-color: #357;
+    border: 1px solid #247;
 }
 
 .schedule__action--s {
-    border: 1px solid #383;
     background-color: #494;
+    border: 1px solid #383;
 }
 
 .schedule__action--c {
-    border: 1px solid #353;
     background-color: #464;
+    border: 1px solid #353;
 }
 
 .schedule__action--unique {
