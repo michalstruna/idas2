@@ -30,6 +30,17 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="typ" id="F18FC467-2D9D-D978-09CE-B26E2E2B5DBA">
+<createdBy>tomas</createdBy>
+<createdTime>2018-12-03 11:23:36 UTC</createdTime>
+<ownerDesignName>idas2 model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="pripona" id="E2C7852F-9F4E-AFD8-73BB-87A4D8CCDEB5">
 <createdBy>tomas</createdBy>
 <createdTime>2018-11-20 13:06:38 UTC</createdTime>

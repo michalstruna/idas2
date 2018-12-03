@@ -40,6 +40,6 @@ interface IDatabaseWrapper {
      * Insert item to DB.
      * @param array $item Array of properties of new database item, where keys are DB columns.
      */
-    public function insert(array $item): void;
+    public function insert(array $item);
 
 }

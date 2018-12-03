@@ -38,17 +38,29 @@ class TeacherModel extends BaseModel implements IDatabaseWrapper {
         $this->database->query('DELETE FROM SEM_UCITEL WHERE ID=?', $id);
     }
 
-    public function insert(array $item): void {
+    public function insert(array $item): string {
+        $id = null;
+        $statement = $this->database->getPdo()->prepare('INSERT INTO SEM_UCITEL (id, jmeno, prijmeni, titul_pred, titul_za, telefon, mobil, kontaktni_email, katedra_id) VALUES (SEM_UCITEL_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id INTO ?');
+        $statement->bindParam(1, $item['firstName']);
+        $statement->bindParam(2, $item['lastName']);
+        $statement->bindParam(3, $item['prefixTitle']);
+        $statement->bindParam(4, $item['postfixTitle']);
+        $statement->bindParam(5, $item['telephone']);
+        $statement->bindParam(6, $item['mobile']);
+        $statement->bindParam(7, $item['email']);
+        $statement->bindParam(8, $item['department']);
+        $statement->bindParam(9, $id, \PDO::PARAM_INT, 8);
+
+        $statement->execute();
+
+        return $id;
+    }
+
+    public function updateImage(string $id, string $imageId) {
         $this->database->query(
-            'INSERT INTO SEM_UCITEL (id, jmeno, prijmeni, titul_pred, titul_za, telefon, mobil, kontaktni_email, katedra_id) VALUES (SEM_UCITEL_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)',
-            $item['firstName'],
-            $item['lastName'],
-            $item['prefixTitle'],
-            $item['postfixTitle'],
-            $item['telephone'],
-            $item['mobile'],
-            $item['email'],
-            $item['department']
+            'UPDATE SEM_UCITEL SET obrazek_id=?  WHERE ID=?',
+            $imageId,
+            $id
         );
     }
 }

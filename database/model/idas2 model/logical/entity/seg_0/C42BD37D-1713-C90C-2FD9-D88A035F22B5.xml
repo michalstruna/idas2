@@ -77,6 +77,20 @@
 <logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="typ" id="8D972EB3-8D41-18D8-2C2F-93294CE80558">
+<createdBy>tomas</createdBy>
+<createdTime>2018-12-03 11:24:00 UTC</createdTime>
+<generatorID>F18FC467-2D9D-D978-09CE-B26E2E2B5DBA</generatorID>
+<ownerDesignName>idas2 model</ownerDesignName>
+<engineerTo>
+<item key="44C9CD31-311A-3DFC-A001-BA67DE0D4F1D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="47D0FEBE-569C-FF10-9E38-D8B34AE3D9A5" name="sem_obrazek_PK">
