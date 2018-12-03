@@ -60,7 +60,7 @@ class SchedulePresenter extends BasePresenter {
             $result[$room['id']] = $room['nazev'];
             return $result;
         }))
-            ->setPrompt('Všechny místnost')
+            ->setPrompt('Všechny místnosti')
             ->setDefaultValue($this->getHttpRequest()->getQuery('room'));
 
         $form->addSelect('semester', null, array_reduce($semesters, function ($result, $semester) {
