@@ -12,6 +12,7 @@ namespace App\Presenters;
 use App\Model\TeachingFormModel;
 use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
+use Nette\Application\Responses\JsonResponse;
 
 class TeachingFormPresenter extends BasePresenter {
 
@@ -104,6 +105,10 @@ class TeachingFormPresenter extends BasePresenter {
         }
 
         $this->redirect('TeachingForm:');
+    }
+
+    public function actionJson() {
+        $this->sendResponse(new JsonResponse($this->teachingFormModel->getAll()));
     }
 
 }

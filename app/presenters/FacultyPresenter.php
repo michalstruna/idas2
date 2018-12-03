@@ -11,6 +11,7 @@ namespace App\Presenters;
 use App\Model\FacultyModel;
 use Nette\Database\DriverException;
 use Nette\Application\UI\Form;
+use Nette\Application\Responses\JsonResponse;
 
 class FacultyPresenter extends BasePresenter {
 
@@ -96,6 +97,10 @@ class FacultyPresenter extends BasePresenter {
         }
 
         $this->redirect('Faculty:');
+    }
+
+    public function actionJson() {
+        $this->sendResponse(new JsonResponse($this->facultyModel->getAll()));
     }
 
 }
