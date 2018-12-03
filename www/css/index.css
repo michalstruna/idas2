@@ -196,7 +196,7 @@ form select {
     padding-bottom: 1rem;
 }
 
-.item__edit label, .item__add label {
+.item__edit th label, .item__add th label {
     position: absolute;
     right: 0;
     transform: translateY(1.5rem);
@@ -457,4 +457,8 @@ form select {
 .item__list__filter select {
     margin-top: -1rem;
     width: 20vw;
+}
+
+input[type="checkbox"] {
+    width: 1.5rem;
 }
