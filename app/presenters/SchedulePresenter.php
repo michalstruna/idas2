@@ -13,6 +13,8 @@ use App\Model\ScheduleModel;
 use App\Model\RoomModel;
 use App\Model\CourseTypeInPlanModel;
 use App\Constants\Days;
+use App\Model\SemesterModel;
+use App\Model\TeacherModel;
 use App\Model\TeachingModel;
 use App\Utils\Time;
 use Nette\Application\UI\Form;
@@ -27,12 +29,51 @@ class SchedulePresenter extends BasePresenter {
     private $roomModel;
     private $courseTypeModel;
     private $teachingModel;
+    private $teacherModel;
+    private $semesterModel;
 
-    public function __construct(ScheduleModel $scheduleModel, RoomModel $roomModel, CourseTypeInPlanModel $courseTypeModel, TeachingModel $teachingModel) {
+    public function __construct(ScheduleModel $scheduleModel, RoomModel $roomModel, CourseTypeInPlanModel $courseTypeModel, TeachingModel $teachingModel, TeacherModel $teacherModel, SemesterModel $semesterModel) {
         $this->scheduleModel = $scheduleModel;
         $this->roomModel = $roomModel;
         $this->courseTypeModel = $courseTypeModel;
         $this->teachingModel = $teachingModel;
+        $this->teacherModel = $teacherModel;
+        $this->semesterModel = $semesterModel;
+    }
+
+    public function createComponentFilterScheduleForm(): Form {
+        $teachers = $this->teacherModel->getAll();
+        $rooms = $this->roomModel->getAll();
+        $semesters = $this->semesterModel->getAll();
+
+        $form = new Form;
+
+        $form->addSelect('teacher', null, array_reduce($teachers, function ($result, $teacher) {
+            $result[$teacher['id']] = $teacher['jmeno'] . ' ' . $teacher['prijmeni'];
+            return $result;
+        }))
+            ->setPrompt('Všichni vyučující')
+            ->setDefaultValue($this->getHttpRequest()->getQuery('teacher'));
+
+        $form->addSelect('room', null, array_reduce($rooms, function ($result, $room) {
+            $result[$room['id']] = $room['nazev'];
+            return $result;
+        }))
+            ->setPrompt('Všechny místnost')
+            ->setDefaultValue($this->getHttpRequest()->getQuery('room'));
+
+        $form->addSelect('semester', null, array_reduce($semesters, function ($result, $semester) {
+            $result[$semester['id']] = $semester['nazev'];
+            return $result;
+        }))
+            ->setPrompt('Všechny semestry')
+            ->setDefaultValue($this->getHttpRequest()->getQuery('semester'));
+
+        $form->addSubmit('send', 'Vyhledat');
+
+        $form->onSuccess[] = [$this, 'onFilter'];
+
+        return $form;
     }
 
     public function createComponentEditScheduleForm(): Form {
@@ -88,7 +129,16 @@ class SchedulePresenter extends BasePresenter {
         $form->addSubmit('send', $scheduleAction ? 'Upravit' : 'Přidat');
 
         $form->onSuccess[] = [$this, 'onEdit'];
+
         return $form;
+    }
+
+    public function onFilter(Form $form, array $values): void {
+        $this->redirect('Schedule:', [
+            'teacherId' => $values['teacher'],
+            'roomId' => $values['room'],
+            'semesterId' => $values['semester']
+        ]);
     }
 
     /**
@@ -113,7 +163,12 @@ class SchedulePresenter extends BasePresenter {
     }
 
     public function renderDefault(): void {
-        $this->template->scheduleActions = $this->scheduleModel->getAll();
+        $this->template->scheduleActions = $this->scheduleModel->getByFilter([
+            '"ucitel_id"' => $this->getHttpRequest()->getQuery('teacher'),
+            '"mistnost_id"' => $this->getHttpRequest()->getQuery('room'),
+            '"semestr_id"' => null
+        ]);
+
         $this->template->tabs = [];
         $this->template->hoursSum = array_sum(array_map(function ($action) {
             return $action['pocet_hodin'];

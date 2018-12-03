@@ -9,7 +9,7 @@
 namespace App\Model;
 
 
-class ScheduleModel extends BaseModel implements IDatabaseWrapper {
+class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleModel {
 
     public function getAll(): array {
         return $this->database->fetchAll('SELECT * FROM sem_p_rozvrh');
@@ -48,5 +48,25 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper {
             isset($item['date']) ? $item['date'] : '',
             false
         );
+    }
+
+    public function getByFilter(array $filter): array {
+        $conditions = [];
+        $parameters = [];
+        $allowedFilters = ['"ucitel_id"', '"mistnost_id"', '"semestr_id"'];
+
+        foreach ($filter as $key => $item) {
+            if (!empty($item) && in_array($key, $allowedFilters)) {
+                array_push($conditions, $key . ' = ?');
+                array_push($parameters, $item);
+            }
+        }
+
+        $query = $this->database->getPdo()->prepare(
+            'SELECT * FROM sem_p_rozvrh' . (empty($conditions) ? '' : (' WHERE ' . implode(' AND ', $conditions)))
+        );
+
+        $query->execute($parameters);
+        return $query->fetchAll();
     }
 }

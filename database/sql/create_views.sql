@@ -54,7 +54,7 @@ FROM SEM_STUD_PLAN
 JOIN SEM_OBOR ON SEM_OBOR.ID = SEM_STUD_PLAN.OBOR_ID;
 
 CREATE OR REPLACE VIEW sem_p_rozvrh AS
-SELECT sem_rozvrh.*, sem_zpus_vyuky.nazev AS "zpusob_vyuky", TO_CHAR(sem_rozvrh.presne_datum, 'DD. MM. YYYY') AS "datum", sem_ucitel.jmeno || ' ' || sem_ucitel.prijmeni as "ucitel", sem_zpus_predm.pocet_hodin AS "pocet_hodin", sem_predmet.zkratka AS "predmet", sem_mistnost.nazev AS "mistnost", sem_mistnost.kapacita AS "kapacita"
+SELECT sem_rozvrh.*, sem_zpus_vyuky.nazev AS "zpusob_vyuky", TO_CHAR(sem_rozvrh.presne_datum, 'DD. MM. YYYY') AS "datum", sem_ucitel.id AS "ucitel_id", sem_ucitel.jmeno || ' ' || sem_ucitel.prijmeni AS "ucitel", sem_zpus_predm.pocet_hodin AS "pocet_hodin", sem_predmet.zkratka AS "predmet", sem_mistnost.nazev AS "mistnost", sem_mistnost.id AS "mistnost_id", sem_mistnost.kapacita AS "kapacita"
 FROM sem_rozvrh
 JOIN sem_mistnost
 ON sem_rozvrh.mistnost_id = sem_mistnost.id

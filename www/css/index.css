@@ -318,7 +318,7 @@ form select {
 .schedule--empty {
     align-items: center;
     display: flex;
-    height: calc(100vh - 9rem);
+    height: calc(100vh - 14rem);
     justify-content: center;
     width: 100%;
 }
@@ -416,4 +416,36 @@ form select {
     border: 1px solid #222;
     height: 0;
     width: 100%;
+}
+
+.item__list__filter {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1rem;
+}
+
+.item__list__filter form {
+    height: 4rem;
+    vertical-align: middle;
+    width: 100%;
+
+}
+
+.item__list__filter form table {
+    width: 100%;
+}
+
+.item__list__filter form tbody {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.item__list__filter input[type="submit"] {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.item__list__filter select {
+    width: 20vw;
 }
