@@ -9,12 +9,12 @@
 namespace App\Presenters;
 
 
+use App\Control\TableImageControl;
 use App\Model\DepartmentModel;
 use App\Model\ImageModel;
 use App\Model\TeacherModel;
 use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
-use Nette\Http\FileUpload;
 
 class TeacherPresenter extends BasePresenter {
 
@@ -104,6 +104,10 @@ class TeacherPresenter extends BasePresenter {
 
         $form->onSuccess[] = [$this, 'onEdit'];
         return $form;
+    }
+
+    public function createComponentTableImage() {
+        return new TableImageControl();
     }
 
     public function renderDefault(): void {

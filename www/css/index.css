@@ -310,3 +310,8 @@ form select {
 .underlined:hover {
     text-decoration: none;
 }
+
+td img {
+    display: block;
+    margin: 10px auto;
+}

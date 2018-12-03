@@ -25,7 +25,11 @@ class ImageModel extends BaseModel {
     }
 
     function getById($id) {
-        return $this->database->fetch('SELECT * FROM SEM_OBRAZEK WHERE ID = ?', $id);
+        $sql = "SELECT * FROM SEM_OBRAZEK WHERE ID = :id";
+        $statement = oci_parse($this->getConnection(), $sql);
+        oci_bind_by_name($statement, ':id', $id);
+        oci_execute($statement);
+        return oci_fetch_array($statement, OCI_ASSOC+OCI_RETURN_NULLS);
     }
 
     function insert($image, $type): string {
@@ -35,7 +39,7 @@ class ImageModel extends BaseModel {
 
         $id = null;
 
-        $connection = oci_connect($this->ociLogin['user'], $this->ociLogin['password'], $this->ociLogin['connection']);
+        $connection = $this->getConnection();
         $result = oci_parse($connection, $sql);
         oci_bind_by_name($result, ':suffix', $suffix);
         oci_bind_by_name($result, ':type', $type);
@@ -55,5 +59,9 @@ class ImageModel extends BaseModel {
         $blob->free();
 
         return $id;
+    }
+
+    private function getConnection() {
+        return oci_connect($this->ociLogin['user'], $this->ociLogin['password'], $this->ociLogin['connection']);
     }
 }
