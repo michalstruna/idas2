@@ -58,7 +58,7 @@ form.addEventListener("submit", function (e) {
 <th class="table__cell table__cell--header">Název</th>
 <th class="table__cell table__cell--header">Forma výuky</th>
 <th class="table__cell table__cell--header">Způsob zakončení</th>
-<td class="table__cell table__cell--header">Odstranit</td>
+<th class="table__cell table__cell--header">Odstranit</th>
 </tr>`;
             for (let i = 0; i < json.length; i++) {
                 const subject = json[i];

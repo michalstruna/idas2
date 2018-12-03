@@ -59,7 +59,7 @@ form.addEventListener("submit", function (e) {
 <th class="table__cell table__cell--header">Mobil</th>
 <th class="table__cell table__cell--header">Kontaktní e-mail</th>
 <th class="table__cell table__cell--header">Katedra</th>
-<td class="table__cell table__cell--header">Odstranit</td>
+<th class="table__cell table__cell--header">Odstranit</th>
 </tr>`;
             for (let i = 0; i < json.length; i++) {
                 const teacher = json[i];

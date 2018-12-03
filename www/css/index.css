@@ -250,6 +250,10 @@ form select {
     background-color: #4f4f4f;
 }
 
+.table__row-header th {
+    font-weight: bold;
+}
+
 .table__cell {
     padding: 1rem 0.5rem;
     overflow: hidden;
