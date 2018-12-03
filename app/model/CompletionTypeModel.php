@@ -12,7 +12,7 @@ namespace App\Model;
 class CompletionTypeModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array {
-        return $this->database->fetchAll('SELECT * FROM SEM_ZPUS_ZAK');
+        return $this->database->fetchAll('SELECT * FROM SEM_ZPUS_ZAK ORDER BY NAZEV');
     }
 
     public function getById(string $id) {

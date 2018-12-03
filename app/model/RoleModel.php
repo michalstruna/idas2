@@ -12,7 +12,7 @@ namespace App\Model;
 class RoleModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array {
-        return $this->database->fetchAll('SELECT * FROM SEM_ROLE');
+        return $this->database->fetchAll('SELECT * FROM SEM_ROLE ORDER BY NAZEV');
     }
 
     public function getById(string $id) {
