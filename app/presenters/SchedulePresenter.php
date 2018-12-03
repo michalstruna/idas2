@@ -166,7 +166,7 @@ class SchedulePresenter extends BasePresenter {
         $this->template->scheduleActions = $this->scheduleModel->getByFilter([
             '"ucitel_id"' => $this->getHttpRequest()->getQuery('teacher'),
             '"mistnost_id"' => $this->getHttpRequest()->getQuery('room'),
-            '"semestr_id"' => null
+            '"semestr_id"' => $this->getHttpRequest()->getQuery('semester')
         ]);
 
         $this->template->tabs = [];
