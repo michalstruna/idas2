@@ -25,13 +25,12 @@ abstract class BasePresenter extends Presenter {
          * Menu items. Each item is associative array TEXT => [TARGET, [...SUBPAGE_PRESENTERS], ?[URL_PARAMETER]].
          */
         $this->template->menuItems = [
-            'Domů' => ['Homepage:', []],
+            'Rozvrhy' => ['Schedule:', []],
             'Vyučující' => ['Teacher:', ['Role']],
             'Pracoviště' => ['Department:', ['Faculty', 'Room']],
             'Předměty' => ['Subject:', ['CompletionType', 'TeachingForm', 'Category', 'CourseType']],
             'Obory' => ['StudyField:', []],
-            'Plány' => ['StudyPlan:', ['SubjectInPlan', 'CourseTypeInPlan', 'Teaching']],
-            'Rozvrhy' => ['Schedule:', []]
+            'Plány' => ['StudyPlan:', ['SubjectInPlan', 'CourseTypeInPlan', 'Teaching']]
         ];
 
         if ($this->user->isInRole('admin')) {

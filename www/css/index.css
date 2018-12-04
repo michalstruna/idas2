@@ -110,11 +110,12 @@ body {
 
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="submit"], input[type="number"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="submit"], input[type="number"], input[type="date"] {
     background-color: transparent;
     border: none;
     border-bottom: 0.15rem solid #aaa;
     color: #eee;
+    font-family: Arial;
     font-size: 100%;
     margin: 1rem 0;
     outline: none;
@@ -128,6 +129,10 @@ input[type="submit"] {
     width: 100%;
 }
 
+input[type="file"] {
+    height: 3rem;
+}
+
 input[type="submit"]:hover {
     background-color: #eee;
     color: #111;
@@ -138,9 +143,18 @@ form th {
 }
 
 @keyframes fade-in {
-    0% { opacity: 1; pointer-events: all; }
-    80% { opacity: 1; poiner-events: all; }
-    100% { opacity: 0; pointer-events: none; }
+    0% {
+        opacity: 1;
+        pointer-events: all;
+    }
+    80% {
+        opacity: 1;
+        poiner-events: all;
+    }
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .flash {
@@ -186,7 +200,7 @@ form select {
     padding-bottom: 1rem;
 }
 
-.item__edit label, .item__add label {
+.item__edit th label, .item__add th label {
     position: absolute;
     right: 0;
     transform: translateY(1.5rem);
@@ -297,6 +311,164 @@ form select {
 
 .item__list__header > *:last-child {
     margin-right: 0;
+}
+
+.schedule {
+    background-color: #444;
+    box-shadow: 0 0 0.5rem #111;
+    display: grid;
+    grid-template-columns: 3rem auto;
+    margin-bottom: 3rem;
+    position: relative;
+    width: 100%;
+}
+
+.schedule--empty {
+    align-items: center;
+    display: flex;
+    height: calc(100vh - 14rem);
+    justify-content: center;
+    width: 100%;
+}
+
+.schedule__action {
+    background-color: #666;
+    border: 1px solid #555;
+    box-sizing: border-box;
+    font-size: 90%;
+    height: auto;
+    padding: 0.5rem;
+    position: relative;
+    text-align: center;
+}
+
+.schedule__action--p {
+    background-color: #357;
+    border: 1px solid #247;
+}
+
+.schedule__action--s {
+    background-color: #494;
+    border: 1px solid #383;
+}
+
+.schedule__action--c {
+    background-color: #464;
+    border: 1px solid #353;
+}
+
+.schedule__action--unique {
+    background-color: #970;
+    border-color: #860;
+}
+
+.schedule__action--unapproved {
+    opacity: 0.5;
+}
+
+.schedule__action--unapproved:hover {
+    opacity: 1;
+}
+
+.schedule__action--left, .schedule__action--right {
+    color: #aaa;
+    font-size: 90%;
+}
+
+.schedule__action--left {
+    float: left;
+}
+
+.schedule__action--right {
+    float: right;
+}
+
+.schedule__action--inner {
+    background-color: #222;
+    font-size: 90%;
+    display: none;
+    right: 0%;
+    padding: 0.5rem;
+    position: absolute;
+    text-align: left;
+    top: 50%;
+    width: 13rem;
+    z-index: 10;
+}
+
+.schedule__action a {
+    color: #fff;
+}
+
+.schedule__action:hover .schedule__action--inner {
+    display: block;
+}
+
+.schedule__hour__title {
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.schedule__day__title {
+    align-items: center;
+    display: flex;
+    font-size: 100%;
+    font-weight: bold;
+    padding: 0.5rem;
+    justify-content: center;
+}
+
+.schedule__line--vertical {
+    grid-row: 1 / 100;
+    border: 1px solid #222;
+    height: 100%;
+    width: 0;
+}
+
+.schedule__line--horizontal {
+    grid-column: 1 / 26;
+    border: 1px solid #222;
+    height: 0;
+    width: 100%;
+}
+
+.item__list__filter {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1rem;
+}
+
+.item__list__filter form {
+    height: 3rem;
+    vertical-align: middle;
+    width: 100%;
+
+}
+
+.item__list__filter form table {
+    width: 100%;
+}
+
+.item__list__filter form tbody {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.item__list__filter input[type="submit"] {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.item__list__filter select {
+    margin-top: -1rem;
+    width: 20vw;
+}
+
+input[type="checkbox"] {
+    width: 1.5rem;
 }
 
 .clickable {

@@ -69,7 +69,7 @@ class FacultyPresenter extends BasePresenter {
      */
     public function onEdit(Form $form): void {
         try {
-            if(empty($this->getParameter('id'))) {
+            if (empty($this->getParameter('id'))) {
                 $this->facultyModel->insert($form->getValues(true));
                 $this->flashMessage('Fakulta byla přidána.', self::$SUCCESS);
             } else {
@@ -78,7 +78,7 @@ class FacultyPresenter extends BasePresenter {
             }
 
             $this->redirect('Faculty:');
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
     }
@@ -92,7 +92,7 @@ class FacultyPresenter extends BasePresenter {
         try {
             $this->facultyModel->deleteById($id);
             $this->flashMessage('Fakulta byla vymazána.', self::$SUCCESS);
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
 

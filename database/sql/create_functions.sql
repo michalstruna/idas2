@@ -7,3 +7,11 @@ begin
         RETURN 'Ne';
     END IF;
 end;
+
+/
+
+CREATE OR REPLACE FUNCTION SEM_DATUM_NA_DEN(p_datum DATE)
+RETURN NUMBER DETERMINISTIC IS
+BEGIN
+    RETURN TRUNC(p_datum) - TRUNC (p_datum, 'IW');
+END;
