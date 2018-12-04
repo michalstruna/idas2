@@ -18,6 +18,7 @@ use App\Model\TeacherModel;
 use App\Model\TeachingModel;
 use App\Utils\Time;
 use Nette\Application\UI\Form;
+use Nette\Database\DriverException;
 
 class SchedulePresenter extends BasePresenter {
 
