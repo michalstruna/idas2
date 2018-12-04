@@ -12,7 +12,7 @@ namespace App\Model;
 class RoomModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array {
-        return $this->database->fetchAll('SELECT * FROM SEM_MISTNOST');
+        return $this->database->fetchAll('SELECT * FROM SEM_MISTNOST ORDER BY NAZEV');
     }
 
     public function getById(string $id) {

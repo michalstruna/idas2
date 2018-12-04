@@ -12,7 +12,7 @@ namespace App\Model;
 class CategoryModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array {
-        return $this->database->fetchAll('SELECT * FROM SEM_KATEGORIE');
+        return $this->database->fetchAll('SELECT * FROM SEM_KATEGORIE ORDER BY NAZEV');
     }
 
     public function getById(string $id) {

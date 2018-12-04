@@ -12,7 +12,7 @@ namespace App\Model;
 class StudyFieldModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array {
-        return $this->database->fetchAll('SELECT * FROM SEM_OBOR');
+        return $this->database->fetchAll('SELECT * FROM SEM_OBOR ORDER BY NAZEV');
     }
 
     public function getById(string $id) {

@@ -12,7 +12,7 @@ namespace App\Model;
 class CourseTypeModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array {
-        return $this->database->fetchAll('SELECT * FROM SEM_ZPUS_VYUKY');
+        return $this->database->fetchAll('SELECT * FROM SEM_ZPUS_VYUKY ORDER BY NAZEV');
     }
 
     public function getById(string $id) {

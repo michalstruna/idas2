@@ -1,19 +1,21 @@
 CREATE OR REPLACE VIEW sem_p_katedra AS
 SELECT sem_katedra.*, sem_fakulta.zkratka as "fakulta"
 FROM sem_katedra
-JOIN sem_fakulta
-ON sem_katedra.fakulta_id = sem_fakulta.id;
+JOIN sem_fakulta ON sem_katedra.fakulta_id = sem_fakulta.id
+ORDER BY sem_katedra.nazev;
 
 CREATE OR REPLACE VIEW SEM_P_UCITEL AS
 SELECT sem_ucitel.*, (titul_pred || ' ' || jmeno || ' ' || prijmeni || ' ' || titul_za) as "dlouhe_jmeno", sem_katedra.zkratka as "katedra"
 FROM sem_ucitel
-JOIN SEM_KATEDRA ON sem_katedra.id = SEM_UCITEL.katedra_id;
+JOIN SEM_KATEDRA ON sem_katedra.id = SEM_UCITEL.katedra_id
+ORDER BY sem_ucitel.prijmeni, sem_ucitel.jmeno;
 
 CREATE OR REPLACE VIEW SEM_P_PREDMET AS
 SELECT sem_predmet.*, sem_zpus_zak.nazev as "zpusob_zakonceni", sem_forma_vyuky.nazev as "forma_vyuky"
 FROM SEM_PREDMET
 JOIN sem_zpus_zak ON sem_zpus_zak.ID = sem_predmet.zpusob_zakonceni_id
-JOIN sem_forma_vyuky ON SEM_FORMA_VYUKY.id = sem_predmet.forma_vyuky_id;
+JOIN sem_forma_vyuky ON SEM_FORMA_VYUKY.id = sem_predmet.forma_vyuky_id
+ORDER BY sem_predmet.nazev;
 
 CREATE OR REPLACE VIEW SEM_P_PREDM_PLAN AS
 SELECT SEM_PREDM_PLAN.*, sem_kategorie.nazev as "kategorie", SEM_STUD_PLAN.nazev as "plan", sem_predmet.nazev as "predmet", sem_semestr.nazev as "semestr"
@@ -40,7 +42,8 @@ JOIN SEM_UCITEL ON SEM_UCITEL.ID = SEM_UCI.UCITEL_ID
 JOIN SEM_ROLE ON SEM_ROLE.ID = SEM_UCI.ROLE_ID
 JOIN SEM_PREDM_PLAN ON SEM_PREDM_PLAN.ID = SEM_UCI.PREDM_PLAN_ID
 JOIN SEM_PREDMET ON SEM_PREDMET.ID = SEM_PREDM_PLAN.PREDMET_ID
-JOIN SEM_STUD_PLAN ON SEM_STUD_PLAN.ID = SEM_PREDM_PLAN.STUDIJNI_PLAN_ID;
+JOIN SEM_STUD_PLAN ON SEM_STUD_PLAN.ID = SEM_PREDM_PLAN.STUDIJNI_PLAN_ID
+ORDER BY "predmet", "ucitel", "role";
 
 CREATE OR REPLACE VIEW SEM_P_UZIVATEL AS
 SELECT SEM_UZIVATEL.ID as "id", email, admin, (SEM_UCITEL.JMENO || ' ' || SEM_UCITEL.PRIJMENI) as "ucitel", SEM_BOOL_TO_STRING(admin) as "je_admin"
@@ -51,7 +54,8 @@ ORDER BY email;
 CREATE OR REPLACE VIEW SEM_P_STUD_PLAN AS
 SELECT SEM_STUD_PLAN.*, SEM_OBOR.NAZEV AS "obor"
 FROM SEM_STUD_PLAN
-JOIN SEM_OBOR ON SEM_OBOR.ID = SEM_STUD_PLAN.OBOR_ID;
+JOIN SEM_OBOR ON SEM_OBOR.ID = SEM_STUD_PLAN.OBOR_ID
+ORDER BY SEM_STUD_PLAN.NAZEV;
 
 CREATE OR REPLACE VIEW sem_p_rozvrh AS
 SELECT sem_rozvrh.*, sem_ucitel.jmeno || ' ' || sem_ucitel.prijmeni as "ucitel", sem_zpus_predm.pocet_hodin AS "pocet_hodin", sem_predmet.zkratka AS "predmet", sem_mistnost.nazev AS "mistnost", sem_mistnost.kapacita AS "kapacita"
@@ -68,3 +72,14 @@ JOIN sem_uci
 ON sem_rozvrh.uci_id = sem_uci.id
 JOIN sem_ucitel
 ON sem_uci.ucitel_id = sem_ucitel.id;
+
+CREATE OR REPLACE VIEW sem_p_uvazky AS
+SELECT SEM_UCI.UCITEL_ID as "ucitel", SEM_PREDMET.NAZEV as "predmet", SEM_ROLE.NAZEV as "role", sum(NVL(SEM_ZPUS_PREDM.POCET_HODIN, 0)) as "hodiny"
+FROM SEM_UCI
+LEFT JOIN SEM_ROZVRH ON SEM_ROZVRH.UCI_ID = SEM_UCI.ID
+LEFT JOIN SEM_ZPUS_PREDM ON SEM_ROZVRH.ZPUSOB_ZAKONCENI_PREDMETU_ID = SEM_ZPUS_PREDM.ID
+JOIN SEM_ROLE ON SEM_ROLE.ID = SEM_UCI.ROLE_ID
+JOIN SEM_PREDM_PLAN ON SEM_UCI.PREDM_PLAN_ID = SEM_PREDM_PLAN.ID
+JOIN SEM_PREDMET ON SEM_PREDM_PLAN.PREDMET_ID = SEM_PREDMET.ID
+GROUP BY SEM_UCI.UCITEL_ID, SEM_PREDMET.NAZEV, SEM_ROLE.NAZEV
+ORDER BY "predmet", "role";
