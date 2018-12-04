@@ -12,7 +12,7 @@ namespace App\Model;
 class FacultyModel extends BaseModel implements IDatabaseWrapper {
 
     public function getAll(): array {
-        return $this->database->fetchAll('SELECT * FROM sem_fakulta');
+        return $this->database->fetchAll('SELECT * FROM sem_fakulta ORDER BY NAZEV');
     }
 
     public function getById(string $id) {

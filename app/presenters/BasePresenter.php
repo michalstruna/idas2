@@ -39,7 +39,7 @@ abstract class BasePresenter extends Presenter {
         }
 
         if ($this->user->isLoggedIn()) {
-            $this->template->menuItems['Můj účet'] = ['User:edit', [], $this->getUser()->id];
+            $this->template->menuItems['Můj účet'] = ['User:edit', ['Obligation'], $this->getUser()->id];
         } else {
             $this->template->menuItems['Přihlášení'] = ['Sign:in', []];
         }
