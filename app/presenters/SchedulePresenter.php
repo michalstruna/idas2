@@ -173,7 +173,8 @@ class SchedulePresenter extends BasePresenter {
         $this->template->scheduleActions = $this->scheduleModel->getByFilter([
             '"ucitel_id"' => $this->getHttpRequest()->getQuery('teacher'),
             '"mistnost_id"' => $this->getHttpRequest()->getQuery('room'),
-            '"semestr_id"' => $this->getHttpRequest()->getQuery('semester')
+            '"semestr_id"' => $this->getHttpRequest()->getQuery('semester'),
+            'schvaleno' => !($this->getUser()->isInRole('admin') || $this->getUser()->isInRole('teacher')) // TODO: Only if teacher is owner.
         ]);
 
         $this->template->tabs = [];
