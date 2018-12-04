@@ -26,7 +26,7 @@ class ObligationPresenter extends BasePresenter {
 
     function renderDefault() {
         if (!$this->user->isInRole('teacher')) {
-            $this->flashMessage('Nedostatečná oprávnění');
+            $this->flashMessage('Nedostatečná oprávnění', self::$ERROR);
             $this->redirect('Homepage:');
         }
 
