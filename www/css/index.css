@@ -129,6 +129,10 @@ input[type="submit"] {
     width: 100%;
 }
 
+input[type="file"] {
+    height: 3rem;
+}
+
 input[type="submit"]:hover {
     background-color: #eee;
     color: #111;
