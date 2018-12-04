@@ -50,6 +50,9 @@ class RolePresenter extends BasePresenter {
     public function renderDefault(): void {
         $this->template->roles = $this->roleModel->getAll();
         $this->template->tabs = ['Vyučující' => 'Teacher:'];
+        if ($this->user->isInRole('admin')) {
+            $this->template->tabs['Úvazky'] = 'Obligation:';
+        }
     }
 
     public function renderEdit(string $id): void {
