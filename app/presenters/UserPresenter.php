@@ -89,7 +89,7 @@ class UserPresenter extends BasePresenter {
 
         if ($this->getUser()->isInRole('teacher')) {
             $this->template->tabs['Můj profil učitele'] = ['Teacher:edit', $this->getUser()->getIdentity()->teacherId];
-            $this->template->tabs['Můj úvazek'] = 'Obligation:';
+            $this->template->tabs['Můj úvazek'] = 'Obligation:my';
         }
 
         $this->template->tabs['Odhlásit se'] = 'Sign:out';

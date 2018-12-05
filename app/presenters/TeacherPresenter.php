@@ -112,7 +112,10 @@ class TeacherPresenter extends BasePresenter {
 
     public function renderDefault(): void {
         $this->template->teachers = $this->teacherModel->getAll();
-        $this->template->tabs = ['Role' => 'Role:',];
+        $this->template->tabs = ['Role' => 'Role:'];
+        if ($this->user->isInRole('admin')) {
+            $this->template->tabs['Úvazky'] = 'Obligation:';
+        }
     }
 
     public function renderEdit(string $id): void {
@@ -124,6 +127,7 @@ class TeacherPresenter extends BasePresenter {
         $this->template->isOwner = $this->isOwner();
         $this->template->tabs = [
             'Učitelé' => 'Teacher:',
+            'Můj úvazek' => 'Obligation:my',
             'Můj účet' => ['User:edit', $this->getUser()->getId()]
         ];
     }
@@ -166,7 +170,7 @@ class TeacherPresenter extends BasePresenter {
                     }
                 }
             } catch (DriverException $exception) {
-                 $this->flashMessage('Nebylo možné nahrát obrázek.', self::$ERROR);
+                $this->flashMessage('Nebylo možné nahrát obrázek.', self::$ERROR);
             }
 
             $this->redirect('Teacher:');

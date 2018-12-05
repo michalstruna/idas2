@@ -3,15 +3,11 @@
 <section class="item__list">
     <header class="item__list__header">
         <h1 n:block="title" class="item__list__title">
-            Úvazek učitele ({$hours} hodin)
+            Můj úvazek ({$hours} hodin)
         </h1>
 
         {control tabMenu, $tabs}
     </header>
-
-    <div class="item__list__filter block">
-        {control filterObligationForm}
-    </div>
 
     {control table, $obligations, false, ['predmet', 'Předmět'], ['role', 'Role'], ['hodiny', 'Počet hodin']}
 </section>
