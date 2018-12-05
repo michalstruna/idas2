@@ -61,23 +61,23 @@ CREATE OR REPLACE VIEW sem_p_rozvrh AS
 SELECT sem_rozvrh.*, sem_stud_plan.id AS "plan_id", sem_stud_plan.nazev AS "plan", sem_zpus_vyuky.nazev AS "zpusob_vyuky", sem_predm_plan.rocnik AS "rocnik", TO_CHAR(sem_rozvrh.presne_datum, 'DD. MM. YYYY') AS "datum", sem_ucitel.id AS "ucitel_id", sem_ucitel.jmeno || ' ' || sem_ucitel.prijmeni AS "ucitel", sem_zpus_predm.pocet_hodin AS "pocet_hodin", sem_predmet.zkratka AS "predmet", sem_semestr.nazev AS "semestr", sem_predm_plan.semestr_id AS "semestr_id", sem_mistnost.nazev AS "mistnost", sem_mistnost.id AS "mistnost_id", sem_mistnost.kapacita AS "kapacita"
 FROM sem_rozvrh
 JOIN sem_mistnost
- ON sem_rozvrh.mistnost_id = sem_mistnost.id
+ON sem_rozvrh.mistnost_id = sem_mistnost.id
 JOIN sem_zpus_predm
- ON sem_rozvrh.zpusob_zakonceni_predmetu_id = sem_zpus_predm.id
+ON sem_rozvrh.zpusob_zakonceni_predmetu_id = sem_zpus_predm.id
 JOIN sem_predm_plan
- ON sem_zpus_predm.predm_plan_id = sem_predm_plan.id
+ON sem_zpus_predm.predm_plan_id = sem_predm_plan.id
 JOIN sem_zpus_vyuky
- ON sem_zpus_predm.zpusob_vyuky_id = sem_zpus_vyuky.id
+ON sem_zpus_predm.zpusob_vyuky_id = sem_zpus_vyuky.id
 JOIN sem_predmet
- ON sem_predm_plan.predmet_id = sem_predmet.id
+ON sem_predm_plan.predmet_id = sem_predmet.id
 JOIN sem_uci
- ON sem_rozvrh.uci_id = sem_uci.id
+ON sem_rozvrh.uci_id = sem_uci.id
 JOIN sem_ucitel
- ON sem_uci.ucitel_id = sem_ucitel.id
+ON sem_uci.ucitel_id = sem_ucitel.id
 JOIN sem_semestr
- ON sem_semestr.id = sem_predm_plan.semestr_id
+ON sem_semestr.id = sem_predm_plan.semestr_id
 JOIN sem_stud_plan
- ON sem_stud_plan.id = sem_predm_plan.studijni_plan_id;
+ON sem_stud_plan.id = sem_predm_plan.studijni_plan_id;
 
 CREATE OR REPLACE VIEW sem_p_uvazky AS
 SELECT SEM_UCI.UCITEL_ID as "ucitel", SEM_PREDMET.NAZEV as "predmet", SEM_ROLE.NAZEV as "role", sum(NVL(SEM_ZPUS_PREDM.POCET_HODIN, 0)) as "hodiny"

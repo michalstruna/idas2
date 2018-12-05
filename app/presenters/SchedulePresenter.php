@@ -26,7 +26,6 @@ class SchedulePresenter extends BasePresenter {
     const DEFAULT_HOUR = 8;
     const START_HOUR = 0;
     const END_HOUR = 23;
-    const MAX_YEAR = 3;
 
     private $scheduleModel;
     private $roomModel;
