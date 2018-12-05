@@ -56,7 +56,7 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleMode
         $allowedFilters = ['"ucitel_id"', '"mistnost_id"', '"semestr_id"', '"plan_id"', '"rocnik"', 'schvaleno'];
 
         foreach ($filter as $key => $item) {
-            if (!empty($item) && in_array($key, $allowedFilters)) {
+            if ($item !== null && in_array($key, $allowedFilters)) {
                 array_push($conditions, $key . ' = ?');
                 array_push($parameters, $item);
             }

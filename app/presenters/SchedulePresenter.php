@@ -90,6 +90,12 @@ class SchedulePresenter extends BasePresenter {
             ->setPrompt('Všechny ročníky')
             ->setDefaultValue($this->getHttpRequest()->getQuery('year'));
 
+        if ($this->getUser()->isInRole('admin') || $this->getUser()->isInRole('teacher')) {
+            $form->addSelect('approved', null, [true => 'Schváleno', false => 'Neschváleno'])
+                ->setPrompt('Všechny stavy')
+                ->setDefaultValue($this->getHttpRequest()->getQuery('approved'));
+        }
+
         $form->addSubmit('send', 'Vyhledat');
 
         $form->onSuccess[] = [$this, 'onFilter'];
@@ -166,7 +172,8 @@ class SchedulePresenter extends BasePresenter {
             'roomId' => $values['room'],
             'semesterId' => $values['semester'],
             'planId' => $values['plan'],
-            'yearId' => $values['year']
+            'yearId' => $values['year'],
+            'approved' => $values['approved']
         ]);
     }
 
@@ -198,7 +205,7 @@ class SchedulePresenter extends BasePresenter {
             '"semestr_id"' => $this->getHttpRequest()->getQuery('semester'),
             '"plan_id"' => $this->getHttpRequest()->getQuery('plan'),
             '"rocnik"' => $this->getHttpRequest()->getQuery('year'),
-            'schvaleno' => !($this->getUser()->isInRole('admin') || $this->getUser()->isInRole('teacher')) // TODO: Only if teacher is owner.
+            'schvaleno' => $this->getHttpRequest()->getQuery('approved')
         ]);
 
         $this->template->tabs = [];
