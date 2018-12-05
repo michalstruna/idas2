@@ -53,7 +53,7 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleMode
     public function getByFilter(array $filter): array {
         $conditions = [];
         $parameters = [];
-        $allowedFilters = ['"ucitel_id"', '"mistnost_id"', '"semestr_id"', 'schvaleno'];
+        $allowedFilters = ['"ucitel_id"', '"mistnost_id"', '"semestr_id"', '"plan_id"', '"rocnik"', 'schvaleno'];
 
         foreach ($filter as $key => $item) {
             if (!empty($item) && in_array($key, $allowedFilters)) {

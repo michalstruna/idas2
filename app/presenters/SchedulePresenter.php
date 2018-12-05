@@ -14,6 +14,7 @@ use App\Model\RoomModel;
 use App\Model\CourseTypeInPlanModel;
 use App\Constants\Days;
 use App\Model\SemesterModel;
+use App\Model\StudyPlanModel;
 use App\Model\TeacherModel;
 use App\Model\TeachingModel;
 use App\Utils\Time;
@@ -25,6 +26,7 @@ class SchedulePresenter extends BasePresenter {
     const DEFAULT_HOUR = 8;
     const START_HOUR = 0;
     const END_HOUR = 23;
+    const MAX_YEAR = 3;
 
     private $scheduleModel;
     private $roomModel;
@@ -32,8 +34,9 @@ class SchedulePresenter extends BasePresenter {
     private $teachingModel;
     private $teacherModel;
     private $semesterModel;
+    private $studyPlanModel;
 
-    public function __construct(ScheduleModel $scheduleModel, RoomModel $roomModel, CourseTypeInPlanModel $courseTypeModel, TeachingModel $teachingModel, TeacherModel $teacherModel, SemesterModel $semesterModel) {
+    public function __construct(ScheduleModel $scheduleModel, RoomModel $roomModel, CourseTypeInPlanModel $courseTypeModel, TeachingModel $teachingModel, TeacherModel $teacherModel, SemesterModel $semesterModel, StudyPlanModel $studyPlanModel) {
         parent::__construct();
         $this->scheduleModel = $scheduleModel;
         $this->roomModel = $roomModel;
@@ -41,12 +44,14 @@ class SchedulePresenter extends BasePresenter {
         $this->teachingModel = $teachingModel;
         $this->teacherModel = $teacherModel;
         $this->semesterModel = $semesterModel;
+        $this->studyPlanModel = $studyPlanModel;
     }
 
     public function createComponentFilterScheduleForm(): Form {
         $teachers = $this->teacherModel->getAll();
         $rooms = $this->roomModel->getAll();
         $semesters = $this->semesterModel->getAll();
+        $studyPlans = $this->studyPlanModel->getAll();
 
         $form = new Form;
 
@@ -70,6 +75,20 @@ class SchedulePresenter extends BasePresenter {
         }))
             ->setPrompt('Všechny semestry')
             ->setDefaultValue($this->getHttpRequest()->getQuery('semester'));
+
+        $form->addSelect('plan', null, array_reduce($studyPlans, function ($result, $plan) {
+            $result[$plan['id']] = $plan['nazev'];
+            return $result;
+        }))
+            ->setPrompt('Všechny plány')
+            ->setDefaultValue($this->getHttpRequest()->getQuery('plan'));
+
+        $form->addSelect('year', null, array_reduce(range(1, 3), function ($result, $year) {
+            $result[$year] = $year;
+            return $result;
+        }))
+            ->setPrompt('Všechny ročníky')
+            ->setDefaultValue($this->getHttpRequest()->getQuery('year'));
 
         $form->addSubmit('send', 'Vyhledat');
 
@@ -145,7 +164,9 @@ class SchedulePresenter extends BasePresenter {
         $this->redirect('Schedule:', [
             'teacherId' => $values['teacher'],
             'roomId' => $values['room'],
-            'semesterId' => $values['semester']
+            'semesterId' => $values['semester'],
+            'planId' => $values['plan'],
+            'yearId' => $values['year']
         ]);
     }
 
@@ -175,6 +196,8 @@ class SchedulePresenter extends BasePresenter {
             '"ucitel_id"' => $this->getHttpRequest()->getQuery('teacher'),
             '"mistnost_id"' => $this->getHttpRequest()->getQuery('room'),
             '"semestr_id"' => $this->getHttpRequest()->getQuery('semester'),
+            '"plan_id"' => $this->getHttpRequest()->getQuery('plan'),
+            '"rocnik"' => $this->getHttpRequest()->getQuery('year'),
             'schvaleno' => !($this->getUser()->isInRole('admin') || $this->getUser()->isInRole('teacher')) // TODO: Only if teacher is owner.
         ]);
 
