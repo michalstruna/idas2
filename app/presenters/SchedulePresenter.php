@@ -20,6 +20,7 @@ use App\Model\TeachingModel;
 use App\Utils\Time;
 use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
+use Nette\InvalidStateException;
 
 class SchedulePresenter extends BasePresenter {
 
@@ -194,6 +195,8 @@ class SchedulePresenter extends BasePresenter {
             $this->redirect('Schedule:');
         } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
+        } catch (InvalidStateException $exception) {
+            $this->flashMessage($exception->getMessage(), self::$ERROR);
         }
     }
 
