@@ -111,7 +111,7 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleMode
                 $action['day'],
                 $action['start'],
                 $action['start'] + $courseType['pocet_hodin'],
-                $action['id']
+                isset($action['id']) ? $action['id'] : null
             );
 
             if (!intval($isRoomEmpty)) {

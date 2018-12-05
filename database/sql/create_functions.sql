@@ -38,12 +38,12 @@ CREATE OR REPLACE FUNCTION sem_je_mistnost_volna(p_mistnost_id NUMBER, p_den_v_t
             ON sem_zpus_predm.id = sem_rozvrh.zpusob_zakonceni_predmetu_id
         WHERE mistnost_id = p_mistnost_id
             AND den_v_tydnu = p_den_v_tydnu
-            AND sem_rozvrh.id <> krome
+            AND (sem_rozvrh.id <> krome OR krome IS NULL)
             AND schvaleno = 1
             AND (
                 (zacatek <= p_od AND (zacatek + pocet_hodin) > p_od)
                     OR (zacatek < p_do AND (zacatek + pocet_hodin) >= p_do)
-                    OR (zacatek <= p_od AND (zacatek + pocet_hodin) >= p_do)
+                    OR (zacatek >= p_od AND (zacatek + pocet_hodin) <= p_do)
             );
 
         IF v_pocet > 0 THEN
