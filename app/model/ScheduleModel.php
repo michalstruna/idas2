@@ -10,17 +10,19 @@ namespace App\Model;
 
 use Nette\Database\Connection;
 use Nette\InvalidStateException;
-
+use Nette\Security\User;
 
 class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleModel {
 
     private $roomModel;
     private $courseTypeInPlanModel;
+    private $user;
 
-    public function __construct(Connection $database, RoomModel $roomModel, CourseTypeInPlanModel $courseTypeInPlanModel) {
+    public function __construct(Connection $database, RoomModel $roomModel, CourseTypeInPlanModel $courseTypeInPlanModel, User $user) {
         parent::__construct($database);
         $this->roomModel = $roomModel;
         $this->courseTypeInPlanModel = $courseTypeInPlanModel;
+        $this->user = $user;
     }
 
     public function getAll(): array {
@@ -83,6 +85,7 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleMode
         );
 
         $query->execute($parameters);
+
         return $query->fetchAll();
     }
 
@@ -99,6 +102,21 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleMode
 
         if ($room['kapacita'] < $courseType['kapacita']) {
             throw new InvalidStateException('Místnost není dostatečně velká.');
+        }
+
+        if (!$this->user->isInRole('admin')) {
+            $isRoomEmpty = $this->database->fetchField(
+                'SELECT sem_je_mistnost_volna(?, ?, ?, ?, ?) FROM dual',
+                $action['room'],
+                $action['day'],
+                $action['start'],
+                $action['start'] + $courseType['pocet_hodin'],
+                $action['id']
+            );
+
+            if (!intval($isRoomEmpty)) {
+                throw new InvalidStateException('Místnost je obsazená.');
+            }
         }
     }
 }

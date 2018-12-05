@@ -15,3 +15,39 @@ RETURN NUMBER DETERMINISTIC IS
 BEGIN
     RETURN TRUNC(p_datum) - TRUNC (p_datum, 'IW');
 END;
+
+
+/**
+ * Zjistí, zda je místnost v daný den v daný časový interval volná.
+ * @param p_mistnost_id ID místnosti.
+ * @param p_den_v_tydnu Pořadí dne v týdnu.
+ * @param p_od Počáteční hodina intervalu.
+ * @param p_do Konečná hodina intervalu.
+ * @return Místnost je volná.
+ */
+CREATE OR REPLACE FUNCTION sem_je_mistnost_volna(p_mistnost_id NUMBER, p_den_v_tydnu NUMBER, p_od NUMBER, p_do NUMBER, krome NUMBER)
+    RETURN NUMBER AS
+        v_pocet NUMBER(1);
+
+    BEGIN
+        SELECT count(*) AS pocet
+        INTO v_pocet
+        FROM sem_rozvrh
+            JOIN sem_zpus_predm
+            ON sem_zpus_predm.id = sem_rozvrh.zpusob_zakonceni_predmetu_id
+        WHERE mistnost_id = p_mistnost_id
+            AND den_v_tydnu = p_den_v_tydnu
+            AND sem_rozvrh.id <> krome
+            AND schvaleno = 1
+            AND (
+                (zacatek <= p_od AND (zacatek + pocet_hodin) > p_od)
+                    OR (zacatek < p_do AND (zacatek + pocet_hodin) >= p_do)
+                    OR (zacatek <= p_od AND (zacatek + pocet_hodin) >= p_do)
+            );
+
+        IF v_pocet > 0 THEN
+            RETURN 0;
+        ELSE
+            RETURN 1;
+        END IF;
+    END;
