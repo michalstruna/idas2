@@ -23,6 +23,7 @@ END;
  * @param p_den_v_tydnu Pořadí dne v týdnu.
  * @param p_od Počáteční hodina intervalu.
  * @param p_do Konečná hodina intervalu.
+ * @param krome ID aktuální rozvrhové akce.
  * @return Místnost je volná.
  */
 CREATE OR REPLACE FUNCTION sem_je_mistnost_volna(p_mistnost_id NUMBER, p_den_v_tydnu NUMBER, p_od NUMBER, p_do NUMBER, krome NUMBER)
