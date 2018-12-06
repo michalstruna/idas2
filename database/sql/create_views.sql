@@ -58,7 +58,7 @@ JOIN SEM_OBOR ON SEM_OBOR.ID = SEM_STUD_PLAN.OBOR_ID
 ORDER BY SEM_STUD_PLAN.NAZEV;
 
 CREATE OR REPLACE VIEW sem_p_rozvrh AS
-SELECT sem_rozvrh.*, sem_stud_plan.id AS "plan_id", sem_stud_plan.nazev AS "plan", sem_zpus_vyuky.nazev AS "zpusob_vyuky", sem_predm_plan.rocnik AS "rocnik", TO_CHAR(sem_rozvrh.presne_datum, 'DD. MM. YYYY') AS "datum", sem_ucitel.id AS "ucitel_id", sem_ucitel.jmeno || ' ' || sem_ucitel.prijmeni AS "ucitel", sem_zpus_predm.pocet_hodin AS "pocet_hodin", sem_predmet.zkratka AS "predmet", sem_semestr.nazev AS "semestr", sem_predm_plan.semestr_id AS "semestr_id", sem_mistnost.nazev AS "mistnost", sem_mistnost.id AS "mistnost_id", sem_mistnost.kapacita AS "kapacita"
+SELECT sem_rozvrh.*, sem_zpus_predm.kapacita AS "predmet_kapacita", sem_mistnost.kapacita AS "mistnost_kapacita", sem_stud_plan.id AS "plan_id", sem_stud_plan.nazev AS "plan", sem_zpus_vyuky.nazev AS "zpusob_vyuky", sem_predm_plan.rocnik AS "rocnik", TO_CHAR(sem_rozvrh.presne_datum, 'DD. MM. YYYY') AS "datum", sem_ucitel.id AS "ucitel_id", sem_ucitel.jmeno || ' ' || sem_ucitel.prijmeni AS "ucitel", sem_zpus_predm.pocet_hodin AS "pocet_hodin", sem_predmet.zkratka AS "predmet", sem_semestr.nazev AS "semestr", sem_predm_plan.semestr_id AS "semestr_id", sem_mistnost.nazev AS "mistnost", sem_mistnost.id AS "mistnost_id", sem_mistnost.kapacita AS "kapacita"
 FROM sem_rozvrh
 JOIN sem_mistnost
 ON sem_rozvrh.mistnost_id = sem_mistnost.id
