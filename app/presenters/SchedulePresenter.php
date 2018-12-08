@@ -243,12 +243,14 @@ class SchedulePresenter extends BasePresenter {
 
     private function requireTeacherOwnerIfUnapproved(string $id): void {
         $scheduleAction = $this->scheduleModel->getById($id);
+        $teaching = $this->teachingModel->getById($scheduleAction['uci_id']);
 
         if (
             !$this->getUser()->isInRole('admin') &&
-            ($this->getUser()->getId() !== $scheduleAction['ucitel_id'] || $scheduleAction['schvaleno'] || !$this->getUser()->isInRole('teacher'))
+            (!$this->getUser()->isInRole('teacher') || $this->getUser()->identity->teacherId !== $teaching['ucitel_id'] || $scheduleAction['schvaleno'])
         ) {
-            $this->redirect('Schedule: ');
+            $this->flashMessage('Nedostatečná oprávnění!', self::$ERROR);
+            $this->redirect('Schedule:');
         }
     }
 
