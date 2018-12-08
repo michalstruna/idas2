@@ -172,6 +172,8 @@ class SchedulePresenter extends BasePresenter {
         if ($this->getUser()->isInRole('admin')) {
             $form->addCheckbox('approved', 'Schváleno')
                 ->setDefaultValue($scheduleAction ? $scheduleAction['schvaleno'] : false);
+        } else {
+            $form->addHidden('approved', $scheduleAction ? $scheduleAction['schvaleno'] : '0');
         }
 
         $form->addSubmit('send', $scheduleAction ? 'Upravit' : 'Přidat');
@@ -255,7 +257,7 @@ class SchedulePresenter extends BasePresenter {
     }
 
     public function renderAdd(): void {
-        if ($this->getUser()->isInRole('teacher')) {
+        if (!$this->getUser()->isInRole('teacher')) {
             $this->requireAdmin();
         }
     }

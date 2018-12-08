@@ -63,7 +63,7 @@ CREATE OR REPLACE FUNCTION sem_skupina_zaneprazdnena(p_predm_plan_id NUMBER, p_d
       SELECT sem_predm_plan.id INTO v_plan_id
       FROM sem_zpus_predm
       JOIN sem_predm_plan ON sem_predm_plan.id = sem_zpus_predm.predm_plan_id
-      WHERE predm_plan_id = p_predm_plan_id;
+      WHERE sem_zpus_predm.id = p_predm_plan_id;
 
       SELECT count(*) AS pocet
       INTO v_pocet
