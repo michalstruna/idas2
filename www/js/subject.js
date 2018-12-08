@@ -21,11 +21,9 @@ courseTypeSelect.onchange = function () {
     const selectedType = courseTypesInPlan.find((item, index) => {
         return item.id === courseTypeSelect.options[courseTypeSelect.selectedIndex].value
     });
-    console.log(selectedType);
 
     let html = '';
 
-    console.log(teachings);
     for (let i = 0; i < teachings.length; i++) {
         const teaching = teachings[i];
          if (teaching.predm_plan_id === selectedType.predm_plan_id){
