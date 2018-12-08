@@ -113,10 +113,24 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleMode
             isset($action['id']) ? $action['id'] : null
         );
 
-        // Validate study plan.
-
         if (!intval($isRoomEmpty)) {
             throw new InvalidStateException('Místnost je obsazená.');
+        }
+
+        // Validate study plan.
+        if (!$this->user->isInRole('admin')) {
+            $isRoomEmpty = $this->database->fetchField(
+                'SELECT sem_skupina_zaneprazdnena(?, ?, ?, ?, ?) FROM dual',
+                $action['courseType'],
+                $action['day'],
+                $action['start'],
+                $action['start'] + $courseType['pocet_hodin'],
+                isset($action['id']) ? $action['id'] : null
+            );
+
+            if (!intval($isRoomEmpty)) {
+                throw new InvalidStateException('Tento studijní plán má v tuto dobu jinou výuku.');
+            }
         }
     }
 }
