@@ -36,7 +36,7 @@
                 🕑 Probíhá: {$getDayNameByIndex($item['data']['den_v_tydnu'])}, {$item['data']['zacatek']}-{$item['data']['zacatek'] + $item['data']['pocet_hodin']} h<br />
                 Semestr: {$item['data']['semestr']}<br />
                 Obsazenost: {$item['data']['predmet_kapacita']} / {$item['data']['mistnost_kapacita']}<br />
-                {if $isEditVisible}
+                {if $isAdmin || ($teacherId == $item['data']['ucitel_id'] && $item['data']['schvaleno'] == 0)}
                     <a href="{plink $handleEdit $item['data']['id']}">Upravit</a> | <a href="{plink $handleDelete $item['data']['id']}">Odstranit</a>
                 {/if}
             </div>

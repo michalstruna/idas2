@@ -30,8 +30,9 @@ class ScheduleControl extends Control {
         $template->handleEdit = $this->presenter->getName() . ':edit';
         $template->handleDelete = $this->presenter->getName() . ':delete';
         $template->handleAdd = $this->presenter->getName() . ':add';
-        $template->isEditVisible = $this->presenter->getUser()->isInRole('admin');
-        $template->isAddVisible = $template->isEditVisible || $this->presenter->getUser()->isInRole('teacher'); // TODO: Is owner.
+        $template->isAdmin = $this->presenter->getUser()->isInRole('admin');
+        $template->teacherId = $this->presenter->getUser()->getIdentity()->teacherId;
+        $template->isAddVisible = $template->isAdmin || $this->presenter->getUser()->isInRole('teacher');
 
         $template->getDayNameByIndex = function ($index): string {
             return Days::findByNestedKey('index', (int)$index)['text'];
