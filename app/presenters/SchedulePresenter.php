@@ -113,7 +113,12 @@ class SchedulePresenter extends BasePresenter {
 
         $selectedPlanId = null;
         if ($scheduleAction !== null) {
-            $selectedPlanId = $scheduleAction['id'];
+            foreach ($teachings as $teaching) {
+                if ($teaching['id'] === $scheduleAction['uci_id']) {
+                    $selectedPlanId = $teaching['predm_plan_id'];
+                    break;
+                }
+            }
         } else if (!empty($teachings)) {
             $selectedPlanId = $teachings[0]['predm_plan_id'];
         }
