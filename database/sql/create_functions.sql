@@ -42,7 +42,7 @@ CREATE OR REPLACE FUNCTION sem_je_mistnost_volna(p_mistnost_id NUMBER, p_den_v_t
             AND (sem_rozvrh.id <> krome OR krome IS NULL)
             AND schvaleno = 1
             AND (
-                (zacatek <= p_od AND (zacatek + pocet_hodin) > p_od)
+                (zacatek <= p_od AND (zacatek + pocet_hodin) >= p_od)
                     OR (zacatek < p_do AND (zacatek + pocet_hodin) >= p_do)
                     OR (zacatek >= p_od AND (zacatek + pocet_hodin) <= p_do)
             );

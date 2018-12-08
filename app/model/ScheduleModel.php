@@ -104,19 +104,19 @@ class ScheduleModel extends BaseModel implements IDatabaseWrapper, IScheduleMode
             throw new InvalidStateException('Místnost není dostatečně velká.');
         }
 
-        if (!$this->user->isInRole('admin')) {
-            $isRoomEmpty = $this->database->fetchField(
-                'SELECT sem_je_mistnost_volna(?, ?, ?, ?, ?) FROM dual',
-                $action['room'],
-                $action['day'],
-                $action['start'],
-                $action['start'] + $courseType['pocet_hodin'],
-                isset($action['id']) ? $action['id'] : null
-            );
+        $isRoomEmpty = $this->database->fetchField(
+            'SELECT sem_je_mistnost_volna(?, ?, ?, ?, ?) FROM dual',
+            $action['room'],
+            $action['day'],
+            $action['start'],
+            $action['start'] + $courseType['pocet_hodin'],
+            isset($action['id']) ? $action['id'] : null
+        );
 
-            if (!intval($isRoomEmpty)) {
-                throw new InvalidStateException('Místnost je obsazená.');
-            }
+        // Validate study plan.
+
+        if (!intval($isRoomEmpty)) {
+            throw new InvalidStateException('Místnost je obsazená.');
         }
     }
 }
