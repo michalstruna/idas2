@@ -16,6 +16,7 @@ BEGIN
     RETURN TRUNC(p_datum) - TRUNC (p_datum, 'IW');
 END;
 
+/
 
 /**
  * Zjistí, zda je místnost v daný den v daný časový interval volná.

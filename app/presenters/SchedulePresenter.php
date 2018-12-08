@@ -127,13 +127,6 @@ class SchedulePresenter extends BasePresenter {
             ->setDefaultValue($scheduleAction ? $scheduleAction['zacatek'] : self::DEFAULT_HOUR)
             ->setRequired('Prosím vyberte hodinu');
 
-        $form->addSelect('room', 'Místnost', array_reduce($rooms, function ($result, $room) {
-            $result[$room['id']] = $room['nazev'] . ' (' . $room['kapacita'] . ')';
-            return $result;
-        }))
-            ->setDefaultValue($scheduleAction ? $scheduleAction['mistnost_id'] : null)
-            ->setRequired('Prosím vyberte místnost');
-
         $form->addSelect('courseType', 'Způsob předmětu', array_reduce($courseTypes, function ($result, $courseType) {
             $result[$courseType['id']] = $courseType['zpusob_vyuky'] . ', ' . $courseType['predm_plan'] . ', ' . $courseType['pocet_hodin'] . ' h, ' . $courseType['kapacita'] . ' studentů';
             return $result;
@@ -141,12 +134,19 @@ class SchedulePresenter extends BasePresenter {
             ->setDefaultValue($scheduleAction ? $scheduleAction['zpusob_zakonceni_predmetu_id'] : null)
             ->setRequired('Prosím vyberte způsob předmětu');
 
-        $form->addSelect('teaching', 'Výuka', array_reduce($teachings, function ($result, $teaching) {
+        $form->addSelect('teaching', 'Vyučující', array_reduce($teachings, function ($result, $teaching) {
             $result[$teaching['id']] = $teaching['ucitel'] . ', ' . $teaching['role'] . ', ' . $teaching['predmet'];
             return $result;
         }))
             ->setDefaultValue($scheduleAction ? $scheduleAction['uci_id'] : null)
             ->setRequired('Prosím vyberte výuku');
+
+        $form->addSelect('room', 'Místnost', array_reduce($rooms, function ($result, $room) {
+            $result[$room['id']] = $room['nazev'] . ' (' . $room['kapacita'] . ')';
+            return $result;
+        }))
+            ->setDefaultValue($scheduleAction ? $scheduleAction['mistnost_id'] : null)
+            ->setRequired('Prosím vyberte místnost');
 
         $form->addText('date', 'Přesný datum')
             ->setType('date')
@@ -157,7 +157,6 @@ class SchedulePresenter extends BasePresenter {
             $form->addCheckbox('approved', 'Schváleno')
                 ->setDefaultValue($scheduleAction ? $scheduleAction['schvaleno'] : false);
         }
-
 
         $form->addSubmit('send', $scheduleAction ? 'Upravit' : 'Přidat');
 
