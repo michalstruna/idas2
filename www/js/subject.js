@@ -1,7 +1,37 @@
-let departments = [];
+let teachings = [];
 
-const getDepartments = async () => {
-    const request = await fetch('/idas2/www/department/json');
-    departments = await request.json();
+const getTeachings = async () => {
+    const request = await fetch('/idas2/www/teaching/json');
+    teachings = await request.json();
 };
-getDepartments();
+getTeachings();
+
+let courseTypesInPlan = [];
+
+const getCourseTypesInPlan = async () => {
+    const request = await fetch('/idas2/www/course-type-in-plan/json');
+    courseTypesInPlan = await request.json();
+};
+getCourseTypesInPlan();
+
+const teachingSelect = document.getElementsByName('teaching')[0];
+const courseTypeSelect = document.getElementsByName('courseType')[0];
+
+courseTypeSelect.onchange = function () {
+    const selectedType = courseTypesInPlan.find((item, index) => {
+        return item.id === courseTypeSelect.options[courseTypeSelect.selectedIndex].value
+    });
+    console.log(selectedType);
+
+    let html = '';
+
+    console.log(teachings);
+    for (let i = 0; i < teachings.length; i++) {
+        const teaching = teachings[i];
+         if (teaching.predm_plan_id === selectedType.predm_plan_id){
+             html += '<option value="' + teaching.id + '">' + teaching['ucitel'] + ', ' + teaching['role'] + ', ' + teaching['predmet']; + '</option>';
+         }
+    }
+
+    teachingSelect.innerHTML = html;
+};

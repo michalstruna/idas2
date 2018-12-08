@@ -111,6 +111,17 @@ class SchedulePresenter extends BasePresenter {
         $courseTypes = $this->courseTypeModel->getAll();
         $teachings = $this->teachingModel->getAll();
 
+        $selectedPlanId = null;
+        if ($scheduleAction !== null) {
+            $selectedPlanId = $scheduleAction['id'];
+        } else if (!empty($teachings)) {
+            $selectedPlanId = $teachings[0]['predm_plan_id'];
+        }
+
+        $teachings = array_filter($teachings, function ($item) use ($selectedPlanId) {
+            return $item['predm_plan_id'] == $selectedPlanId;
+        });
+
         $form = new Form;
 
         $form->addSelect('day', 'Den', array_reduce(Days::toArray(), function ($result, $day) {

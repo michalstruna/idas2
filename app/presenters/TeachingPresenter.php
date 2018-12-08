@@ -13,6 +13,7 @@ use App\Model\RoleModel;
 use App\Model\SubjectInPlanModel;
 use App\Model\TeacherModel;
 use App\Model\TeachingModel;
+use Nette\Application\Responses\JsonResponse;
 use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
 
@@ -108,7 +109,7 @@ class TeachingPresenter extends BasePresenter {
     public function onEdit(Form $form): void {
         $this->requireAdmin();
         try {
-            if(empty($this->getParameter('id'))) {
+            if (empty($this->getParameter('id'))) {
                 $this->teachingModel->insert($form->getValues(true));
                 $this->flashMessage('Učení předmětu bylo přidáno.', self::$SUCCESS);
             } else {
@@ -117,7 +118,7 @@ class TeachingPresenter extends BasePresenter {
             }
 
             $this->redirect('Teaching:');
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
     }
@@ -132,11 +133,15 @@ class TeachingPresenter extends BasePresenter {
         try {
             $this->teachingModel->deleteById($id);
             $this->flashMessage('Učení předmětu bylo vymazáno.', self::$SUCCESS);
-        } catch(DriverException $exception) {
+        } catch (DriverException $exception) {
             $this->showErrorMessage($exception);
         }
 
         $this->redirect('Teaching:');
+    }
+
+    public function actionJson() {
+        $this->sendResponse(new JsonResponse($this->teachingModel->getAll()));
     }
 
 }
