@@ -155,7 +155,7 @@ class SchedulePresenter extends BasePresenter {
             return $result;
         }))
             ->setDefaultValue($scheduleAction ? $scheduleAction['uci_id'] : null)
-            ->setRequired('Prosím vyberte výuku');
+            ->setRequired('Prosím vyberte vyučujícího');
 
         $form->addSelect('room', 'Místnost', array_reduce($rooms, function ($result, $room) {
             $result[$room['id']] = $room['nazev'] . ' (' . $room['kapacita'] . ')';

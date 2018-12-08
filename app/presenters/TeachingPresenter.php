@@ -141,7 +141,14 @@ class TeachingPresenter extends BasePresenter {
     }
 
     public function actionJson() {
-        $this->sendResponse(new JsonResponse($this->teachingModel->getAll()));
+        $teachings = $this->teachingModel->getAll();
+        if ($this->user->isInRole('teacher') && !$this->user->isInRole('admin')) {
+            $teacherId = $this->user->identity->teacherId;
+            $teachings = array_filter($teachings, function ($item) use ($teacherId) {
+                return $item['ucitel_id'] == $teacherId;
+            });
+        }
+        $this->sendResponse(new JsonResponse($teachings));
     }
 
 }
