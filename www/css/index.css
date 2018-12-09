@@ -251,6 +251,9 @@ form select {
     left: 9rem;
     right: auto;
     top: 2rem;
+    padding: 0 !important;
+    width: 4rem !important;
+    z-index: 10;
 }
 
 .table {
@@ -554,6 +557,31 @@ img {
         margin-top: 0.5rem;
         padding: 0 1rem;
         width: auto;
+    }
+
+    .block {
+        padding: 0.5rem;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"], input[type="submit"], input[type="number"], input[type="date"], input[type="file"] {
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+
+    form select {
+        width: 100%;
+    }
+
+    .item__edit > .block {
+        margin: 0;
+    }
+
+    .button--back {
+        left: 1rem;
+    }
+
+    .content, .item__edit {
+        min-height: 0;
     }
 
 }
