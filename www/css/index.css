@@ -617,3 +617,32 @@ img {
     }
 
 }
+
+@media print {
+    body {
+        background-color: #fff;
+    }
+
+    .menu, .button--add, .item__list__filter, .schedule__action--inner {
+        display: none !important;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .schedule, .schedule--outer, .item__list__title {
+        background-color: transparent;
+        box-shadow: none;
+        color: #000;
+    }
+
+    .schedule {
+        border: 2px solid #000;
+    }
+
+    .schedule__action {
+        color: #fff;
+    }
+}
