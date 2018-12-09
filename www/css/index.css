@@ -518,9 +518,14 @@ img {
         width: 100%;
     }
 
-    .table--outer {
+    .table--outer, .schedule--outer {
         width: 100%;
         overflow-x: auto;
+    }
+
+    .schedule--outer {
+        background-color: #444;
+        margin-bottom: 7rem;
     }
 
     .table {
@@ -534,6 +539,33 @@ img {
     .button {
         padding: 0 1rem;
         width: auto;
+    }
+
+    .schedule__hour__title {
+        min-width: 5rem;
+    }
+
+    .schedule {
+        background-color: transparent;
+        box-shadow: none;
+        margin-bottom: 0;
+        overflow-y: hidden;
+    }
+
+    .item__list__filter {
+        display: inline-block;
+        margin-top: 0;
+        width: auto;
+    }
+
+    .item__list__filter select {
+        max-width: none;
+    }
+
+    .item__list__title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
 }

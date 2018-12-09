@@ -3,6 +3,7 @@
         Nenalezeny žádné rozvrhové akce.
     </div>
 {else}
+<section class="schedule--outer">
     <div class="schedule">
         <div n:foreach="range($items['xMin'], $items['xMax']) as $hour" class="schedule__line--vertical" style="grid-column: {$hour + 2 - $items['xMin']}"></div>
         <div n:foreach="$items['daysY'] as $day" class="schedule__line--horizontal" style="grid-row: {$day['yMin']}; grid-column: 1 / {3 + $items['xMax'] - $items['xMin']}"></div>
@@ -42,6 +43,7 @@
             </div>
         </div>
     </div>
+</section>
 {/if}
 
 
