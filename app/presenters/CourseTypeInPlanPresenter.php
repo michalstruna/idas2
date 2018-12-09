@@ -12,6 +12,7 @@ namespace App\Presenters;
 use App\Model\CourseTypeInPlanModel;
 use App\Model\CourseTypeModel;
 use App\Model\SubjectInPlanModel;
+use Nette\Application\Responses\JsonResponse;
 use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
 
@@ -133,6 +134,10 @@ class CourseTypeInPlanPresenter extends BasePresenter {
         }
 
         $this->redirect('CourseTypeInPlan:');
+    }
+
+    public function actionJson() {
+        $this->sendResponse(new JsonResponse($this->courseTypeInPlanModel->getAll()));
     }
 
 }

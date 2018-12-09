@@ -111,6 +111,22 @@ class SchedulePresenter extends BasePresenter {
         $courseTypes = $this->courseTypeModel->getAll();
         $teachings = $this->teachingModel->getAll();
 
+        $selectedPlanId = null;
+        if ($scheduleAction !== null) {
+            foreach ($teachings as $teaching) {
+                if ($teaching['id'] === $scheduleAction['uci_id']) {
+                    $selectedPlanId = $teaching['predm_plan_id'];
+                    break;
+                }
+            }
+        } else if (!empty($teachings)) {
+            $selectedPlanId = $teachings[0]['predm_plan_id'];
+        }
+
+        $teachings = array_filter($teachings, function ($item) use ($selectedPlanId) {
+            return $item['predm_plan_id'] == $selectedPlanId;
+        });
+
         $form = new Form;
 
         $form->addSelect('day', 'Den', array_reduce(Days::toArray(), function ($result, $day) {
@@ -127,13 +143,6 @@ class SchedulePresenter extends BasePresenter {
             ->setDefaultValue($scheduleAction ? $scheduleAction['zacatek'] : self::DEFAULT_HOUR)
             ->setRequired('Prosím vyberte hodinu');
 
-        $form->addSelect('room', 'Místnost', array_reduce($rooms, function ($result, $room) {
-            $result[$room['id']] = $room['nazev'] . ' (' . $room['kapacita'] . ')';
-            return $result;
-        }))
-            ->setDefaultValue($scheduleAction ? $scheduleAction['mistnost_id'] : null)
-            ->setRequired('Prosím vyberte místnost');
-
         $form->addSelect('courseType', 'Způsob předmětu', array_reduce($courseTypes, function ($result, $courseType) {
             $result[$courseType['id']] = $courseType['zpusob_vyuky'] . ', ' . $courseType['predm_plan'] . ', ' . $courseType['pocet_hodin'] . ' h, ' . $courseType['kapacita'] . ' studentů';
             return $result;
@@ -141,12 +150,19 @@ class SchedulePresenter extends BasePresenter {
             ->setDefaultValue($scheduleAction ? $scheduleAction['zpusob_zakonceni_predmetu_id'] : null)
             ->setRequired('Prosím vyberte způsob předmětu');
 
-        $form->addSelect('teaching', 'Výuka', array_reduce($teachings, function ($result, $teaching) {
+        $form->addSelect('teaching', 'Vyučující', array_reduce($teachings, function ($result, $teaching) {
             $result[$teaching['id']] = $teaching['ucitel'] . ', ' . $teaching['role'] . ', ' . $teaching['predmet'];
             return $result;
         }))
             ->setDefaultValue($scheduleAction ? $scheduleAction['uci_id'] : null)
-            ->setRequired('Prosím vyberte výuku');
+            ->setRequired('Prosím vyberte vyučujícího');
+
+        $form->addSelect('room', 'Místnost', array_reduce($rooms, function ($result, $room) {
+            $result[$room['id']] = $room['nazev'] . ' (' . $room['kapacita'] . ')';
+            return $result;
+        }))
+            ->setDefaultValue($scheduleAction ? $scheduleAction['mistnost_id'] : null)
+            ->setRequired('Prosím vyberte místnost');
 
         $form->addText('date', 'Přesný datum')
             ->setType('date')
@@ -156,8 +172,9 @@ class SchedulePresenter extends BasePresenter {
         if ($this->getUser()->isInRole('admin')) {
             $form->addCheckbox('approved', 'Schváleno')
                 ->setDefaultValue($scheduleAction ? $scheduleAction['schvaleno'] : false);
+        } else {
+            $form->addHidden('approved', $scheduleAction ? $scheduleAction['schvaleno'] : '0');
         }
-
 
         $form->addSubmit('send', $scheduleAction ? 'Upravit' : 'Přidat');
 
@@ -226,12 +243,14 @@ class SchedulePresenter extends BasePresenter {
 
     private function requireTeacherOwnerIfUnapproved(string $id): void {
         $scheduleAction = $this->scheduleModel->getById($id);
+        $teaching = $this->teachingModel->getById($scheduleAction['uci_id']);
 
         if (
             !$this->getUser()->isInRole('admin') &&
-            ($this->getUser()->getId() !== $scheduleAction['ucitel_id'] || $scheduleAction['schvaleno'] || !$this->getUser()->isInRole('teacher'))
+            (!$this->getUser()->isInRole('teacher') || $this->getUser()->identity->teacherId !== $teaching['ucitel_id'] || $scheduleAction['schvaleno'])
         ) {
-            $this->redirect('Schedule: ');
+            $this->flashMessage('Nedostatečná oprávnění!', self::$ERROR);
+            $this->redirect('Schedule:');
         }
     }
 
@@ -240,7 +259,7 @@ class SchedulePresenter extends BasePresenter {
     }
 
     public function renderAdd(): void {
-        if ($this->getUser()->isInRole('teacher')) {
+        if (!$this->getUser()->isInRole('teacher')) {
             $this->requireAdmin();
         }
     }
