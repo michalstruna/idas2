@@ -488,3 +488,31 @@ img {
     display: block;
     margin: 10px auto;
 }
+
+@media(max-width: 70rem) {
+
+    .menu {
+        display: block;
+        position: relative;
+        text-align: center;
+        width: 100%
+    }
+
+    .menu__link {
+        border: none !important;
+        display: inline-block;
+        padding: 0.7rem 1.5rem;
+        width: auto;
+    }
+
+    .menu__link:after {
+        display: none
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 1rem 0;
+        width: 100%;
+    }
+
+}
