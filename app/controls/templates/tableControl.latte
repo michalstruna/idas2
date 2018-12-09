@@ -1,37 +1,39 @@
-<table class="table">
-    <tr class="table__row table__row-header">
-        <th n:foreach="$columns as $column" class="table__cell table__cell--header">
-            {$column[1]}
-        </th>
-        <th n:if="$editable" colspan="2" class="table__cell table__cell--small table__cell--header table__cell--center">
-            Operace
-        </th>
-    </tr>
-    {if count($items) > 0}
-        <tr n:foreach="$items as $item" class="table__row">
-            <td n:foreach="$columns as $column" class="table__cell">
-                {isset($column[2]) ? $column[2]($item[$column[0]], $item) : $item[$column[0]]}
-            </td>
-            {if $editable}
-                <td class="table__cell table__cell--small">
-                    <a class="button" href="{plink $handleEdit $item['id']}">
-                        Upravit
-                    </a>
-                </td>
-                <td class="table__cell table__cell--small">
-                    <a class="button" href="{plink $handleDelete $item['id']}">
-                        Odstranit
-                    </a>
-                </td>
-            {/if}
+<section class="table--outer">
+    <table class="table">
+        <tr class="table__row table__row-header">
+            <th n:foreach="$columns as $column" class="table__cell table__cell--header">
+                {$column[1]}
+            </th>
+            <th n:if="$editable" colspan="2" class="table__cell table__cell--small table__cell--header table__cell--center">
+                Operace
+            </th>
         </tr>
-    {else}
-        <tr class="table__row">
-            <td class="table__cell table__cell--main" colspan="{count($columns) + ($editable ? 2 : 0)}">
-                Nenalezeny žádné záznamy.
-            </td>
-        </tr>
-    {/if}
-</table>
+        {if count($items) > 0}
+            <tr n:foreach="$items as $item" class="table__row">
+                <td n:foreach="$columns as $column" class="table__cell">
+                    {isset($column[2]) ? $column[2]($item[$column[0]], $item) : $item[$column[0]]}
+                </td>
+                {if $editable}
+                    <td class="table__cell table__cell--small">
+                        <a class="button" href="{plink $handleEdit $item['id']}">
+                            Upravit
+                        </a>
+                    </td>
+                    <td class="table__cell table__cell--small">
+                        <a class="button" href="{plink $handleDelete $item['id']}">
+                            Odstranit
+                        </a>
+                    </td>
+                {/if}
+            </tr>
+        {else}
+            <tr class="table__row">
+                <td class="table__cell table__cell--main" colspan="{count($columns) + ($editable ? 2 : 0)}">
+                    Nenalezeny žádné záznamy.
+                </td>
+            </tr>
+        {/if}
+    </table>
+</section>
 
 <a n:if="$editable" href={plink $handleAdd} class="button button--large button--add">+</a>

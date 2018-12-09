@@ -297,7 +297,7 @@ form select {
 
 .item__list__header {
     display: flex;
-    height: 4rem;
+    height: auto;
     margin-bottom: 1rem;
 }
 
@@ -513,6 +513,47 @@ img {
         margin-left: 0;
         padding: 1rem 0;
         width: 100%;
+    }
+
+    .table--outer {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .table {
+        width: auto;
+    }
+
+    .table__cell {
+        max-width: 50vw;
+    }
+
+    .button {
+        padding: 0 1rem;
+        width: auto;
+    }
+
+}
+
+@media(max-width: 40rem) {
+
+    .item__list__header {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .item__list__title {
+        height: 3rem;
+        line-height: 3rem;
+        margin: 0;
+    }
+
+    .item__list__header .button--large {
+        height: 3rem;
+        line-height: 3rem;
+        margin-top: 0.5rem;
+        padding: 0 1rem;
+        width: auto;
     }
 
 }
