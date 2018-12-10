@@ -12,10 +12,10 @@
 <body>
 	{include menu.latte}
 
-	<section class="content">
+	<div class="content">
 		<div n:foreach="$flashes as $flash" n:class="block, flash, $flash->type">{$flash->message}</div>
 		{include content}
-	</section>
+	</div>
 
 	{block scripts}
 		<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
