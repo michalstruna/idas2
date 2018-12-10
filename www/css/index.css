@@ -640,6 +640,7 @@ img {
 
     .schedule {
         border: 2px solid #000;
+        max-width: 27.5cm;
     }
 
     .schedule__action {
