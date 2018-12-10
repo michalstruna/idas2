@@ -225,7 +225,7 @@ form select {
     background-color: #333;
 }
 
-.button--add, .button--back {
+.button--add, .button--back, .button--download {
     background-color: #050;
     border-radius: 100%;
     bottom: 2rem;
@@ -241,7 +241,7 @@ form select {
     width: 4rem;
 }
 
-.button--add:hover, .button--back:hover {
+.button--add:hover, .button--back:hover,  .button--download:hover {
     box-shadow: 0.2rem 0.2rem 0.5rem #000;
 }
 
@@ -254,6 +254,10 @@ form select {
     padding: 0 !important;
     width: 4rem !important;
     z-index: 10;
+}
+
+.button--download {
+    bottom: 7rem;
 }
 
 .table {
