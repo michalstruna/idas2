@@ -202,6 +202,11 @@ class SchedulePresenter extends BasePresenter {
     public function onEdit(Form $form): void {
         try {
             if (empty($this->getParameter('id'))) {
+                if (!$this->user->isInRole('admin') && !$this->user->isInRole('teacher')) {
+                    $this->flashMessage('Nedostatečná oprávnění.', self::$ERROR);
+                    $this->redirect('Schedule:');
+                }
+
                 $this->scheduleModel->insert($form->getValues(true));
                 $this->flashMessage('Rozvrhová akce byla přidána.', self::$SUCCESS);
             } else {
