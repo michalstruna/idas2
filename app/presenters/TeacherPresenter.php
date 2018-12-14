@@ -13,6 +13,7 @@ use App\Control\TableImageControl;
 use App\Model\DepartmentModel;
 use App\Model\ImageModel;
 use App\Model\TeacherModel;
+use Nette\Application\Responses\JsonResponse;
 use Nette\Application\UI\Form;
 use Nette\Database\DriverException;
 
@@ -204,6 +205,10 @@ class TeacherPresenter extends BasePresenter {
     private function isOwner(): bool {
         $id = $this->getParameter('id');
         return isset($id) && $this->getUser()->getIdentity()->teacherId === $id;
+    }
+
+    public function actionDownload() {
+        $this->sendResponse(new JsonResponse($this->teacherModel->getAll()));
     }
 
 }
