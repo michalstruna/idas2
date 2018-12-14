@@ -225,7 +225,7 @@ form select {
     background-color: #333;
 }
 
-.button--add, .button--back {
+.button--add, .button--back, .button--download {
     background-color: #050;
     border-radius: 100%;
     bottom: 2rem;
@@ -241,7 +241,7 @@ form select {
     width: 4rem;
 }
 
-.button--add:hover, .button--back:hover {
+.button--add:hover, .button--back:hover,  .button--download:hover {
     box-shadow: 0.2rem 0.2rem 0.5rem #000;
 }
 
@@ -251,6 +251,13 @@ form select {
     left: 9rem;
     right: auto;
     top: 2rem;
+    padding: 0 !important;
+    width: 4rem !important;
+    z-index: 10;
+}
+
+.button--download {
+    bottom: 7rem;
 }
 
 .table {
@@ -297,7 +304,7 @@ form select {
 
 .item__list__header {
     display: flex;
-    height: 4rem;
+    height: auto;
     margin-bottom: 1rem;
 }
 
@@ -487,4 +494,160 @@ input[type="checkbox"] {
 img {
     display: block;
     margin: 10px auto;
+}
+
+@media(max-width: 70rem) {
+
+    .menu {
+        display: block;
+        position: relative;
+        text-align: center;
+        width: 100%
+    }
+
+    .menu__link {
+        border: none !important;
+        display: inline-block;
+        padding: 0.7rem 1.5rem;
+        width: auto;
+    }
+
+    .menu__link:after {
+        display: none
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 1rem 0;
+        width: 100%;
+    }
+
+    .table--outer, .schedule--outer {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .schedule--outer {
+        background-color: #444;
+        margin-bottom: 7rem;
+    }
+
+    .table {
+        width: auto;
+    }
+
+    .table__cell {
+        max-width: 50vw;
+    }
+
+    .button {
+        padding: 0 1rem;
+        width: auto;
+    }
+
+    .schedule__hour__title {
+        min-width: 5rem;
+    }
+
+    .schedule {
+        background-color: transparent;
+        box-shadow: none;
+        margin-bottom: 0;
+        overflow-y: hidden;
+    }
+
+    .item__list__filter {
+        display: inline-block;
+        margin-top: 0;
+        width: auto;
+    }
+
+    .item__list__filter select {
+        max-width: none;
+    }
+
+    .item__list__title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+}
+
+@media(max-width: 40rem) {
+
+    .item__list__header {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .item__list__title {
+        height: 3rem;
+        line-height: 3rem;
+        margin: 0;
+    }
+
+    .item__list__header .button--large {
+        height: 3rem;
+        line-height: 3rem;
+        margin-top: 0.5rem;
+        padding: 0 1rem;
+        width: auto;
+    }
+
+    .block {
+        padding: 0.5rem;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"], input[type="submit"], input[type="number"], input[type="date"], input[type="file"] {
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+
+    form select {
+        width: 100%;
+    }
+
+    .item__edit > .block {
+        margin: 0;
+    }
+
+    .button--back {
+        left: 1rem;
+    }
+
+    .content, .item__edit {
+        min-height: 0;
+    }
+
+}
+
+@media print {
+    body {
+        background-color: #fff;
+    }
+
+    .menu, .button--add, .item__list__filter, .schedule__action--inner {
+        display: none !important;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .schedule, .schedule--outer, .item__list__title {
+        background-color: transparent;
+        box-shadow: none;
+        color: #000;
+    }
+
+    .schedule {
+        border: 2px solid #000;
+        max-width: 27.5cm;
+    }
+
+    .schedule__action {
+        color: #fff;
+    }
 }

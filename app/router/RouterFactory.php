@@ -18,6 +18,7 @@ final class RouterFactory {
         $router[] = new Route('login', 'Sign:in');
         $router[] = new Route('logout', 'Sign:out');
         $router[] = new Route('schedule?teacher=<teacherId>&room=<roomId>&semester=<semesterId>&plan=<planId>&year=<yearId>', 'Schedule:default');
+        $router[] = new Route('teacher/download.json', 'Teacher:download');
 		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
 		return $router;
 	}
