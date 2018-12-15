@@ -25,6 +25,7 @@ Požadavky
 - ✓ 3 procedury
     - Import (3x + package)
     - SEM_NASTAV_ZPUS_VYUKY
+    - SEM_VYMAZ_MISTNOST
 - ✓ 2 triggery
     - Když se smaže učitel, smazat fotku.
     - Změna fotky učitele smaže předešlou fotku.

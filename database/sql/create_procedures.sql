@@ -58,3 +58,11 @@ BEGIN
     UPDATE SEM_ZPUS_PREDM SET pocet_hodin=p_pocet_hodin, kapacita=v_finalni_kapacita, zpusob_vyuky_id=p_zpusob_vyuky_id, predm_plan_id=p_predm_plan_id WHERE ID = p_id;
   END IF;
 END;
+
+/
+
+CREATE OR REPLACE PROCEDURE SEM_VYMAZ_MISTNOST(p_id INTEGER) IS
+BEGIN
+  DELETE FROM SEM_ROZVRH WHERE MISTNOST_ID = p_id;
+  DELETE FROM SEM_MISTNOST WHERE ID = p_id;
+END;
