@@ -24,7 +24,8 @@ Požadavky
     - Kontrola volne mistnosti, zaneprazdnenosti studijniho planu.
 - ✓ 3 procedury
     - Import (3x + package)
-    - (Vymazat vyučování učitele)
+    - SEM_NASTAV_ZPUS_VYUKY
+    - SEM_VYMAZ_MISTNOST
 - ✓ 2 triggery
     - Když se smaže učitel, smazat fotku.
     - Změna fotky učitele smaže předešlou fotku.

@@ -30,4 +30,8 @@ class RoomModel extends BaseModel implements IDatabaseWrapper {
     public function insert(array $item): void {
         $this->database->query('INSERT INTO SEM_MISTNOST (id, nazev, kapacita) VALUES (SEM_MISTNOST_SEQ.NEXTVAL, ?, ?)', $item['name'], $item['capacity']);
     }
+
+    public function forceDeleteById(string $id) {
+        $this->database->query('BEGIN SEM_VYMAZ_MISTNOST(?); END;', $id);
+    }
 }
