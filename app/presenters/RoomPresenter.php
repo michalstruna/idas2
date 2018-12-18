@@ -104,4 +104,21 @@ class RoomPresenter extends BasePresenter {
         $this->redirect('Room:');
     }
 
+    /**
+     * Force delete room by ID.
+     * @param string $id
+     * @throws \Nette\Application\AbortException
+     */
+    public function actionForceDelete(string $id): void {
+        $this->requireAdmin();
+        try {
+            $this->roomModel->forceDeleteById($id);
+            $this->flashMessage('Místnost byla vymazána i se všemi jejími rozvrhovými akcemi.', self::$SUCCESS);
+        } catch (DriverException $exception) {
+            $this->showErrorMessage($exception);
+        }
+
+        $this->redirect('Room:');
+    }
+
 }

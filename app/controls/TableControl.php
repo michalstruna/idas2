@@ -32,6 +32,11 @@ class TableControl extends Control {
         $template->columns = $columns;
         $template->handleEdit = $this->presenter->getName() . ':edit';
         $template->handleDelete = $this->presenter->getName() . ':delete';
+        $template->handleForceDelete = null;
+        // Nasty last minute hack. To be refactored in the future.
+        if ($this->presenter->getName() == 'Room') {
+            $template->handleForceDelete = $this->presenter->getName() . ':forceDelete';
+        }
         $template->handleAdd = $this->presenter->getName() . ':add';
         $template->render();
     }

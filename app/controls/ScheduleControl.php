@@ -31,7 +31,7 @@ class ScheduleControl extends Control {
         $template->handleDelete = $this->presenter->getName() . ':delete';
         $template->handleAdd = $this->presenter->getName() . ':add';
         $template->isAdmin = $this->presenter->getUser()->isInRole('admin');
-        $template->teacherId = $this->presenter->getUser()->getIdentity()->teacherId;
+        $template->teacherId = $this->presenter->getUser()->isLoggedIn() ? $this->presenter->getUser()->getIdentity()->teacherId : null;
         $template->isAddVisible = $template->isAdmin || $this->presenter->getUser()->isInRole('teacher');
 
         $template->getDayNameByIndex = function ($index): string {

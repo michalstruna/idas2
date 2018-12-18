@@ -21,12 +21,12 @@ class CourseTypeInPlanModel extends BaseModel implements IDatabaseWrapper {
 
     public function updateById(string $id, array $changes): void {
         $this->database->query(
-            'UPDATE SEM_ZPUS_PREDM SET pocet_hodin=?, kapacita=?, zpusob_vyuky_id=?, predm_plan_id=? WHERE ID=?',
+            'BEGIN SEM_NASTAV_ZPUS_VYUKY(?, ?, ?, ?, ?); END;',
+            $id,
             $changes['hours'],
             $changes['capacity'],
             $changes['courseType'],
-            $changes['subjectInPlan'],
-            $id
+            $changes['subjectInPlan']
         );
     }
 
@@ -36,7 +36,7 @@ class CourseTypeInPlanModel extends BaseModel implements IDatabaseWrapper {
 
     public function insert(array $item): void {
         $this->database->query(
-            'INSERT INTO SEM_ZPUS_PREDM (id, pocet_hodin, kapacita, zpusob_vyuky_id, predm_plan_id) VALUES (SEM_ZPUS_PREDM_SEQ.NEXTVAL, ?, ?, ?, ?)',
+            'BEGIN SEM_NASTAV_ZPUS_VYUKY(NULL, ?, ?, ?, ?); END;',
             $item['hours'],
             $item['capacity'],
             $item['courseType'],

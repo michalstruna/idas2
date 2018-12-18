@@ -287,6 +287,10 @@ form select {
     width: 20rem;
 }
 
+.table__cell--smallish {
+    width: 30rem;
+}
+
 .table__cell--main {
     text-align: center;
 }
